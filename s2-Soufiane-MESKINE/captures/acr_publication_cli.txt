@@ -1,0 +1,41 @@
+Extrait du journal de la partie 4 (poste Windows, 11/10/2026) : creation du registre, publication et verification.
+
+===== Versions dans l image (Mesure 15) =====
+image : python 3.12.7 sklearn 1.9.1 pandas 3.0.6 numpy 2.5.4
+paquet : {"python": "3.12.7", "scikit-learn": "1.9.1", "pandas": "3.0.6", "numpy": "2.5.4", "joblib": "1.6.0"}
+[duree] 40 s
+===== az acr create =====
+NAME              RESOURCE GROUP              LOCATION       SKU    LOGIN SERVER                 CREATION DATE         ADMIN ENABLED
+----------------  --------------------------  -------------  -----  ---------------------------  --------------------  ---------------
+acrdermascansm26  rg-dermascan-registre-sm26  francecentral  Basic  acrdermascansm26.azurecr.io  2026-10-11T13:13:44Z  False
+[duree] 16.6 s
+[RESUME] loginServer = acrdermascansm26.azurecr.io
+===== docker push (Mesure 16, essai 1) =====
+The push refers to repository [acrdermascansm26.azurecr.io/dermascan-api]
+46271edb89ae: Pushed
+657131867c68: Pushed
+63ac13ae1d53: Pushed
+6d8cc622be29: Pushed
+db57ecc6b141: Pushed
+4d6ad60f2279: Pushed
+5e739003c334: Pushed
+5f86e0092844: Pushed
+bc0965b23a04: Pushed
+86909a89b67b: Pushed
+1.0.0: digest: sha256:cae2b6358fcfc65751d85a16536efb9ae660b5b26782e56f98fdcaedb310006b size: 2267
+[duree] 36.6 s
+[RESUME] Duree push (s) = 36.6
+[RESUME] Digest = sha256:cae2b6358fcfc65751d85a16536efb9ae660b5b26782e56f98fdcaedb310006b
+===== Tags dans le registre =====
+Result
+--------
+1.0.0
+[duree] 13.9 s
+===== Depots dans le registre =====
+Result
+-------------
+dermascan-api
+[duree] 15.8 s
+===== Inspect image publiee =====
+cree=2026-10-11T13:05:38.14266687Z arch=amd64 os=linux user=10001 digest=acrdermascansm26.azurecr.io/dermascan-api@sha256:cae2b6358fcfc65751d85a16536efb9ae660b5b26782e56f98fdcaedb310006b
+[duree] 0.9 s

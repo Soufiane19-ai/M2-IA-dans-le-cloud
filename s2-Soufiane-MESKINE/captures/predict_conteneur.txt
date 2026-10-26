@@ -1,0 +1,8 @@
+﻿HTTP/1.1 200 OK
+Server: gunicorn
+Date: Sun, 11 Oct 2026 13:11:05 GMT
+Connection: close
+Content-Type: application/json
+Content-Length: 129
+
+{"decision":"a_examiner","probabilite_maligne":0.750853,"rappel_cible":0.9,"seuil":0.34747330294391954,"version_modele":"1.0.0"}
