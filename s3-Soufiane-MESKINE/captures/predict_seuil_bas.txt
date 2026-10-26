@@ -1,0 +1,2 @@
+﻿{"decision":"a_examiner","probabilite_maligne":0.750853,"rappel_cible":0.9,"seuil":0.0347,"version_modele":"1.0.0"}
+{"decision":"a_examiner","probabilite_maligne":0.107934,"rappel_cible":0.9,"seuil":0.0347,"version_modele":"1.0.0"}

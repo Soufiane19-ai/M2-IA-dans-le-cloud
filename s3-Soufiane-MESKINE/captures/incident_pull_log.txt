@@ -1,0 +1,3 @@
+# Lignes de log du premier echec (avant attribution du role AcrPull), heures UTC
+
+2026-10-26T09:56:39.0153633Z State: Stopping, Action: CancellingStartup, LastError: ImagePullUnauthorizedFailure, LastErrorTimestamp: 10/26/2026 09:56:39, LastErrorDetails: Failed to pull image: acrdermascansm26.azurecr.io/dermascan-api:1.0.0. Image pull failed with forbidden or unauthorized. Check registry credentials., Details: Site container: app-dermascan-sm26 terminated during site startup. Cancelling site startup., DetailsLevel: ERR

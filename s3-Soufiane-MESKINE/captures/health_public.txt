@@ -1,0 +1,9 @@
+﻿HTTP/1.1 200 OK
+Content-Length: 61
+Content-Type: application/json
+Date: Mon, 26 Oct 2026 10:04:47 GMT
+Server: gunicorn
+Set-Cookie: ARRAffinity=54377a4fbcca99061eb4bfef866d1be5a35314cee3d940f62291ce669db1da6a;Path=/;HttpOnly;Secure;Domain=app-dermascan-sm26.azurewebsites.net
+Set-Cookie: ARRAffinitySameSite=54377a4fbcca99061eb4bfef866d1be5a35314cee3d940f62291ce669db1da6a;Path=/;HttpOnly;SameSite=None;Secure;Domain=app-dermascan-sm26.azurewebsites.net
+
+{"model_loaded":true,"status":"ok","version_modele":"1.0.0"}

@@ -1,0 +1,8 @@
+# Panne provoquee (WEBSITES_PORT=9999, restart a 10:25:53 UTC = 11:25:53 heure de Paris). Extraits de logs_s3.zip, heures UTC.
+
+## Le processus applicatif a bien demarre (LogFiles/2026_10_26_lw0sdlwk00004O_default_docker.log)
+2026-10-26T10:27:06.4308481Z [2026-10-26 10:27:06 +0000] [1] [INFO] Listening at: http://0.0.0.0:8000 (1)
+
+## La plateforme sonde le mauvais port et abandonne (LogFiles/2026_10_26_lw0sdlwk00004O_docker.log)
+2026-10-26T10:30:53.7820810Z Site startup probe failed after 230.027688 seconds.
+2026-10-26T10:30:53.9396722Z State: Starting, Action: WaitingForSiteWarmUpProbeSuccess, LastError: ContainerTimeout, LastErrorTimestamp: 10/26/2026 10:30:53, LastErrorDetails: Container did not respond to startup probe on port 9999 within the expected time limit of 230s. Port mismatch detected: the container is listening on port 8000 but the platform is probing port 9999. Set the WEBSITES_PORT app setting to match the port your application listens on. If your application needs more time to start, increase WEBSITES_CONTAINER_START_TIME_LIMIT. Please inspect your container logs for more details as this could indicate an issue with your application., Details: Pinging warmup path to ensure container is ready to receive requests., DetailsLevel: ERR
