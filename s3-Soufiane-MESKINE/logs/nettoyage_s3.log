@@ -1,0 +1,32 @@
+﻿Nettoyage S3 - 2026-10-26T16:37:30
+
+===== Inventaire avant destruction (Mesure 16) (16:39:23) =====
+Name                 ResourceGroup         Location       Type                       Status
+-------------------  --------------------  -------------  -------------------------  ---------
+plan-dermascan-sm26  rg-dermascan-s3-sm26  francecentral  Microsoft.Web/serverFarms  Succeeded
+app-dermascan-sm26   rg-dermascan-s3-sm26  francecentral  Microsoft.Web/sites        Succeeded
+
+===== Attributions sur le registre (avant) (16:41:00) =====
+Principal                             Role     Scope
+------------------------------------  -------  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+c52dbbe5-a6d9-4e68-aed1-e45a47b49c81  AcrPull  /subscriptions/38afe200-d678-45cc-9d39-ecf7f8de0cc8/resourceGroups/rg-dermascan-registre-sm26/providers/Microsoft.ContainerRegistry/registries/acrdermascansm26
+
+===== Suppression de l attribution AcrPull (16:41:40) =====
+
+===== Suppression du groupe de la seance (16:42:07) =====
+16:42:27 az group exists = true
+16:43:26 az group exists = false
+
+===== Attributions sur le registre (apres) (16:43:39) =====
+
+
+===== az group list (16:44:10) =====
+Name                        Location       Status
+--------------------------  -------------  ---------
+rg-dermascan-registre-sm26  francecentral  Succeeded
+
+===== Ressources du groupe registre (16:44:28) =====
+Name              ResourceGroup               Location       Type                                    Status
+----------------  --------------------------  -------------  --------------------------------------  ---------
+acrdermascansm26  rg-dermascan-registre-sm26  francecentral  Microsoft.ContainerRegistry/registries  Succeeded
+venv Locust supprime
