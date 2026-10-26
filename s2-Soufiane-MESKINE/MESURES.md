@@ -168,13 +168,15 @@ Dockerfile : celui de la séance 1, étendu. Les ajouts sont `COPY model/modele.
 
 ### Mesure 17
 
+Relevée le 26/10/2026 avec `nettoyage_s2.ps1` : le nettoyage de fin de séance n'avait pas été lancé le 11/10, et Docker Desktop a dû être réparé, car WSL2 ne démarrait plus (`ERROR_TIMEOUT`).
+
 | Contrôle de fin de séance | Observation |
 |---|---|
-| Espace disque libéré par `docker system prune` | _à relever_ |
-| Espace libéré en séance 1, pour comparaison | 207,3 Mo |
-| Nombre de ressources laissées actives | _à relever_ (attendu : 1, le registre) |
+| Espace disque libéré par `docker system prune` | **666,8 Mo** (cache de build des deux constructions de l'image, après suppression des images `dermascan-api`) |
+| Espace libéré en séance 1, pour comparaison | 207,3 Mo, soit 3,2 fois moins : en séance 2, ce sont les couches scikit-learn, scipy, numpy et pandas qui partent |
+| Nombre de ressources laissées actives | **1** : `acrdermascansm26` (`Microsoft.ContainerRegistry/registries`, `Succeeded`), qui contient le seul dépôt `dermascan-api` |
 | Coût journalier estimé du SKU `Basic` | environ 0,167 USD/jour (≈ 5 USD/mois) |
-| Date portée par l'étiquette `a_detruire` | 2027-06-30 |
+| Date portée par l'étiquette `a_detruire` | 2027-06-30 (vérifiée avec `az group show`, avec les étiquettes `projet=dermascan`, `role=registre` et `proprietaire=soufiane.meskine`) |
 | Crédit restant, relevé dans Cost Management | _à relever_ |
 | Écart avec le relevé de la séance précédente | _à calculer_ (séance 1 : 88 $US sur 88 $US) |
 
@@ -184,7 +186,7 @@ Dockerfile : celui de la séance 1, étendu. Les ajouts sont `COPY model/modele.
 
 | Contrôle | Fait |
 |---|---|
-| `az group list` ne montre toujours qu'un groupe, celui du registre | _à relever_ |
-| Aucun conteneur de la séance dans `docker ps -a` | _à relever_ |
+| `az group list` ne montre toujours qu'un groupe, celui du registre | ✅ `rg-dermascan-registre-sm26` seul (relevé du 26/10/2026) |
+| Aucun conteneur de la séance dans `docker ps -a` | ✅ liste vide |
 | Docker Desktop quitté | ☐ |
 | Machine éteinte | ☐ |
