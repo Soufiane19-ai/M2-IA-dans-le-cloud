@@ -1,0 +1,7 @@
+data/
+model/*.joblib
+.venv/
+logs/
+__pycache__/
+*.pyc
+*.ps1

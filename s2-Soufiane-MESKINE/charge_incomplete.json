@@ -1,0 +1,12 @@
+{
+ "age_approx": 75.0,
+ "sex": "male",
+ "anatom_site_general": "head/neck",
+ "clin_size_long_diam_mm": 3.88,
+ "tbp_tile_type": "3D: white",
+ "tbp_lv_A": 26.18701,
+ "tbp_lv_Aext": 21.39401,
+ "tbp_lv_B": 25.55342,
+ "tbp_lv_Bext": 24.91477,
+ "tbp_lv_C": 36.58875
+}

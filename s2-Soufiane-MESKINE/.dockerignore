@@ -1,0 +1,17 @@
+.venv/
+venv/
+data/
+captures/
+logs/
+__pycache__/
+*.pyc
+.git/
+*.md
+*.ps1
+*.json
+model/*.bak
+explorer.py
+entrainer.py
+Dockerfile*
+.dockerignore
+.gitignore
