@@ -162,7 +162,7 @@ Dockerfile : celui de la séance 1, étendu. Les ajouts sont `COPY model/modele.
 | Image publiée | `acrdermascansm26.azurecr.io/dermascan-api:1.0.0` (registre recréé le 2026-10-11 à 13:13 UTC, SKU Basic, France Central) |
 | Durée du push | 36,6 s (premier push du dépôt) |
 | Digest | `sha256:cae2b6358fcfc65751d85a16536efb9ae660b5b26782e56f98fdcaedb310006b` |
-| Tags présents dans le registre | `1.0.0` (`az acr repository show-tags`) ; un seul dépôt, `dermascan-api` (`dermascan-health` a disparu avec le registre supprimé le 06/10). Image : `linux/amd64`, utilisateur 10001, construite le 2026-10-11 à 13:05:38 UTC. |
+| Tags présents dans le registre | `1.0.0` (`az acr repository show-tags`) ; un seul dépôt, `dermascan-api` (`dermascan-health` a disparu avec le registre supprimé le 06/10). Image : `linux/amd64`, utilisateur 10001, construite le 2026-10-11 à 13:05:38 UTC. Portail : 1 étiquette, 1 manifeste, même digest (`captures/portail_acr_depot_dermascan-api.png`). |
 
 ## Nettoyage
 
@@ -177,8 +177,8 @@ Relevée le 26/10/2026 avec `nettoyage_s2.ps1` : le nettoyage de fin de séance 
 | Nombre de ressources laissées actives | **1** : `acrdermascansm26` (`Microsoft.ContainerRegistry/registries`, `Succeeded`), qui contient le seul dépôt `dermascan-api` |
 | Coût journalier estimé du SKU `Basic` | environ 0,167 USD/jour (≈ 5 USD/mois) |
 | Date portée par l'étiquette `a_detruire` | 2027-06-30 (vérifiée avec `az group show`, avec les étiquettes `projet=dermascan`, `role=registre` et `proprietaire=soufiane.meskine`) |
-| Crédit restant, relevé dans Cost Management | _à relever_ |
-| Écart avec le relevé de la séance précédente | _à calculer_ (séance 1 : 88 $US sur 88 $US) |
+| Crédit restant, relevé dans Cost Management | **87 € sur 88 €** le 26/10/2026, coûts d'octobre : **2,15 €**, crédit valable encore 345 jours (expire le 06/10/2027). Capture : `captures/credit_education_s2.png` |
+| Écart avec le relevé de la séance précédente | **−1 € affiché**, pour **2,15 € consommés** en octobre (séance 1 : 88 sur 88 et 0,00 de coûts le 06/10). L'écart correspond au registre Basic seul : quelques heures le 06/10, puis 15 jours depuis sa recréation le 11/10 (environ 0,14 € par jour). Rien d'autre ne tourne à mon insu. Le portail affiche désormais des euros au lieu de dollars, mais c'est le même crédit de 88. |
 
 **Question 6.1** — La phrase de la séance 1 n'est plus exacte. Le registre a été **supprimé le 06/10 à 19:20**, puis recréé en séance 2. Il ne contient plus `dermascan-health:0.1.0` mais `dermascan-api:1.0.0`, l'artefact que la séance 3 déploie. Phrase corrigée : « Le registre `acrdermascansm26` (groupe `rg-dermascan-registre-sm26`, SKU Basic, environ 0,17 USD/jour sur le crédit Azure for Students de Soufiane Meskine) contient l'image `dermascan-api:1.0.0`, que les séances 3 et 4 et le projet fil rouge déploient. Il reste actif jusqu'à la soutenance et peut être détruit avec `az group delete` après le 2027-06-30 (étiquette `a_detruire`). » Ce qui m'a fait la corriger : le contenu du registre a changé, et j'ai mesuré que le supprimer entre deux séances oblige à le recréer et à tout republier, ce qui coûte du temps et casse la continuité. La date reste valable, puisqu'elle est postérieure à la soutenance.
 
