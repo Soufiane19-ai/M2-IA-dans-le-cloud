@@ -1,0 +1,261 @@
+﻿TP S4 partie 5a - debut 2026-11-17T12:21:15
+12:21:15 
+12:21:15 ===== Contexte api-s4 =====
+
+FullName                                                             Length  
+--------                                                             ------  
+C:\Users\soufiane\Desktop\s4-dermascan\api-s4\model                          
+C:\Users\soufiane\Desktop\s4-dermascan\api-s4\.dockerignore          194     
+C:\Users\soufiane\Desktop\s4-dermascan\api-s4\app.py                 3561    
+C:\Users\soufiane\Desktop\s4-dermascan\api-s4\Dockerfile             1262    
+C:\Users\soufiane\Desktop\s4-dermascan\api-s4\requirements.txt       496     
+C:\Users\soufiane\Desktop\s4-dermascan\api-s4\model\modele.pt        44780171
+C:\Users\soufiane\Desktop\s4-dermascan\api-s4\model\modele_meta.json 2822    
+
+
+
+12:21:15 [duree] 0 s  [code] 
+12:21:15 
+12:21:15 ===== diff Dockerfile S2 / S4 =====
+
+InputObject                                          SideIndicator
+-----------                                          -------------
+    MODEL_PATH=model/modele.pt                       =>           
+COPY model/modele.pt model/modele_meta.json ./model/ =>           
+    MODEL_PATH=model/modele.joblib                   <=           
+COPY model/modele.joblib ./model/                    <=           
+
+
+
+12:21:16 [duree] 0 s  [code] 
+12:21:16 
+12:21:16 ===== diff .dockerignore S2 / S4 =====
+
+InputObject             SideIndicator
+-----------             -------------
+!model/modele_meta.json =>           
+**/*.csv                =>           
+**/*.zip                =>           
+
+
+
+12:21:16 [duree] 0 s  [code] 
+12:21:16 
+12:21:16 ===== diff app.py S2 / S4 (lignes) =====
+123
+12:21:16 [duree] 0 s  [code] 
+12:21:16 
+12:21:16 ===== sha256 api-s4/model/modele.pt =====
+b44771c802585db7969ba6e9dff0eb947ea639fb25f8402860224b56d339fd0a
+12:21:16 [duree] 0.4 s  [code] 
+12:21:16 
+12:21:16 ===== docker build a froid dermascan-api:2.0.0 =====
+#0 building with "desktop-linux" instance using docker driver
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 1.30kB done
+#1 DONE 0.1s
+#2 [internal] load metadata for docker.io/library/python:3.12.7-slim-bookworm
+#2 DONE 1.0s
+#3 [internal] load .dockerignore
+#3 transferring context: 236B done
+#3 DONE 0.1s
+#4 [1/7] FROM docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d
+#4 resolve docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d 0.1s done
+#4 CACHED
+#5 [internal] load build context
+#5 ...
+#6 [2/7] WORKDIR /app
+#6 DONE 0.2s
+#5 [internal] load build context
+#5 transferring context: 44.80MB 2.3s done
+#5 DONE 2.4s
+#7 [3/7] COPY requirements.txt ./
+#7 DONE 0.2s
+#8 [4/7] RUN pip install --no-cache-dir -r requirements.txt
+#8 2.586 Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cpu
+#8 3.004 Collecting flask==3.1.3 (from -r requirements.txt (line 5))
+#8 3.161   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+#8 3.494 Collecting gunicorn==23.0.0 (from -r requirements.txt (line 6))
+#8 3.512   Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+#8 3.923 Collecting torch==2.14.1+cpu (from -r requirements.txt (line 7))
+#8 4.110   Downloading https://download-r2.pytorch.org/whl/cpu/torch-2.14.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (37 kB)
+#8 4.462 Collecting torchvision==0.29.1+cpu (from -r requirements.txt (line 8))
+#8 4.498   Downloading https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.7 kB)
+#8 5.870 Collecting numpy==2.5.4 (from -r requirements.txt (line 10))
+#8 5.921   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+#8 6.956 Collecting pillow==13.0.0 (from -r requirements.txt (line 11))
+#8 7.019   Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+#8 7.176 Collecting blinker>=1.9.0 (from flask==3.1.3->-r requirements.txt (line 5))
+#8 7.197   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#8 7.374 Collecting click>=8.1.3 (from flask==3.1.3->-r requirements.txt (line 5))
+#8 7.392   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#8 7.556 Collecting itsdangerous>=2.2.0 (from flask==3.1.3->-r requirements.txt (line 5))
+#8 7.575   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#8 7.701 Collecting jinja2>=3.1.2 (from flask==3.1.3->-r requirements.txt (line 5))
+#8 7.730   Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#8 8.034 Collecting markupsafe>=2.1.1 (from flask==3.1.3->-r requirements.txt (line 5))
+#8 8.052   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+#8 8.438 Collecting werkzeug>=3.1.0 (from flask==3.1.3->-r requirements.txt (line 5))
+#8 8.460   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+#8 8.543 Collecting packaging (from gunicorn==23.0.0->-r requirements.txt (line 6))
+#8 8.603   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#8 8.784 Collecting filelock (from torch==2.14.1+cpu->-r requirements.txt (line 7))
+#8 8.801   Downloading filelock-4.2.11-py3-none-any.whl.metadata (2.3 kB)
+#8 8.941 Collecting typing-extensions>=4.10.0 (from torch==2.14.1+cpu->-r requirements.txt (line 7))
+#8 8.962   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#8 9.534 Collecting setuptools>=77.0.3 (from torch==2.14.1+cpu->-r requirements.txt (line 7))
+#8 9.551   Downloading setuptools-84.2.1-py3-none-any.whl.metadata (6.6 kB)
+#8 9.732 Collecting sympy>=1.13.3 (from torch==2.14.1+cpu->-r requirements.txt (line 7))
+#8 9.750   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+#8 9.926 Collecting networkx>=2.5.1 (from torch==2.14.1+cpu->-r requirements.txt (line 7))
+#8 9.944   Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+#8 10.12 Collecting fsspec>=0.8.5 (from torch==2.14.1+cpu->-r requirements.txt (line 7))
+#8 10.14   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+#8 10.35 Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.14.1+cpu->-r requirements.txt (line 7))
+#8 10.36   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+#8 10.44 Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+#8 10.47 Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+#8 10.63 Downloading https://download-r2.pytorch.org/whl/cpu/torch-2.14.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (196.3 MB)
+#8 19.64    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 196.3/196.3 MB 21.8 MB/s eta 0:00:00
+#8 19.69 Downloading https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (1.7 MB)
+#8 19.79    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.7/1.7 MB 20.6 MB/s eta 0:00:00
+#8 19.81 Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+#8 20.84    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 16.7/16.7 MB 16.5 MB/s eta 0:00:00
+#8 20.86 Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+#8 21.51    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 7.1/7.1 MB 11.0 MB/s eta 0:00:00
+#8 21.53 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#8 21.54 Downloading click-8.5.1-py3-none-any.whl (126 kB)
+#8 21.57 Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+#8 21.61 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#8 21.65 Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl (134 kB)
+#8 21.67 Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+#8 21.69 Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+#8 21.90    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 2.1/2.1 MB 10.4 MB/s eta 0:00:00
+#8 21.91 Downloading setuptools-84.2.1-py3-none-any.whl (876 kB)
+#8 22.00    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 876.3/876.3 kB 10.1 MB/s eta 0:00:00
+#8 22.02 Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+#8 22.85    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 6.3/6.3 MB 7.6 MB/s eta 0:00:00
+#8 22.87 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#8 22.89 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+#8 22.93 Downloading filelock-4.2.11-py3-none-any.whl (222 kB)
+#8 22.97 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#8 23.00 Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+#8 23.05    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 536.2/536.2 kB 8.7 MB/s eta 0:00:00
+#8 24.06 Installing collected packages: mpmath, typing-extensions, sympy, setuptools, pillow, packaging, numpy, networkx, markupsafe, itsdangerous, fsspec, filelock, click, blinker, werkzeug, jinja2, gunicorn, torch, flask, torchvision
+#8 57.36 Successfully installed blinker-1.9.0 click-8.5.1 filelock-4.2.11 flask-3.1.3 fsspec-2026.9.0 gunicorn-23.0.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.4 mpmath-1.3.0 networkx-3.7 numpy-2.5.4 packaging-26.3 pillow-13.0.0 setuptools-84.2.1 sympy-1.14.0 torch-2.14.1+cpu torchvision-0.29.1+cpu typing-extensions-4.16.0 werkzeug-3.1.9
+#8 57.36 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#8 57.60 
+#8 57.60 [notice] A new release of pip is available: 24.2 -> 26.3
+#8 57.60 [notice] To update, run: pip install --upgrade pip
+#8 DONE 58.5s
+#9 [5/7] COPY model/modele.pt model/modele_meta.json ./model/
+#9 DONE 0.5s
+#10 [6/7] COPY app.py ./
+#10 DONE 0.2s
+#11 [7/7] RUN useradd --uid 10001 --no-create-home --shell /usr/sbin/nologin appuser     && chown -R appuser:appuser /app
+#11 DONE 0.7s
+#12 exporting to image
+#12 exporting layers
+#12 exporting layers 43.5s done
+#12 exporting manifest sha256:ec4a45b98aa6cdd6832da0f022faf46fab15929db9600324d9923b1397bbb40e 0.0s done
+#12 exporting config sha256:d644945700c220838da7b79236784f7cea99bd2f97f9c77d75f19c04f1e251ae 0.0s done
+#12 naming to docker.io/library/dermascan-api:2.0.0 done
+#12 unpacking to docker.io/library/dermascan-api:2.0.0
+#12 unpacking to docker.io/library/dermascan-api:2.0.0 15.2s done
+#12 DONE 58.8s
+12:23:20 [duree] 123.7 s  [code] 0
+12:23:20 [RESUME] Mesure 15 - duree de construction a froid (s) = 123.7
+12:23:20 
+12:23:20 ===== docker images dermascan-api =====
+REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
+dermascan-api   2.0.0     ec4a45b98aa6   59 seconds ago   1.67GB
+12:23:20 [duree] 0.1 s  [code] 0
+12:23:20 
+12:23:20 ===== docker image inspect (taille, arch, user) =====
+Size=404212055 Arch=amd64 User=10001 Id=sha256:ec4a45b98aa6cdd6832da0f022faf46fab15929db9600324d9923b1397bbb40e
+12:23:20 [duree] 0.1 s  [code] 0
+12:23:20 
+12:23:20 ===== docker scout quickview =====
+    i New version 1.29.0 available (installed version is 1.18.3) at https://github.com/docker/scout-cli
+Log in with your Docker ID or email address to use docker scout.
+If you don't have a Docker ID, head over to https://hub.docker.com to
+create one. You can log in with your password or a Personal Access Token (PAT)
+by running docker login.
+Using a limited-scope PAT grants better security and is required for organizations
+using SSO. Learn more at https://docs.docker.com/go/access-tokens/
+You can also log in using Docker Desktop.
+12:23:21 [duree] 0.8 s  [code] 1
+12:23:21 
+12:23:21 ===== docker scout cves --exit-code =====
+    i New version 1.29.0 available (installed version is 1.18.3) at https://github.com/docker/scout-cli
+Log in with your Docker ID or email address to use docker scout.
+If you don't have a Docker ID, head over to https://hub.docker.com to
+create one. You can log in with your password or a Personal Access Token (PAT)
+by running docker login.
+Using a limited-scope PAT grants better security and is required for organizations
+using SSO. Learn more at https://docs.docker.com/go/access-tokens/
+You can also log in using Docker Desktop.
+12:23:22 [duree] 0.6 s  [code] 1
+12:23:22 [RESUME] Mesure 15 - code retour de docker scout cves --exit-code = 1
+12:23:22 
+12:23:22 ===== docker scout cves (resume par paquet) =====
+    i New version 1.29.0 available (installed version is 1.18.3) at https://github.com/docker/scout-cli
+Log in with your Docker ID or email address to use docker scout.
+If you don't have a Docker ID, head over to https://hub.docker.com to
+create one. You can log in with your password or a Personal Access Token (PAT)
+by running docker login.
+Using a limited-scope PAT grants better security and is required for organizations
+using SSO. Learn more at https://docs.docker.com/go/access-tokens/
+You can also log in using Docker Desktop.
+12:23:23 [duree] 0.6 s  [code] 1
+12:23:30 [RESUME] Mesure 16 - delai jusqu au premier /health 200 sous --network none (s) = 7.3
+12:23:30 
+12:23:30 ===== Corps de /health (hors ligne) =====
+{"hostname":"1c8d1e9eabdc","model_loaded":true,"service":"isic-vignettes-api","status":"ok","uptime_seconds":0.9}
+
+12:23:31 [duree] 0.6 s  [code] 0
+12:23:31 
+12:23:31 ===== Reseau du conteneur hors ligne =====
+{"none":{"IPAMConfig":null,"Links":null,"Aliases":null,"MacAddress":"","DriverOpts":null,"GwPriority":0,"NetworkID":"9bbe483e9bc6d2bd59882b963613e0f221983150f390f8286b2e158af46dc1f8","EndpointID":"714a1392fe8333c04db6eb06507c52b91e563b1175d4b4e8e57b1ffe2c522ced","Gateway":"","IPAddress":"","IPPrefixLen":0,"IPv6Gateway":"","GlobalIPv6Address":"","GlobalIPv6PrefixLen":0,"DNSNames":null}}
+12:23:31 [duree] 0.1 s  [code] 0
+12:23:42 [RESUME] Mesure 17 - demarrage jusqu au premier /health 200, avec reseau (s) = 7.6
+12:23:42 
+12:23:42 ===== /model/info =====
+{"architecture":"resnet18","echantillonnage":{"graine":42,"manifeste":"manifeste_echantillon.csv","methode":"tous les positifs + negatifs tires uniformement sans remise (pandas.sample)","n_negatifs":5000,"n_negatifs_disponibles":217183,"n_positifs":294,"sha256_manifeste":"64d2e25ddd474269d41e9437b7fc79d857d032b5a683e313db61bf91b3e07711","source":"ISIC 2024 SLICE-3D Permissive, licence CC-BY 4.0","taux_negatifs":0.023022059737640606},"entraine_le":"2026-11-17T11:14:08","metriques":{"hasard_pr_auc":0.055765595463137994,"lesions_examinees_par_maligne_reelle":206,"matrice_confusion_validation":{"FN":5,"FP":254,"VN":745,"VP":54},"pauc_80":0.12323849273001813,"pr_auc":0.4799054650173198,"precision_au_seuil_validation":0.17532467532467533,"precision_projetee_prevalence_reelle":0.0048493535899812035,"rappel_au_seuil":0.9152542372881356,"roc_auc":0.8993230518654248},"prevalence_entrainement":0.055534567434831886,"prevalence_reelle":0.0013518670939915486,"rappel_cible":0.9,"seuil":0.0004990625942336154,"sha256_poids":"b44771c802585db7969ba6e9dff0eb947ea639fb25f8402860224b56d339fd0a","taille_entree":128,"version":"2.0.0","version_deployee":"2.0.0"}
+12:23:42 [duree] 0 s  [code] 0
+12:23:42 
+12:23:42 ===== /predict image de controle ISIC_0104229 =====
+{"decision":"a_examiner","probabilite_maligne":0.066289,"rappel_cible":0.9,"seuil":0.0004990625942336154,"version_modele":"2.0.0"}
+12:23:42 [duree] 0.1 s  [code] 0
+12:23:42 
+12:23:42 ===== controle du meta =====
+{"isic_id":"ISIC_0104229","probabilite_maligne":0.06629}
+12:23:42 [duree] 0 s  [code] 0
+12:23:42 
+12:23:42 ===== Codes : sans image / pas une image =====
+sans image : 400
+{"detail":"UnidentifiedImageError: cannot identify image file <tempfile.SpooledTemporaryFile object at 0x7d3544a2d2d0>","error":"image illisible"}
+
+pas une image : 400
+12:23:42 [duree] 0.1 s  [code] 0
+12:23:45 [RESUME] Mesure 17 - latence /predict p50 / p95 (ms), 50 appels = 27.6 / 43.2
+12:23:45   50 valeurs (s) : 0.019741 0.020051 0.02033 0.021015 0.021695 0.021911 0.022112 0.022756 0.024432 0.024557 0.024865 0.024867 0.024992 0.025147 0.025535 0.025592 0.026125 0.026478 0.026701 0.027232 0.027272 0.027367 0.027441 0.027634 0.027648 0.027845 0.028076 0.028089 0.028262 0.028468 0.02853 0.028597 0.028703 0.02911 0.029693 0.030101 0.031221 0.034659 0.034803 0.035478 0.036097 0.036277 0.037129 0.037886 0.042204 0.042466 0.042961 0.043161 0.044151 0.046521
+12:23:55 
+12:23:55 ===== docker stats au repos =====
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O          BLOCK I/O   PIDS
+8614e0372c2d   dermascan-api-s4   0.01%     577.6MiB / 7.615GiB   7.41%     202kB / 41.7kB   0B / 0B     23
+12:23:57 [duree] 1.6 s  [code] 0
+12:23:57 
+12:23:57 ===== Processus dans le conteneur =====
+UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD
+10001               1562                1541                3                   11:23               ?                   00:00:00            /usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:8000 --workers 2 --access-logfile - app:app
+10001               1585                1562                46                  11:23               ?                   00:00:09            /usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:8000 --workers 2 --access-logfile - app:app
+10001               1593                1562                43                  11:23               ?                   00:00:09            /usr/local/bin/python3.12 /usr/local/bin/gunicorn --bind 0.0.0.0:8000 --workers 2 --access-logfile - app:app
+12:23:57 [duree] 0.1 s  [code] 0
+12:23:57 
+12:23:57 ===== Image S2 encore presente ? =====
+
+Error response from daemon: No such image: dermascan-api:1.0.0
+12:23:57 [duree] 0.1 s  [code] 1
+12:23:57 
+12:23:57 TERMINE 2026-11-17T12:23:57. Le conteneur dermascan-api-s4 tourne encore (port 8000). Previens Claude.

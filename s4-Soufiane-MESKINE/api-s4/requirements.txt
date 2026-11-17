@@ -1,0 +1,11 @@
+# Index CPU de PyTorch EN PLUS de PyPI (--extra-, pas --index-url : flask et gunicorn
+# n'y sont pas). Le suffixe +cpu n'existe que sur cet index : la roue CUDA ne peut pas
+# etre tiree par erreur. Une seule commande : pip install -r requirements.txt
+--extra-index-url https://download.pytorch.org/whl/cpu
+flask==3.1.3
+gunicorn==23.0.0
+torch==2.14.1+cpu
+torchvision==0.29.1+cpu
+# Epinglees aussi : ce sont elles qui portent les CVE d'une API d'images (decodage JPEG).
+numpy==2.5.4
+pillow==13.0.0

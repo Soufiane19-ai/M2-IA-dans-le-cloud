@@ -1,0 +1,735 @@
+﻿TP S4 entrainement - debut 2026-11-17T11:50:20
+11:50:20 
+11:50:20 ===== Docker (version, CPU, memoire, architecture) =====
+28.5.1 | NCPU 8 | MemTotal 8176472064 | linux/x86_64
+11:50:21 [duree] 0.3 s
+11:50:21 
+11:50:21 ===== Processeur du poste =====
+
+
+Name                      : Intel(R) Core(TM) i7-10510U CPU @ 1.80GHz
+NumberOfCores             : 4
+NumberOfLogicalProcessors : 8
+
+
+
+
+11:50:22 [duree] 1.1 s
+11:50:22 
+11:50:22 ===== Telechargement de l archive des vignettes (623 Mio) =====
+taille : 653107434 octets
+11:56:18 [duree] 355.9 s
+11:56:18 [RESUME] archive (octets) = 653107434
+11:56:22 
+11:56:22 ===== Contenu de donnees\ =====
+
+Name                                             Length
+----                                             ------
+ISIC_2024_Permissive_Training_GroundTruth.csv   3914605
+ISIC_2024_Permissive_Training_Input.zip       653107434
+train-metadata.csv.zip                         93555068
+
+
+
+11:56:23 [duree] 0 s
+11:56:23 
+11:56:23 ===== sha256 des donnees =====
+d09075274e66e6b5  ISIC_2024_Permissive_Training_GroundTruth.csv
+9797a9292b605790  ISIC_2024_Permissive_Training_Input.zip
+52a14f322e0142d3  train-metadata.csv.zip
+11:56:29 [duree] 6.6 s
+11:56:29 
+11:56:29 ===== Construction de l environnement d entrainement =====
+#0 building with "desktop-linux" instance using docker driver
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 766B 0.0s done
+#1 DONE 0.1s
+#2 [internal] load metadata for docker.io/library/python:3.12.7-slim-bookworm
+#2 DONE 1.8s
+#3 [internal] load .dockerignore
+#3 transferring context: 2B done
+#3 DONE 0.1s
+#4 [1/3] FROM docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d
+#4 resolve docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d 0.1s done
+#4 DONE 0.3s
+#4 [1/3] FROM docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d
+#4 sha256:46271edb89aec00565d974118707aaded82928c7ea7cb0a2bcc94b1f17e17e3d 249B / 249B 0.2s done
+#4 sha256:5f86e0092844f78afa84a3b63059ea82e82fa93a28eedde55386370d924e8cf3 0B / 13.63MB 0.3s
+#4 sha256:5e739003c33414360cf2cec9452e1935b1bfcae79f279c33009bf4c0d5596f52 0B / 3.32MB 0.2s
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 0B / 28.23MB 0.2s
+#4 sha256:5f86e0092844f78afa84a3b63059ea82e82fa93a28eedde55386370d924e8cf3 1.05MB / 13.63MB 0.6s
+#4 sha256:5f86e0092844f78afa84a3b63059ea82e82fa93a28eedde55386370d924e8cf3 2.10MB / 13.63MB 0.8s
+#4 sha256:5f86e0092844f78afa84a3b63059ea82e82fa93a28eedde55386370d924e8cf3 5.24MB / 13.63MB 0.9s
+#4 sha256:5e739003c33414360cf2cec9452e1935b1bfcae79f279c33009bf4c0d5596f52 1.05MB / 3.32MB 0.8s
+#4 sha256:5f86e0092844f78afa84a3b63059ea82e82fa93a28eedde55386370d924e8cf3 8.39MB / 13.63MB 1.1s
+#4 sha256:5e739003c33414360cf2cec9452e1935b1bfcae79f279c33009bf4c0d5596f52 2.10MB / 3.32MB 0.9s
+#4 sha256:5f86e0092844f78afa84a3b63059ea82e82fa93a28eedde55386370d924e8cf3 11.53MB / 13.63MB 1.2s
+#4 sha256:5e739003c33414360cf2cec9452e1935b1bfcae79f279c33009bf4c0d5596f52 3.32MB / 3.32MB 1.1s done
+#4 sha256:5f86e0092844f78afa84a3b63059ea82e82fa93a28eedde55386370d924e8cf3 13.63MB / 13.63MB 1.4s
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 2.10MB / 28.23MB 1.2s
+#4 sha256:5f86e0092844f78afa84a3b63059ea82e82fa93a28eedde55386370d924e8cf3 13.63MB / 13.63MB 1.4s done
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 4.19MB / 28.23MB 1.5s
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 6.29MB / 28.23MB 1.8s
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 9.44MB / 28.23MB 2.1s
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 11.53MB / 28.23MB 2.3s
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 15.73MB / 28.23MB 2.6s
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 17.83MB / 28.23MB 2.7s
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 23.07MB / 28.23MB 3.0s
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 26.21MB / 28.23MB 3.2s
+#4 sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 28.23MB / 28.23MB 3.3s
+#4 DONE 3.9s
+#4 [1/3] FROM docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d
+#4 extracting sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f
+#4 extracting sha256:bc0965b23a04fe7f2d9fb20f597008fcf89891de1c705ffc1c80483a1f098e4f 1.1s done
+#4 DONE 5.0s
+#4 [1/3] FROM docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d
+#4 extracting sha256:5e739003c33414360cf2cec9452e1935b1bfcae79f279c33009bf4c0d5596f52
+#4 extracting sha256:5e739003c33414360cf2cec9452e1935b1bfcae79f279c33009bf4c0d5596f52 0.2s done
+#4 DONE 5.2s
+#4 [1/3] FROM docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d
+#4 extracting sha256:5f86e0092844f78afa84a3b63059ea82e82fa93a28eedde55386370d924e8cf3
+#4 extracting sha256:5f86e0092844f78afa84a3b63059ea82e82fa93a28eedde55386370d924e8cf3 0.6s done
+#4 DONE 5.8s
+#4 [1/3] FROM docker.io/library/python:3.12.7-slim-bookworm@sha256:60d9996b6a8a3689d36db740b49f4327be3be09a21122bd02fb8895abb38b50d
+#4 extracting sha256:46271edb89aec00565d974118707aaded82928c7ea7cb0a2bcc94b1f17e17e3d 0.0s done
+#4 DONE 5.9s
+#5 [2/3] RUN pip install --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cpu       torch==2.14.1+cpu torchvision==0.29.1+cpu pandas==3.0.6 scikit-learn==1.9.1       numpy==2.5.4 pillow==13.0.0
+#5 1.965 Looking in indexes: https://pypi.org/simple, https://download.pytorch.org/whl/cpu
+#5 2.605 Collecting torch==2.14.1+cpu
+#5 2.773   Downloading https://download-r2.pytorch.org/whl/cpu/torch-2.14.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (37 kB)
+#5 3.123 Collecting torchvision==0.29.1+cpu
+#5 3.154   Downloading https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.7 kB)
+#5 3.542 Collecting pandas==3.0.6
+#5 3.702   Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl.metadata (79 kB)
+#5 4.096 Collecting scikit-learn==1.9.1
+#5 4.116   Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.3 kB)
+#5 5.463 Collecting numpy==2.5.4
+#5 5.481   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+#5 6.513 Collecting pillow==13.0.0
+#5 6.533   Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+#5 6.723 Collecting filelock (from torch==2.14.1+cpu)
+#5 6.743   Downloading filelock-4.2.11-py3-none-any.whl.metadata (2.3 kB)
+#5 6.840 Collecting typing-extensions>=4.10.0 (from torch==2.14.1+cpu)
+#5 6.858   Downloading typing_extensions-4.16.0-py3-none-any.whl.metadata (3.3 kB)
+#5 7.286 Collecting setuptools>=77.0.3 (from torch==2.14.1+cpu)
+#5 7.304   Downloading setuptools-84.2.1-py3-none-any.whl.metadata (6.6 kB)
+#5 7.409 Collecting sympy>=1.13.3 (from torch==2.14.1+cpu)
+#5 7.430   Downloading sympy-1.14.0-py3-none-any.whl.metadata (12 kB)
+#5 7.557 Collecting networkx>=2.5.1 (from torch==2.14.1+cpu)
+#5 7.577   Downloading networkx-3.7-py3-none-any.whl.metadata (6.7 kB)
+#5 7.655 Collecting jinja2 (from torch==2.14.1+cpu)
+#5 7.677   Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#5 7.810 Collecting fsspec>=0.8.5 (from torch==2.14.1+cpu)
+#5 7.831   Downloading fsspec-2026.9.0-py3-none-any.whl.metadata (10 kB)
+#5 8.239 Collecting python-dateutil>=2.8.2 (from pandas==3.0.6)
+#5 8.258   Downloading python_dateutil-4.0.0-py3-none-any.whl.metadata (7.3 kB)
+#5 8.688 Collecting scipy>=1.10.0 (from scikit-learn==1.9.1)
+#5 8.711   Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (62 kB)
+#5 9.077 Collecting joblib>=1.4.0 (from scikit-learn==1.9.1)
+#5 9.097   Downloading joblib-1.6.0-py3-none-any.whl.metadata (6.5 kB)
+#5 9.355 Collecting narwhals>=2.0.1 (from scikit-learn==1.9.1)
+#5 9.378   Downloading narwhals-2.28.0-py3-none-any.whl.metadata (15 kB)
+#5 9.707 Collecting threadpoolctl>=3.5.0 (from scikit-learn==1.9.1)
+#5 9.729   Downloading threadpoolctl-3.8.0-py3-none-any.whl.metadata (29 kB)
+#5 10.07 Collecting cloudpickle>=3.0 (from joblib>=1.4.0->scikit-learn==1.9.1)
+#5 10.09   Downloading cloudpickle-3.1.2-py3-none-any.whl.metadata (7.1 kB)
+#5 10.44 Collecting tzdata (from python-dateutil>=2.8.2->pandas==3.0.6)
+#5 10.46   Downloading tzdata-2026.6-py2.py3-none-any.whl.metadata (1.4 kB)
+#5 10.57 Collecting mpmath<1.4,>=1.1.0 (from sympy>=1.13.3->torch==2.14.1+cpu)
+#5 10.59   Downloading mpmath-1.3.0-py3-none-any.whl.metadata (8.6 kB)
+#5 10.75 Collecting MarkupSafe>=2.0 (from jinja2->torch==2.14.1+cpu)
+#5 10.77   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+#5 10.82 Downloading https://download-r2.pytorch.org/whl/cpu/torch-2.14.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (196.3 MB)
+#5 19.82    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 196.3/196.3 MB 21.9 MB/s eta 0:00:00
+#5 19.86 Downloading https://download-r2.pytorch.org/whl/cpu/torchvision-0.29.1%2Bcpu-cp312-cp312-manylinux_2_28_x86_64.whl (1.7 MB)
+#5 19.96    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 1.7/1.7 MB 17.2 MB/s eta 0:00:00
+#5 20.00 Downloading pandas-3.0.6-cp312-cp312-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl (10.8 MB)
+#5 20.80    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 10.8/10.8 MB 13.7 MB/s eta 0:00:00
+#5 20.83 Downloading scikit_learn-1.9.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (9.2 MB)
+#5 21.88    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 9.2/9.2 MB 8.6 MB/s eta 0:00:00
+#5 21.90 Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+#5 23.65    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 16.7/16.7 MB 9.7 MB/s eta 0:00:00
+#5 23.67 Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+#5 24.37    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 7.1/7.1 MB 10.2 MB/s eta 0:00:00
+#5 24.40 Downloading fsspec-2026.9.0-py3-none-any.whl (221 kB)
+#5 24.44 Downloading joblib-1.6.0-py3-none-any.whl (306 kB)
+#5 24.49 Downloading narwhals-2.28.0-py3-none-any.whl (490 kB)
+#5 24.57 Downloading networkx-3.7-py3-none-any.whl (2.1 MB)
+#5 24.81    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 2.1/2.1 MB 9.2 MB/s eta 0:00:00
+#5 24.83 Downloading python_dateutil-4.0.0-py3-none-any.whl (92 kB)
+#5 24.86 Downloading scipy-1.18.1-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (35.3 MB)
+#5 30.48    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 35.3/35.3 MB 6.3 MB/s eta 0:00:00
+#5 30.49 Downloading setuptools-84.2.1-py3-none-any.whl (876 kB)
+#5 30.58    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 876.3/876.3 kB 9.7 MB/s eta 0:00:00
+#5 30.60 Downloading sympy-1.14.0-py3-none-any.whl (6.3 MB)
+#5 31.20    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 6.3/6.3 MB 10.5 MB/s eta 0:00:00
+#5 31.22 Downloading threadpoolctl-3.8.0-py3-none-any.whl (32 kB)
+#5 31.25 Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#5 31.28 Downloading filelock-4.2.11-py3-none-any.whl (222 kB)
+#5 31.33 Downloading https://download.pytorch.org/whl/jinja2-3.1.6-py3-none-any.whl (134 kB)
+#5 31.36 Downloading cloudpickle-3.1.2-py3-none-any.whl (22 kB)
+#5 31.38 Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+#5 31.40 Downloading mpmath-1.3.0-py3-none-any.whl (536 kB)
+#5 31.46    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 536.2/536.2 kB 9.5 MB/s eta 0:00:00
+#5 31.48 Downloading tzdata-2026.6-py2.py3-none-any.whl (348 kB)
+#5 32.79 Installing collected packages: mpmath, tzdata, typing-extensions, threadpoolctl, sympy, setuptools, pillow, numpy, networkx, narwhals, MarkupSafe, fsspec, filelock, cloudpickle, scipy, python-dateutil, joblib, jinja2, torch, scikit-learn, pandas, torchvision
+#5 79.13 Successfully installed MarkupSafe-3.0.4 cloudpickle-3.1.2 filelock-4.2.11 fsspec-2026.9.0 jinja2-3.1.6 joblib-1.6.0 mpmath-1.3.0 narwhals-2.28.0 networkx-3.7 numpy-2.5.4 pandas-3.0.6 pillow-13.0.0 python-dateutil-4.0.0 scikit-learn-1.9.1 scipy-1.18.1 setuptools-84.2.1 sympy-1.14.0 threadpoolctl-3.8.0 torch-2.14.1+cpu torchvision-0.29.1+cpu typing-extensions-4.16.0 tzdata-2026.6
+#5 79.13 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#5 79.65 
+#5 79.65 [notice] A new release of pip is available: 24.2 -> 26.3
+#5 79.65 [notice] To update, run: pip install --upgrade pip
+#5 DONE 81.0s
+#6 [3/3] WORKDIR /work
+#6 DONE 0.4s
+#7 exporting to image
+#7 exporting layers
+#7 exporting layers 53.5s done
+#7 exporting manifest sha256:3da6620fbc02c92e71b4d04ec9ca78f076773d6c39cd425fdd8f1107eca821ea 0.0s done
+#7 exporting config sha256:9e7a817081cf95c30b610518970ec8ce0a157287de29c648e3e60991d6808e7b 0.0s done
+#7 exporting attestation manifest sha256:f4189a53b8056e448ec3119fa833cf952ee068f720e8810992f87ed4499b1e0b
+#7 exporting attestation manifest sha256:f4189a53b8056e448ec3119fa833cf952ee068f720e8810992f87ed4499b1e0b 0.1s done
+#7 exporting manifest list sha256:75ad25d455d1a558ea9ade83dc507e8d330ae44d017099d03cb0002ee6c59819 0.0s done
+#7 naming to docker.io/library/dermascan-entrainement:s4
+#7 naming to docker.io/library/dermascan-entrainement:s4 done
+#7 unpacking to docker.io/library/dermascan-entrainement:s4
+#7 unpacking to docker.io/library/dermascan-entrainement:s4 19.3s done
+#7 DONE 73.1s
+11:59:13 [duree] 163.5 s
+11:59:13 
+11:59:13 ===== Versions dans le conteneur =====
+3.12.7 torch 2.14.1+cpu torchvision 0.29.1+cpu sklearn 1.9.1 pandas 3.0.6 threads 4
+11:59:23 [duree] 9.9 s
+11:59:23 
+11:59:23 ===== python donnees.py (premier lancement) =====
+archive Permissive : 217,477 vignettes, 294 positifs (0.135 %), 634 patients
+echantillon : 5,294 vignettes (294 pos + 5000 neg, graine 42), prevalence 5.55 %
+  entrainement  4236 vignettes  235 positifs   466 patients
+  validation    1058 vignettes   59 positifs   109 patients
+patients communs aux deux jeux : 0
+manifeste : model/manifeste_echantillon.csv  sha256 64d2e25ddd474269...
+vignettes en RAM : (5294, 128, 128, 3) uint8, 260 Mo
+taille d'origine (500 premieres) : mediane 127 px, min 87, max 215
+11:59:46 [duree] 22.2 s
+11:59:46 [RESUME] Mesure 1 - duree premier lancement (s) = 22.2
+11:59:46 
+11:59:46 ===== python donnees.py (second lancement, cache .npy) =====
+archive Permissive : 217,477 vignettes, 294 positifs (0.135 %), 634 patients
+echantillon : 5,294 vignettes (294 pos + 5000 neg, graine 42), prevalence 5.55 %
+  entrainement  4236 vignettes  235 positifs   466 patients
+  validation    1058 vignettes   59 positifs   109 patients
+patients communs aux deux jeux : 0
+manifeste : model/manifeste_echantillon.csv  sha256 64d2e25ddd474269...
+vignettes en RAM : (5294, 128, 128, 3) uint8, 260 Mo
+taille d'origine (500 premieres) : mediane 127 px, min 87, max 215
+12:00:01 [duree] 15.5 s
+12:00:01 [RESUME] Mesure 1 - duree second lancement (s) = 15.5
+12:00:01 
+12:00:01 ===== sha256 du manifeste =====
+64d2e25ddd474269d41e9437b7fc79d857d032b5a683e313db61bf91b3e07711
+12:00:01 [duree] 0 s
+12:00:01 
+12:00:01 ===== Analyses (mesures 3, 4, 5, 20, question 3.1) =====
+ok
+12:00:28 [duree] 26.4 s
+12:00:28 
+12:00:28 ===== Entrainement : premier lancement (sera interrompu pendant l'epoque 2) =====
+12:02:11 Epoque 1 terminee apres 103 s ; on laisse l'epoque 2 avancer 30 s puis Ctrl+C (SIGINT)
+12:02:42 COUPURE a 12:02:41 pendant l'epoque 2
+12:02:42   | [cpu] entrainement 4236 (235 pos), validation 1058 (59 pos), chargement 8.2 s
+12:02:42   | System.Management.Automation.RemoteException
+12:02:42   | 0.3%
+12:02:42   | 0.6%
+12:02:42   | 0.8%
+12:02:43   | 1.1%
+12:02:43   | 1.4%
+12:02:43   | 1.7%
+12:02:43   | 2.0%
+12:02:43   | 2.2%
+12:02:43   | 2.5%
+12:02:43   | 2.8%
+12:02:43   | 3.1%
+12:02:43   | 3.4%
+12:02:43   | 3.6%
+12:02:43   | 3.9%
+12:02:43   | 4.2%
+12:02:43   | 4.5%
+12:02:43   | 4.8%
+12:02:43   | 5.0%
+12:02:43   | 5.3%
+12:02:43   | 5.6%
+12:02:43   | 5.9%
+12:02:43   | 6.2%
+12:02:43   | 6.4%
+12:02:43   | 6.7%
+12:02:43   | 7.0%
+12:02:43   | 7.3%
+12:02:43   | 7.6%
+12:02:43   | 7.8%
+12:02:43   | 8.1%
+12:02:43   | 8.4%
+12:02:43   | 8.7%
+12:02:43   | 9.0%
+12:02:43   | 9.2%
+12:02:43   | 9.5%
+12:02:43   | 9.8%
+12:02:43   | 10.1%
+12:02:43   | 10.4%
+12:02:43   | 10.6%
+12:02:43   | 10.9%
+12:02:43   | 11.2%
+12:02:43   | 11.5%
+12:02:43   | 11.8%
+12:02:43   | 12.0%
+12:02:43   | 12.3%
+12:02:43   | 12.6%
+12:02:43   | 12.9%
+12:02:43   | 13.2%
+12:02:43   | 13.4%
+12:02:43   | 13.7%
+12:02:43   | Downloading: "https://download.pytorch.org/models/resnet18-f37072fd.pth" to /work/.torch/hub/checkpoints/resnet18-f37072fd.pth
+12:02:43   | epoque 1 phase tete perte_entrainement 0.2669 pr_auc 0.1541 roc_auc 0.5297 pauc_80 0.0116 duree_s 75.5744
+12:02:43   | 14.0%
+12:02:43   | 14.3%
+12:02:43   | 14.6%
+12:02:43   | 14.8%
+12:02:43   | 15.1%
+12:02:43   | 15.4%
+12:02:43   | 15.7%
+12:02:43   | 16.0%
+12:02:43   | 16.2%
+12:02:43   | 16.5%
+12:02:43   | 16.8%
+12:02:43   | 17.1%
+12:02:43   | 17.4%
+12:02:43   | 17.6%
+12:02:43   | 17.9%
+12:02:43   | 18.2%
+12:02:43   | 18.5%
+12:02:43   | 18.8%
+12:02:43   | 19.0%
+12:02:43   | 19.3%
+12:02:43   | 19.6%
+12:02:43   | 19.9%
+12:02:43   | 20.2%
+12:02:43   | 20.4%
+12:02:43   | 20.7%
+12:02:43   | 21.0%
+12:02:43   | 21.3%
+12:02:43   | 21.6%
+12:02:43   | 21.8%
+12:02:43   | 22.1%
+12:02:43   | 22.4%
+12:02:43   | 22.7%
+12:02:43   | 23.0%
+12:02:43   | 23.2%
+12:02:43   | 23.5%
+12:02:43   | 23.8%
+12:02:43   | 24.1%
+12:02:43   | 24.4%
+12:02:43   | 24.6%
+12:02:43   | 24.9%
+12:02:43   | 25.2%
+12:02:43   | 25.5%
+12:02:43   | 25.7%
+12:02:43   | 26.0%
+12:02:43   | 26.3%
+12:02:43   | 26.6%
+12:02:43   | 26.9%
+12:02:43   | 27.1%
+12:02:43   | 27.4%
+12:02:43   | 27.7%
+12:02:43   | 28.0%
+12:02:43   | 28.3%
+12:02:43   | 28.5%
+12:02:43   | 28.8%
+12:02:43   | 29.1%
+12:02:43   | 29.4%
+12:02:43   | 29.7%
+12:02:43   | 29.9%
+12:02:43   | 30.2%
+12:02:43   | 30.5%
+12:02:43   | 30.8%
+12:02:43   | 31.1%
+12:02:43   | 31.3%
+12:02:43   | 31.6%
+12:02:43   | 31.9%
+12:02:43   | 32.2%
+12:02:43   | 32.5%
+12:02:43   | 32.7%
+12:02:43   | 33.0%
+12:02:43   | 33.3%
+12:02:43   | 33.6%
+12:02:43   | 33.9%
+12:02:43   | 34.1%
+12:02:43   | 34.4%
+12:02:43   | 34.7%
+12:02:43   | 35.0%
+12:02:43   | 35.3%
+12:02:43   | 35.5%
+12:02:43   | 35.8%
+12:02:43   | 36.1%
+12:02:43   | 36.4%
+12:02:43   | 36.7%
+12:02:43   | 36.9%
+12:02:43   | 37.2%
+12:02:43   | 37.5%
+12:02:43   | 37.8%
+12:02:43   | 38.1%
+12:02:43   | 38.3%
+12:02:43   | 38.6%
+12:02:43   | 38.9%
+12:02:43   | 39.2%
+12:02:43   | 39.5%
+12:02:43   | 39.7%
+12:02:43   | 40.0%
+12:02:43   | 40.3%
+12:02:43   | 40.6%
+12:02:43   | 40.9%
+12:02:43   | 41.1%
+12:02:43   | 41.4%
+12:02:43   | 41.7%
+12:02:43   | 42.0%
+12:02:43   | 42.3%
+12:02:43   | 42.5%
+12:02:43   | 42.8%
+12:02:43   | 43.1%
+12:02:43   | 43.4%
+12:02:43   | 43.7%
+12:02:43   | 43.9%
+12:02:43   | 44.2%
+12:02:43   | 44.5%
+12:02:43   | 44.8%
+12:02:43   | 45.1%
+12:02:43   | 45.3%
+12:02:43   | 45.6%
+12:02:43   | 45.9%
+12:02:43   | 46.2%
+12:02:43   | 46.5%
+12:02:43   | 46.7%
+12:02:43   | 47.0%
+12:02:43   | 47.3%
+12:02:43   | 47.6%
+12:02:43   | 47.9%
+12:02:43   | 48.1%
+12:02:43   | 48.4%
+12:02:43   | 48.7%
+12:02:43   | 49.0%
+12:02:43   | 49.3%
+12:02:43   | 49.5%
+12:02:43   | 49.8%
+12:02:43   | 50.1%
+12:02:43   | 50.4%
+12:02:43   | 50.7%
+12:02:43   | 50.9%
+12:02:43   | 51.2%
+12:02:43   | 51.5%
+12:02:43   | 51.8%
+12:02:43   | 52.1%
+12:02:43   | 52.3%
+12:02:43   | 52.6%
+12:02:43   | 52.9%
+12:02:43   | 53.2%
+12:02:43   | 53.5%
+12:02:43   | 53.7%
+12:02:43   | 54.0%
+12:02:43   | 54.3%
+12:02:43   | 54.6%
+12:02:43   | 54.9%
+12:02:43   | 55.1%
+12:02:43   | 55.4%
+12:02:43   | 55.7%
+12:02:43   | 56.0%
+12:02:43   | 56.3%
+12:02:43   | 56.5%
+12:02:43   | 56.8%
+12:02:43   | 57.1%
+12:02:43   | 57.4%
+12:02:43   | 57.7%
+12:02:43   | 57.9%
+12:02:43   | 58.2%
+12:02:43   | 58.5%
+12:02:43   | 58.8%
+12:02:43   | 59.1%
+12:02:43   | 59.3%
+12:02:43   | 59.6%
+12:02:43   | 59.9%
+12:02:43   | 60.2%
+12:02:43   | 60.5%
+12:02:43   | 60.7%
+12:02:43   | 61.0%
+12:02:43   | 61.3%
+12:02:43   | 61.6%
+12:02:43   | 61.9%
+12:02:43   | 62.1%
+12:02:43   | 62.4%
+12:02:43   | 62.7%
+12:02:43   | 63.0%
+12:02:43   | 63.3%
+12:02:43   | 63.5%
+12:02:43   | 63.8%
+12:02:43   | 64.1%
+12:02:43   | 64.4%
+12:02:43   | 64.7%
+12:02:43   | 64.9%
+12:02:43   | 65.2%
+12:02:43   | 65.5%
+12:02:43   | 65.8%
+12:02:43   | 66.1%
+12:02:43   | 66.3%
+12:02:43   | 66.6%
+12:02:43   | 66.9%
+12:02:43   | 67.2%
+12:02:43   | 67.5%
+12:02:43   | 67.7%
+12:02:43   | 68.0%
+12:02:43   | 68.3%
+12:02:43   | 68.6%
+12:02:43   | 68.9%
+12:02:43   | 69.1%
+12:02:43   | 69.4%
+12:02:43   | 69.7%
+12:02:43   | 70.0%
+12:02:43   | 70.3%
+12:02:43   | 70.5%
+12:02:43   | 70.8%
+12:02:43   | 71.1%
+12:02:43   | 71.4%
+12:02:43   | 71.7%
+12:02:43   | 71.9%
+12:02:43   | 72.2%
+12:02:43   | 72.5%
+12:02:43   | 72.8%
+12:02:43   | 73.1%
+12:02:43   | 73.3%
+12:02:43   | 73.6%
+12:02:43   | 73.9%
+12:02:43   | 74.2%
+12:02:43   | 74.4%
+12:02:43   | 74.7%
+12:02:43   | 75.0%
+12:02:44   | 75.3%
+12:02:44   | 75.6%
+12:02:44   | 75.8%
+12:02:44   | 76.1%
+12:02:44   | 76.4%
+12:02:44   | 76.7%
+12:02:44   | 77.0%
+12:02:44   | 77.2%
+12:02:44   | 77.5%
+12:02:44   | 77.8%
+12:02:44   | 78.1%
+12:02:44   | 78.4%
+12:02:44   | 78.6%
+12:02:44   | 78.9%
+12:02:44   | 79.2%
+12:02:44   | 79.5%
+12:02:44   | 79.8%
+12:02:44   | 80.0%
+12:02:44   | 80.3%
+12:02:44   | 80.6%
+12:02:44   | 80.9%
+12:02:44   | 81.2%
+12:02:44   | 81.4%
+12:02:44   | 81.7%
+12:02:44   | 82.0%
+12:02:44   | 82.3%
+12:02:44   | 82.6%
+12:02:44   | 82.8%
+12:02:44   | 83.1%
+12:02:44   | 83.4%
+12:02:44   | 83.7%
+12:02:44   | 84.0%
+12:02:44   | 84.2%
+12:02:44   | 84.5%
+12:02:44   | 84.8%
+12:02:44   | 85.1%
+12:02:44   | 85.4%
+12:02:44   | 85.6%
+12:02:44   | 85.9%
+12:02:44   | 86.2%
+12:02:44   | 86.5%
+12:02:44   | 86.8%
+12:02:44   | 87.0%
+12:02:44   | 87.3%
+12:02:44   | 87.6%
+12:02:44   | 87.9%
+12:02:44   | 88.2%
+12:02:44   | 88.4%
+12:02:44   | 88.7%
+12:02:44   | 89.0%
+12:02:44   | 89.3%
+12:02:44   | 89.6%
+12:02:44   | 89.8%
+12:02:44   | 90.1%
+12:02:44   | 90.4%
+12:02:44   | 90.7%
+12:02:44   | 91.0%
+12:02:44   | 91.2%
+12:02:44   | 91.5%
+12:02:44   | 91.8%
+12:02:44   | 92.1%
+12:02:44   | 92.4%
+12:02:44   | 92.6%
+12:02:44   | 92.9%
+12:02:44   | 93.2%
+12:02:44   | 93.5%
+12:02:44   | 93.8%
+12:02:44   | 94.0%
+12:02:44   | 94.3%
+12:02:44   | 94.6%
+12:02:44   | 94.9%
+12:02:44   | 95.2%
+12:02:44   | 95.4%
+12:02:44   | 95.7%
+12:02:44   | 96.0%
+12:02:44   | 96.3%
+12:02:44   | 96.6%
+12:02:44   | 96.8%
+12:02:44   | 97.1%
+12:02:44   | 97.4%
+12:02:44   | 97.7%
+12:02:44   | 98.0%
+12:02:44   | 98.2%
+12:02:44   | 98.5%
+12:02:44   | 98.8%
+12:02:44   | 99.1%
+12:02:44   | 99.4%
+12:02:44   | 99.6%
+12:02:44   | 99.9%
+12:02:44   | 100.0%
+12:02:44   | Traceback (most recent call last):
+12:02:44   |   File "/work/entrainer.py", line 239, in <module>
+12:02:44   |     main()
+12:02:44   |   File "/work/entrainer.py", line 125, in main
+12:02:44   |     l = perte(reseau(xb).squeeze(1), yb)
+12:02:44   |               ^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+12:02:44   |     return self._call_impl(*args, **kwargs)
+12:02:44   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+12:02:44   |     return forward_call(*args, **kwargs)
+12:02:44   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torchvision/models/resnet.py", line 285, in forward
+12:02:44   |     return self._forward_impl(x)
+12:02:44   |            ^^^^^^^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torchvision/models/resnet.py", line 273, in _forward_impl
+12:02:44   |     x = self.layer1(x)
+12:02:44   |         ^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+12:02:44   |     return self._call_impl(*args, **kwargs)
+12:02:44   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+12:02:44   |     return forward_call(*args, **kwargs)
+12:02:44   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/container.py", line 259, in forward
+12:02:44   |     input = module(input)
+12:02:44   |             ^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+12:02:44   |     return self._call_impl(*args, **kwargs)
+12:02:44   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+12:02:44   |     return forward_call(*args, **kwargs)
+12:02:44   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torchvision/models/resnet.py", line 96, in forward
+12:02:44   |     out = self.conv2(out)
+12:02:44   |           ^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1783, in _wrapped_call_impl
+12:02:44   |     return self._call_impl(*args, **kwargs)
+12:02:44   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/module.py", line 1794, in _call_impl
+12:02:44   |     return forward_call(*args, **kwargs)
+12:02:44   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 565, in forward
+12:02:44   |     return self._conv_forward(input, self.weight, self.bias)
+12:02:44   |            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+12:02:44   |   File "/usr/local/lib/python3.12/site-packages/torch/nn/modules/conv.py", line 560, in _conv_forward
+12:02:44   |     return F.conv2d(
+12:02:44   |            ^^^^^^^^^
+12:02:44   | KeyboardInterrupt
+12:02:44 [RESUME] Mesure 8 - epoque interrompue = 2
+12:02:44 [RESUME] Mesure 8 - taille de reprise.pt (octets) = 89579657
+12:02:44 
+12:02:44 ===== Entrainement : relance (reprise) =====
+  | [cpu] entrainement 4236 (235 pos), validation 1058 (59 pos), chargement 8.9 s
+  | reprise a l'epoque 2
+  | epoque 2 phase tete perte_entrainement 0.1941 pr_auc 0.2959 roc_auc 0.7922 pauc_80 0.0694 duree_s 102.0746
+  | epoque 3 phase tete perte_entrainement 0.1765 pr_auc 0.3329 roc_auc 0.8318 pauc_80 0.0883 duree_s 69.8840
+  | epoque 4 phase tete perte_entrainement 0.1716 pr_auc 0.3681 roc_auc 0.8568 pauc_80 0.1042 duree_s 69.7719
+  | epoque 5 phase degel perte_entrainement 0.1806 pr_auc 0.4486 roc_auc 0.8783 pauc_80 0.1069 duree_s 104.7442
+  | epoque 6 phase degel perte_entrainement 0.1276 pr_auc 0.3656 roc_auc 0.8179 pauc_80 0.0796 duree_s 97.8415
+  | epoque 7 phase degel perte_entrainement 0.1071 pr_auc 0.4642 roc_auc 0.8847 pauc_80 0.1106 duree_s 94.3163
+  | epoque 8 phase degel perte_entrainement 0.0891 pr_auc 0.4799 roc_auc 0.8993 pauc_80 0.1232 duree_s 103.1770
+  | {
+  |   "seuil_brut": 0.021228004568039496,
+  |   "seuil": 0.0004990625942336154,
+  |   "correction_logit": -3.7713024036859,
+  |   "metriques": {
+  |     "pr_auc": 0.4799054650173198,
+  |     "roc_auc": 0.8993230518654248,
+  |     "pauc_80": 0.12323849273001813,
+  |     "hasard_pr_auc": 0.055765595463137994,
+  |     "rappel_au_seuil": 0.9152542372881356,
+  |     "precision_au_seuil_validation": 0.17532467532467533,
+  |     "precision_projetee_prevalence_reelle": 0.0048493535899812035,
+  |     "lesions_examinees_par_maligne_reelle": 206,
+  |     "matrice_confusion_validation": {
+  |       "VP": 54,
+  |       "FP": 254,
+  |       "FN": 5,
+  |       "VN": 745
+  |     }
+  |   },
+  |   "latence_inference_lot1": {
+  |     "cpu": {
+  |       "p50_ms": 25.333208500001092,
+  |       "p95_ms": 29.85218940001459
+  |     }
+  |   },
+  |   "controle": {
+  |     "isic_id": "ISIC_0104229",
+  |     "probabilite_maligne": 0.06629
+  |   }
+  | }
+  | duree totale 660 s, RAM max 2080 Mo, model/modele.pt 44.8 Mo
+12:14:10 [RESUME] Duree de la relance (s) = 684
+12:14:10 
+12:14:10 ===== verifier_s4.py model =====
+OK     cles du meta  ΓÇö 19 cles
+OK     sha256 des poids
+OK     manifeste present et intact
+OK     effectifs du manifeste = meta  ΓÇö 294 + 5000
+OK     aucun patient des deux cotes  ΓÇö 0 en commun
+OK     sortie (lot, 1) : un logit par image  ΓÇö (2, 1)
+OK     backbone gele hors ['fc', 'layer4']  ΓÇö 122 tenseurs compares
+OK     correction_logit = ln(n_negatifs / negatifs disponibles)  ΓÇö -3.7713
+OK     seuil = seuil_brut recalibre  ΓÇö 0.0212 -> 0.000499
+OK     prevalence reelle < prevalence d'entrainement
+OK     PR-AUC au-dessus du hasard  ΓÇö 0.480 contre 0.056
+OK     rappel au seuil >= rappel cible
+OK     controle ISIC_0104229 reproduit  ΓÇö 0.066289 contre 0.06629
+
+13/13 controles OK ΓÇö RENDU RECEVABLE
+12:14:20 [duree] 10.2 s
+12:14:20 
+12:14:20 ===== sha256 de modele.pt et sha256_poids du meta =====
+b44771c802585db7969ba6e9dff0eb947ea639fb25f8402860224b56d339fd0a
+"sha256_poids": "b44771c802585db7969ba6e9dff0eb947ea639fb25f8402860224b56d339fd0a",
+12:14:20 [duree] 0.4 s
+12:14:20 
+12:14:20 ===== Paquet =====
+
+FullName                                                                        Length
+--------                                                                        ------
+C:\Users\soufiane\Desktop\s4-dermascan\model\manifeste_echantillon.csv          204379
+C:\Users\soufiane\Desktop\s4-dermascan\model\modele.pt                        44780171
+C:\Users\soufiane\Desktop\s4-dermascan\model\modele_meta.json                     2822
+C:\Users\soufiane\Desktop\s4-dermascan\sorties\entrainement.txt                   1774
+C:\Users\soufiane\Desktop\s4-dermascan\sorties\entrainement_avant_coupure.txt     5624
+C:\Users\soufiane\Desktop\s4-dermascan\sorties\historique.csv                      892
+C:\Users\soufiane\Desktop\s4-dermascan\sorties\predictions_validation.csv        61462
+
+
+
+12:14:20 [duree] 0 s
+12:14:20 
+12:14:20 TERMINE 2026-11-17T12:14:20. Previens Claude.

@@ -1,0 +1,6 @@
+# Poste ou Colab (pas l'image Docker). Sans suffixe +cpu : macOS n'a que des roues
+# PyPI, et Colab a deja torch avec CUDA (ne PAS le reinstaller la-bas).
+torch==2.14.1
+torchvision==0.29.1
+pandas==3.0.6
+scikit-learn==1.9.1

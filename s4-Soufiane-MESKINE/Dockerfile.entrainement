@@ -1,0 +1,11 @@
+# Environnement d'ENTRAINEMENT de la seance 4 (pas l'image de service).
+# Repli annexe B : entrainement en local, CPU, mode degrade. Sous Windows, entrainer.py
+# importe le module Unix `resource` : on l'execute donc dans un conteneur Linux.
+# Versions = requirements-entrainement.txt ; roues +cpu de l'index PyTorch, car la roue
+# Linux de PyPI embarque CUDA (plusieurs Go) sans GPU pour s'en servir.
+FROM python:3.12.7-slim-bookworm
+RUN pip install --no-cache-dir --extra-index-url https://download.pytorch.org/whl/cpu \
+      torch==2.14.1+cpu torchvision==0.29.1+cpu pandas==3.0.6 scikit-learn==1.9.1 \
+      numpy==2.5.4 pillow==13.0.0
+ENV PYTHONUNBUFFERED=1 PYTHONDONTWRITEBYTECODE=1 TORCH_HOME=/work/.torch
+WORKDIR /work

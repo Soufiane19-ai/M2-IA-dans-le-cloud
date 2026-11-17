@@ -1,0 +1,101 @@
+{
+  "version": "2.0.0",
+  "architecture": "resnet18",
+  "sortie": "1 logit ; probabilite_maligne = sigmoide(logit + correction_logit)",
+  "taille_entree": 128,
+  "normalisation": {
+    "moyenne": [
+      0.485,
+      0.456,
+      0.406
+    ],
+    "ecart_type": [
+      0.229,
+      0.224,
+      0.225
+    ]
+  },
+  "redimensionnement": "PIL RGB, resize (taille_entree, taille_entree), BILINEAR",
+  "graine": 42,
+  "echantillonnage": {
+    "methode": "tous les positifs + negatifs tires uniformement sans remise (pandas.sample)",
+    "source": "ISIC 2024 SLICE-3D Permissive, licence CC-BY 4.0",
+    "n_positifs": 294,
+    "n_negatifs": 5000,
+    "n_negatifs_disponibles": 217183,
+    "taux_negatifs": 0.023022059737640606,
+    "graine": 42,
+    "manifeste": "manifeste_echantillon.csv",
+    "sha256_manifeste": "64d2e25ddd474269d41e9437b7fc79d857d032b5a683e313db61bf91b3e07711"
+  },
+  "decoupage": {
+    "methode": "StratifiedGroupKFold(5) sur patient_id, pli 0 en validation",
+    "n_entrainement": 4236,
+    "n_validation": 1058,
+    "positifs_validation": 59,
+    "patients_communs": 0
+  },
+  "entrainement": {
+    "dispositif": "cpu",
+    "epoques_tete": 4,
+    "epoques_degel": 4,
+    "couches_degelees": [
+      "fc",
+      "layer4"
+    ],
+    "lot": 64,
+    "lr_tete": 0.001,
+    "lr_degel": 0.0001,
+    "weight_decay": 0.0001,
+    "perte": "BCEWithLogitsLoss sans ponderation",
+    "augmentations": [
+      "flip horizontal",
+      "flip vertical",
+      "rotation 90 degres"
+    ],
+    "critere_selection": "pr_auc validation",
+    "epoque_retenue": 8,
+    "duree_totale_s": 660.2,
+    "duree_moyenne_epoque_s": 89.7,
+    "ram_max_mo": 2080
+  },
+  "prevalence_entrainement": 0.055534567434831886,
+  "prevalence_reelle": 0.0013518670939915486,
+  "correction_logit": -3.7713024036859,
+  "rappel_cible": 0.9,
+  "seuil_brut": 0.021228004568039496,
+  "seuil": 0.0004990625942336154,
+  "metriques": {
+    "pr_auc": 0.4799054650173198,
+    "roc_auc": 0.8993230518654248,
+    "pauc_80": 0.12323849273001813,
+    "hasard_pr_auc": 0.055765595463137994,
+    "rappel_au_seuil": 0.9152542372881356,
+    "precision_au_seuil_validation": 0.17532467532467533,
+    "precision_projetee_prevalence_reelle": 0.0048493535899812035,
+    "lesions_examinees_par_maligne_reelle": 206,
+    "matrice_confusion_validation": {
+      "VP": 54,
+      "FP": 254,
+      "FN": 5,
+      "VN": 745
+    }
+  },
+  "latence_inference_lot1": {
+    "cpu": {
+      "p50_ms": 25.333208500001092,
+      "p95_ms": 29.85218940001459
+    }
+  },
+  "controle": {
+    "isic_id": "ISIC_0104229",
+    "probabilite_maligne": 0.06629
+  },
+  "sha256_poids": "b44771c802585db7969ba6e9dff0eb947ea639fb25f8402860224b56d339fd0a",
+  "entraine_le": "2026-11-17T11:14:08",
+  "versions": {
+    "python": "3.12.7",
+    "torch": "2.14.1+cpu",
+    "torchvision": "0.29.1+cpu"
+  }
+}

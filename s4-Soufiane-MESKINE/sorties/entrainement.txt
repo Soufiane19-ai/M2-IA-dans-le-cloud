@@ -1,0 +1,41 @@
+﻿[cpu] entrainement 4236 (235 pos), validation 1058 (59 pos), chargement 8.9 s
+reprise a l'epoque 2
+epoque 2 phase tete perte_entrainement 0.1941 pr_auc 0.2959 roc_auc 0.7922 pauc_80 0.0694 duree_s 102.0746
+epoque 3 phase tete perte_entrainement 0.1765 pr_auc 0.3329 roc_auc 0.8318 pauc_80 0.0883 duree_s 69.8840
+epoque 4 phase tete perte_entrainement 0.1716 pr_auc 0.3681 roc_auc 0.8568 pauc_80 0.1042 duree_s 69.7719
+epoque 5 phase degel perte_entrainement 0.1806 pr_auc 0.4486 roc_auc 0.8783 pauc_80 0.1069 duree_s 104.7442
+epoque 6 phase degel perte_entrainement 0.1276 pr_auc 0.3656 roc_auc 0.8179 pauc_80 0.0796 duree_s 97.8415
+epoque 7 phase degel perte_entrainement 0.1071 pr_auc 0.4642 roc_auc 0.8847 pauc_80 0.1106 duree_s 94.3163
+epoque 8 phase degel perte_entrainement 0.0891 pr_auc 0.4799 roc_auc 0.8993 pauc_80 0.1232 duree_s 103.1770
+{
+  "seuil_brut": 0.021228004568039496,
+  "seuil": 0.0004990625942336154,
+  "correction_logit": -3.7713024036859,
+  "metriques": {
+    "pr_auc": 0.4799054650173198,
+    "roc_auc": 0.8993230518654248,
+    "pauc_80": 0.12323849273001813,
+    "hasard_pr_auc": 0.055765595463137994,
+    "rappel_au_seuil": 0.9152542372881356,
+    "precision_au_seuil_validation": 0.17532467532467533,
+    "precision_projetee_prevalence_reelle": 0.0048493535899812035,
+    "lesions_examinees_par_maligne_reelle": 206,
+    "matrice_confusion_validation": {
+      "VP": 54,
+      "FP": 254,
+      "FN": 5,
+      "VN": 745
+    }
+  },
+  "latence_inference_lot1": {
+    "cpu": {
+      "p50_ms": 25.333208500001092,
+      "p95_ms": 29.85218940001459
+    }
+  },
+  "controle": {
+    "isic_id": "ISIC_0104229",
+    "probabilite_maligne": 0.06629
+  }
+}
+duree totale 660 s, RAM max 2080 Mo, model/modele.pt 44.8 Mo

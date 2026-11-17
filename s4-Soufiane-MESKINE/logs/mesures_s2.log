@@ -1,0 +1,16 @@
+﻿Mesures S2 - 2026-11-17T12:34:07
+12:34:07 image 1.0.0 : 
+12:34:07 image 1.0.0 : Error response from daemon: No such image: dermascan-api:1.0.0
+12:34:07 image 1.0.0 absente : on la tire du registre
+12:34:16 Login Succeeded
+12:35:05 Digest: sha256:cae2b6358fcfc65751d85a16536efb9ae660b5b26782e56f98fdcaedb310006b
+12:35:05 Status: Downloaded newer image for acrdermascansm26.azurecr.io/dermascan-api:1.0.0
+12:35:05 acrdermascansm26.azurecr.io/dermascan-api:1.0.0
+12:35:05 REPOSITORY      TAG       IMAGE ID       CREATED          SIZE
+12:35:05 dermascan-api   2.0.0     ec4a45b98aa6   12 minutes ago   1.67GB
+12:35:05 dermascan-api   1.0.0     cae2b6358fcf   5 weeks ago      651MB
+12:35:10 [RESUME] S2 demarrage jusqu au premier /health 200 (s) = 4.4
+12:35:12 [RESUME] S2 latence /predict p50 / p95 (ms), 50 appels = 14.2 / 24.6
+12:35:23 CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O           BLOCK I/O     PIDS
+12:35:23 a36bdcd99ab6   dermascan-api-s2   0.01%     240.1MiB / 7.615GiB   3.08%     97.2kB / 38.2kB   13.3MB / 0B   31
+12:35:24 TERMINE

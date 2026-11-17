@@ -1,0 +1,46 @@
+﻿Nettoyage S4 - 2026-11-17T14:44:23
+
+===== Archive des logs de l application (14:45:53) =====
+WARNING: Downloaded logs to logs\logs_s4.zip
+
+===== Inventaire avant destruction (14:46:17) =====
+Name                    ResourceGroup         Location       Type                       Status
+----------------------  --------------------  -------------  -------------------------  ---------
+plan-dermascan-s4-sm26  rg-dermascan-s4-sm26  francecentral  Microsoft.Web/serverFarms  Succeeded
+dermascan-api-s4-sm26   rg-dermascan-s4-sm26  francecentral  Microsoft.Web/sites        Succeeded
+
+===== Attributions sur le registre (avant) (14:46:35) =====
+Principal                             Role     Scope
+------------------------------------  -------  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+c7fbd51b-7a9b-4530-a203-ed8903d44805  AcrPull  /subscriptions/38afe200-d678-45cc-9d39-ecf7f8de0cc8/resourceGroups/rg-dermascan-registre-sm26/providers/Microsoft.ContainerRegistry/registries/acrdermascansm26
+
+===== Suppression de l attribution AcrPull (14:46:45) =====
+
+===== Suppression du groupe de la seance (14:46:56) =====
+14:47:15 az group exists = true
+14:47:45 az group exists = true
+14:48:16 az group exists = false
+
+===== Attributions sur le registre (apres) (14:48:28) =====
+
+
+===== az group list (14:48:41) =====
+Name                        Location       Status
+--------------------------  -------------  ---------
+rg-dermascan-registre-sm26  francecentral  Succeeded
+
+===== Ressources du groupe registre (14:48:54) =====
+Name              ResourceGroup               Location       Type                                    Status
+----------------  --------------------------  -------------  --------------------------------------  ---------
+acrdermascansm26  rg-dermascan-registre-sm26  francecentral  Microsoft.ContainerRegistry/registries  Succeeded
+
+===== Tags du depot dermascan-api (conserves) (14:49:17) =====
+Result
+--------
+1.0.0
+2.0.0
+
+===== Arret des conteneurs locaux (14:49:21) =====
+dermascan-api-s4
+Error response from daemon: No such container: dermascan-api-s2
+venv Locust supprime

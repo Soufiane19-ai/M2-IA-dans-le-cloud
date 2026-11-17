@@ -1,0 +1,15 @@
+﻿OK     cles du meta  ΓÇö 19 cles
+OK     sha256 des poids
+OK     manifeste present et intact
+OK     effectifs du manifeste = meta  ΓÇö 294 + 5000
+OK     aucun patient des deux cotes  ΓÇö 0 en commun
+OK     sortie (lot, 1) : un logit par image  ΓÇö (2, 1)
+OK     backbone gele hors ['fc', 'layer4']  ΓÇö 122 tenseurs compares
+OK     correction_logit = ln(n_negatifs / negatifs disponibles)  ΓÇö -3.7713
+OK     seuil = seuil_brut recalibre  ΓÇö 0.0212 -> 0.000499
+OK     prevalence reelle < prevalence d'entrainement
+OK     PR-AUC au-dessus du hasard  ΓÇö 0.480 contre 0.056
+OK     rappel au seuil >= rappel cible
+OK     controle ISIC_0104229 reproduit  ΓÇö 0.066289 contre 0.06629
+
+13/13 controles OK ΓÇö RENDU RECEVABLE
