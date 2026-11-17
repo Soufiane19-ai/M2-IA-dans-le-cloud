@@ -1,0 +1,1 @@
+AppServiceConsoleLogs | where TimeGenerated > ago(2h) | where ResultDescription startswith '{' | order by TimeGenerated asc | project ResultDescription

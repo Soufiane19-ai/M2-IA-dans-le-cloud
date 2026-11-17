@@ -1,0 +1,17 @@
+let reference = datatable(eclairage: string, p: real) ["3D: white", 0.529037, "3D: XP", 0.470963];
+let seuil_alerte = 0.25;
+let observe = AppServiceConsoleLogs
+    | where ResultDescription startswith "{"
+    | extend j = parse_json(ResultDescription)
+    | where toint(j.http_status) == 200 and isnotempty(tostring(j.covariables.tbp_tile_type))
+    | summarize n = count()
+        by fenetre = bin(TimeGenerated, 5m), eclairage = tostring(j.covariables.tbp_tile_type);
+let totaux = observe | summarize total = sum(n) by fenetre;
+totaux
+| extend cle = 1
+| join kind=inner (reference | extend cle = 1) on cle          // chaque fenetre x chaque modalite
+| join kind=leftouter observe on fenetre, eclairage             // une modalite absente compte 0
+| extend q = max_of(todouble(coalesce(n, 0)) / total, 1e-4), p = max_of(p, 1e-4)
+| summarize psi = sum((q - p) * log(q / p)), appels = take_any(total) by fenetre
+| extend seuil_alerte
+| order by fenetre asc

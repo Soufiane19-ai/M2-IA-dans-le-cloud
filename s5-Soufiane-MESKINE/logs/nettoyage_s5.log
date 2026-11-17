@@ -1,0 +1,63 @@
+﻿Nettoyage S5 - 2026-11-17T19:14:20
+
+===== Archive des logs de l application (19:14:37) =====
+WARNING: Downloaded logs to logs\logs_s5.zip
+
+===== Inventaire avant destruction (19:14:41) =====
+Name                                  ResourceGroup         Location       Type                                      Status
+------------------------------------  --------------------  -------------  ----------------------------------------  ---------
+plan-dermascan-s5-sm26                rg-dermascan-s5-sm26  francecentral  Microsoft.Web/serverFarms                 Succeeded
+dermascan-api-s5-sm26                 rg-dermascan-s5-sm26  francecentral  Microsoft.Web/sites                       Succeeded
+law-dermascan-s5-sm26                 rg-dermascan-s5-sm26  francecentral  Microsoft.OperationalInsights/workspaces  Succeeded
+df4c89a8-ea96-41e0-b5b7-574fd3cd0123  rg-dermascan-s5-sm26  francecentral  Microsoft.Portal/dashboards               Succeeded
+
+===== Attributions sur le registre (avant) (19:14:45) =====
+Principal                             Role     Scope
+------------------------------------  -------  ---------------------------------------------------------------------------------------------------------------------------------------------------------------
+cf9e707c-1b26-4c50-987a-c440d30e96e3  AcrPull  /subscriptions/38afe200-d678-45cc-9d39-ecf7f8de0cc8/resourceGroups/rg-dermascan-registre-sm26/providers/Microsoft.ContainerRegistry/registries/acrdermascansm26
+
+===== Suppression de l attribution AcrPull (19:14:49) =====
+
+===== Tableaux de bord de l abonnement (avant) (19:14:52) =====
+Nom                                   Groupe                Region
+------------------------------------  --------------------  -------------
+df4c89a8-ea96-41e0-b5b7-574fd3cd0123  rg-dermascan-s5-sm26  francecentral
+
+===== Suppression definitive de l espace Log Analytics (--force) (19:15:26) =====
+
+===== Suppression du groupe de la seance (19:15:30) =====
+19:15:33 az group exists = true
+19:15:50 az group exists = true
+19:16:08 az group exists = true
+19:16:26 az group exists = true
+19:16:45 az group exists = false
+
+===== Attributions sur le registre (apres) (19:16:47) =====
+
+
+===== az group list (19:16:50) =====
+Name                        Location       Status
+--------------------------  -------------  ---------
+rg-dermascan-registre-sm26  francecentral  Succeeded
+
+===== Ressources du groupe registre (19:16:54) =====
+Name              ResourceGroup               Location       Type                                    Status
+----------------  --------------------------  -------------  --------------------------------------  ---------
+acrdermascansm26  rg-dermascan-registre-sm26  francecentral  Microsoft.ContainerRegistry/registries  Succeeded
+
+===== Tableaux de bord de l abonnement (apres) (19:16:57) =====
+
+
+===== az group exists registre (19:17:00) =====
+true
+
+===== Tags du depot dermascan-api (conserves) (19:17:07) =====
+Result
+--------
+1.0.0
+2.0.0
+2.1.0
+
+===== Arret des conteneurs locaux (19:17:08) =====
+Error response from daemon: No such container: dermascan-api-s5
+venv Locust supprime

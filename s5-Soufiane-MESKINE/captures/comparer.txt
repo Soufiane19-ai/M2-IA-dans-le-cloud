@@ -1,0 +1,5 @@
+﻿1058 vignettes de validation (59 malignes), seuil 0.000499, controle ISIC_0104229 = 0.06629 (meta S4)
+ variante  taille_mo  p50_ms  p95_ms  proba_controle  rappel_au_seuil  alertes  roc_auc  ecart_max_proba  decisions_changees
+  pytorch       44.8  542.04 1279.31        0.066290           0.8983      307   0.8993         0.000000                   0
+     onnx       44.8  157.06  404.34        0.066290           0.8983      307   0.8993         0.000003                   0
+onnx_int8       11.3  175.84  413.26        0.099081           0.9153      308   0.8994         0.230000                  39

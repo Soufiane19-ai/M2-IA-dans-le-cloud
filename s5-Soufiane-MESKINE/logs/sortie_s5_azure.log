@@ -1,0 +1,527 @@
+﻿TP S5 Azure - debut 2026-11-17T16:56:37
+16:57:10 [RESUME] LOCATION = francecentral
+16:57:10 
+16:57:10 ===== Fournisseur Microsoft.Web =====
+Registered
+16:57:32 [duree] 22.5 s  [code] 0
+16:57:32 
+16:57:32 ===== Fournisseur Microsoft.OperationalInsights =====
+Registered
+16:59:07 [duree] 94.7 s  [code] 0
+16:59:07 
+16:59:07 ===== Fournisseur Microsoft.Insights =====
+Registered
+17:01:08 [duree] 120.4 s  [code] 0
+17:01:08 
+17:01:08 ===== Extension log-analytics =====
+1.0.0b3
+17:02:27 [duree] 79.3 s  [code] 0
+17:02:27 
+17:02:27 ===== az acr login =====
+Login Succeeded
+17:02:50 [duree] 22.5 s  [code] 0
+17:03:12 
+17:03:12 ===== docker push acrdermascansm26.azurecr.io/dermascan-api:2.1.0 =====
+The push refers to repository [acrdermascansm26.azurecr.io/dermascan-api]
+f53829540a90: Waiting
+3ebb173ec8b1: Waiting
+2a29cc7080d4: Waiting
+babe323e75b8: Waiting
+f4265a56de30: Waiting
+82087d46dc9d: Waiting
+cbb983c064c8: Waiting
+203053b7c1c4: Waiting
+9228d0731dae: Waiting
+babe323e75b8: Waiting
+f4265a56de30: Waiting
+82087d46dc9d: Waiting
+cbb983c064c8: Waiting
+ee9776505c0d: Waiting
+9228d0731dae: Waiting
+f53829540a90: Waiting
+3ebb173ec8b1: Waiting
+b107b954cc5b: Waiting
+001c45d7374c: Waiting
+fd7ce0f1ca57: Waiting
+53abc9c20665: Waiting
+2a29cc7080d4: Waiting
+dc2b2c4d05a6: Waiting
+41af7e079b60: Waiting
+386404bbcc5e: Waiting
+203053b7c1c4: Waiting
+7a4877cecca8: Waiting
+dc2b2c4d05a6: Waiting
+41af7e079b60: Waiting
+386404bbcc5e: Waiting
+203053b7c1c4: Waiting
+7a4877cecca8: Waiting
+babe323e75b8: Waiting
+f4265a56de30: Waiting
+82087d46dc9d: Waiting
+cbb983c064c8: Waiting
+ee9776505c0d: Waiting
+9228d0731dae: Waiting
+f53829540a90: Waiting
+3ebb173ec8b1: Waiting
+b107b954cc5b: Waiting
+001c45d7374c: Waiting
+fd7ce0f1ca57: Waiting
+53abc9c20665: Waiting
+2a29cc7080d4: Waiting
+7a4877cecca8: Waiting
+babe323e75b8: Waiting
+f4265a56de30: Waiting
+82087d46dc9d: Waiting
+cbb983c064c8: Waiting
+ee9776505c0d: Waiting
+9228d0731dae: Waiting
+f53829540a90: Waiting
+3ebb173ec8b1: Waiting
+b107b954cc5b: Waiting
+001c45d7374c: Waiting
+fd7ce0f1ca57: Waiting
+53abc9c20665: Waiting
+2a29cc7080d4: Waiting
+dc2b2c4d05a6: Waiting
+41af7e079b60: Waiting
+386404bbcc5e: Waiting
+203053b7c1c4: Waiting
+dc2b2c4d05a6: Waiting
+41af7e079b60: Waiting
+386404bbcc5e: Waiting
+203053b7c1c4: Waiting
+7a4877cecca8: Waiting
+babe323e75b8: Waiting
+f4265a56de30: Waiting
+82087d46dc9d: Waiting
+cbb983c064c8: Waiting
+ee9776505c0d: Waiting
+9228d0731dae: Waiting
+f53829540a90: Waiting
+3ebb173ec8b1: Waiting
+b107b954cc5b: Waiting
+001c45d7374c: Waiting
+fd7ce0f1ca57: Waiting
+53abc9c20665: Waiting
+2a29cc7080d4: Waiting
+f4265a56de30: Waiting
+82087d46dc9d: Waiting
+cbb983c064c8: Waiting
+ee9776505c0d: Waiting
+9228d0731dae: Waiting
+f53829540a90: Waiting
+3ebb173ec8b1: Waiting
+b107b954cc5b: Waiting
+001c45d7374c: Waiting
+fd7ce0f1ca57: Waiting
+53abc9c20665: Waiting
+2a29cc7080d4: Waiting
+dc2b2c4d05a6: Waiting
+41af7e079b60: Waiting
+386404bbcc5e: Waiting
+203053b7c1c4: Waiting
+7a4877cecca8: Waiting
+babe323e75b8: Waiting
+203053b7c1c4: Waiting
+7a4877cecca8: Waiting
+babe323e75b8: Waiting
+f4265a56de30: Waiting
+82087d46dc9d: Waiting
+cbb983c064c8: Waiting
+ee9776505c0d: Waiting
+9228d0731dae: Waiting
+f53829540a90: Waiting
+3ebb173ec8b1: Waiting
+b107b954cc5b: Waiting
+001c45d7374c: Waiting
+fd7ce0f1ca57: Waiting
+53abc9c20665: Waiting
+2a29cc7080d4: Waiting
+dc2b2c4d05a6: Waiting
+41af7e079b60: Waiting
+386404bbcc5e: Waiting
+9228d0731dae: Waiting
+f53829540a90: Waiting
+3ebb173ec8b1: Waiting
+b107b954cc5b: Waiting
+001c45d7374c: Waiting
+fd7ce0f1ca57: Waiting
+53abc9c20665: Waiting
+2a29cc7080d4: Waiting
+dc2b2c4d05a6: Waiting
+41af7e079b60: Waiting
+386404bbcc5e: Waiting
+203053b7c1c4: Waiting
+7a4877cecca8: Waiting
+babe323e75b8: Waiting
+f4265a56de30: Waiting
+82087d46dc9d: Waiting
+cbb983c064c8: Waiting
+ee9776505c0d: Waiting
+fd7ce0f1ca57: Waiting
+53abc9c20665: Waiting
+2a29cc7080d4: Waiting
+dc2b2c4d05a6: Waiting
+41af7e079b60: Waiting
+386404bbcc5e: Waiting
+203053b7c1c4: Waiting
+7a4877cecca8: Waiting
+babe323e75b8: Waiting
+f4265a56de30: Waiting
+82087d46dc9d: Waiting
+cbb983c064c8: Waiting
+ee9776505c0d: Waiting
+9228d0731dae: Waiting
+f53829540a90: Waiting
+3ebb173ec8b1: Waiting
+b107b954cc5b: Waiting
+001c45d7374c: Waiting
+386404bbcc5e: Pushed
+203053b7c1c4: Pushed
+babe323e75b8: Pushed
+cbb983c064c8: Pushed
+9228d0731dae: Pushed
+001c45d7374c: Pushed
+53abc9c20665: Pushed
+2a29cc7080d4: Pushed
+41af7e079b60: Pushed
+dc2b2c4d05a6: Pushed
+82087d46dc9d: Pushed
+f4265a56de30: Pushed
+f53829540a90: Pushed
+3ebb173ec8b1: Pushed
+7a4877cecca8: Pushed
+b107b954cc5b: Pushed
+fd7ce0f1ca57: Pushed
+ee9776505c0d: Pushed
+2.1.0: digest: sha256:234640972e55559668f437f997bef1a9da0fe103d54e0fb7f86baebc0edf250b size: 3844
+17:04:05 [duree] 49 s  [code] 0
+17:04:05 [RESUME] duree du push (s) = 49
+17:04:19 [RESUME] DIGEST = sha256:234640972e55559668f437f997bef1a9da0fe103d54e0fb7f86baebc0edf250b
+17:04:19 
+17:04:20 ===== Tags du depot =====
+Result
+--------
+1.0.0
+2.0.0
+2.1.0
+17:04:34 [duree] 14.6 s  [code] 0
+17:04:34 
+17:04:34 ===== Groupe de seance =====
+Nom                   Etat
+--------------------  ---------
+rg-dermascan-s5-sm26  Succeeded
+17:04:49 [duree] 14.4 s  [code] 0
+17:04:49 
+17:04:49 ===== Plan B1 =====
+WARNING: Creating App Service Plan 'plan-dermascan-s5-sm26' (Linux, SKU: B1).
+Nom                     Sku
+----------------------  -----
+plan-dermascan-s5-sm26  B1
+17:05:10 [duree] 20.5 s  [code] 0
+17:05:10 
+17:05:10 ===== Application =====
+WARNING: Tip: run 'az webapp troubleshoot config --name dermascan-api-s5-sm26 --resource-group rg-dermascan-s5-sm26 --report' to validate app configuration and see recent runtime errors.
+WARNING: Tip: run 'az webapp troubleshoot status --name dermascan-api-s5-sm26 --resource-group rg-dermascan-s5-sm26' to see per-instance runtime status and recent startup summary.
+Nom                    Hote
+---------------------  ---------------------------------------
+dermascan-api-s5-sm26  dermascan-api-s5-sm26.azurewebsites.net
+17:06:11 [duree] 61 s  [code] 0
+17:06:11 
+17:06:11 ===== Reglages (le sel n est pas affiche) =====
+WEBSITES_ENABLE_APP_SERVICE_STORAGE
+WEBSITES_PORT
+PORT
+MODEL_VERSION
+ENVIRONMENT
+IMAGE_DIGEST
+INFERENCE_LOG_SALT
+WEBSITES_CONTAINER_START_TIME_LIMIT
+17:06:29 [duree] 18.2 s  [code] 0
+17:06:29 
+17:06:30 ===== Identite managee =====
+457feab3-d1e7-4351-92a5-a560a3a5297b
+17:06:47 [duree] 17 s  [code] 0
+17:07:19 
+17:07:19 ===== Role AcrPull =====
+17:07:33 [duree] 14.3 s  [code] 0
+17:07:49 
+17:07:49 ===== acrUseManagedIdentityCreds =====
+true
+17:08:05 [duree] 15.8 s  [code] 0
+17:08:35 
+17:08:35 ===== Restart (force le pull) =====
+17:08:50 [duree] 14.8 s  [code] 0
+17:09:21   essai 1 : 000
+17:09:38   essai 2 : 200
+17:09:38 [RESUME] restart -> premier 200 (s) = 48
+17:09:38 [RESUME] codes = 000 200
+17:09:38 
+17:09:38 ===== /model/info en ligne =====
+{"architecture":"resnet18","covariables_acceptees":["age_approx","sex","anatom_site_general","tbp_tile_type"],"echantillonnage":{"graine":42,"manifeste":"manifeste_echantillon.csv","methode":"tous les positifs + negatifs tires uniformement sans remise (pandas.sample)","n_negatifs":5000,"n_negatifs_disponibles":217183,"n_positifs":294,"sha256_manifeste":"64d2e25ddd474269d41e9437b7fc79d857d032b5a683e313db61bf91b3e07711","source":"ISIC 2024 SLICE-3D Permissive, licence CC-BY 4.0","taux_negatifs":0.023022059737640606},"entraine_le":"2026-11-17T11:14:08","fichier_servi":"modele.onnx","format":"onnx","metriques":{"hasard_pr_auc":0.055765595463137994,"lesions_examinees_par_maligne_reelle":206,"matrice_confusion_validation":{"FN":5,"FP":254,"VN":745,"VP":54},"pauc_80":0.12323849273001813,"pr_auc":0.4799054650173198,"precision_au_seuil_validation":0.17532467532467533,"precision_projetee_prevalence_reelle":0.0048493535899812035,"rappel_au_seuil":0.9152542372881356,"roc_auc":0.8993230518654248},"prevalence_entrainement":0.055534567434831886,"prevalence_reelle":0.0013518670939915486,"rappel_cible":0.9,"seuil":0.0004990625942336154,"sha256_fichier_servi":"c7d89deb11d3b32b2959977ef6ed2d0385353d7a6c74605325e6eca982c70695","sha256_poids":"b44771c802585db7969ba6e9dff0eb947ea639fb25f8402860224b56d339fd0a","taille_entree":128,"version":"2.1.0","version_deployee":"2.1.0"}
+17:09:39 [duree] 0.5 s  [code] 0
+17:09:39 
+17:09:39 ===== Espace Log Analytics (retention 30 j) =====
+Nom                    Retention    Sku
+---------------------  -----------  ---------
+law-dermascan-s5-sm26  30           PerGB2018
+17:10:23 [duree] 43.6 s  [code] 0
+17:10:42 [RESUME] hostname avant le parametre de diagnostic = 8add04121a0c
+17:10:42 
+17:10:42 ===== Parametre de diagnostic (AppServiceConsoleLogs + AppServiceHTTPLogs) =====
+Categorie              Actif
+---------------------  -------
+AppServiceConsoleLogs  True
+AppServiceHTTPLogs     True
+17:10:55 [duree] 13 s  [code] 0
+17:10:55   hostname : 8add04121a0c
+17:11:05   hostname : 8add04121a0c
+17:11:15   hostname : 8add04121a0c
+17:11:26   hostname : 8add04121a0c
+17:11:36   hostname : 8add04121a0c
+17:11:46   hostname : 857995426f91
+17:11:46 [RESUME] nouveau hostname, et delai apres le parametre de diagnostic (s) = 857995426f91, 50
+17:11:46 
+17:11:46 ===== /predict temoin (heure UTC de l appel) =====
+{"decision":"a_examiner","probabilite_maligne":0.066289,"rappel_cible":0.9,"seuil":0.0004990625942336154,"version_modele":"2.1.0"}
+16:11:47
+17:11:47 [duree] 0.9 s  [code] 0
+17:12:36   temoin dans Log Analytics ? 0
+17:13:20   temoin dans Log Analytics ? 0
+17:13:56   temoin dans Log Analytics ? 0
+17:14:38   temoin dans Log Analytics ? 0
+17:15:16   temoin dans Log Analytics ? 0
+17:15:52   temoin dans Log Analytics ? 0
+17:16:34   temoin dans Log Analytics ? 1
+17:16:34 [RESUME] Mesure 10 - delai appel -> apparition dans Log Analytics (s) = 287
+17:16:34 DEBUT DU REJEU (UTC) 16:16:34
+17:16:34 
+17:16:34 ===== Rejeu conforme (600 appels, 1 req/s) =====
+conforme (archive) : 600 appels, codes {200: 600}, a_examiner 156 (26.0%)
+17:27:48 [duree] 674 s  [code] 0
+17:27:48 DEBUT DE LA DERIVE (UTC) 16:27:48
+17:27:48 
+17:27:48 ===== Rejeu derive eclairage (600 appels, 1 req/s) =====
+derive (eclairage) : 600 appels, codes {200: 355, 'ConnectionError': 245}, a_examiner 72 (20.3%)
+18:47:12 [duree] 4763.5 s  [code] 0
+18:47:12 FIN DU REJEU (UTC) 17:47:12
+18:47:12 
+18:47:12 ===== venv Locust =====
+18:47:22 [duree] 9.6 s  [code] 0
+18:47:22 
+18:47:22 ===== pip install locust =====
+18:48:39 [duree] 77.1 s  [code] 0
+18:48:39 
+18:48:39 ===== Palier 1 : 10 utilisateurs, 3 min =====
+[2026-11-17 18:48:44,237] LAPTOP-2GTA1HJU/INFO/locust.main: Starting Locust 2.47.0
+[2026-11-17 18:48:44,240] LAPTOP-2GTA1HJU/INFO/locust.main: Run time limit set to 180 seconds
+[2026-11-17 18:48:44,244] LAPTOP-2GTA1HJU/INFO/locust.runners: Ramping to 10 users at a rate of 5.00 per second
+[2026-11-17 18:48:45,247] LAPTOP-2GTA1HJU/INFO/locust.runners: All users spawned: {"Dermatologue": 10} (10 total users)
+[2026-11-17 18:51:42,164] LAPTOP-2GTA1HJU/INFO/locust.main: --run-time limit reached, shutting down
+[2026-11-17 18:51:43,381] LAPTOP-2GTA1HJU/INFO/locust.main: Shutting down (exit code 0)
+Type     Name                                                                          # reqs      # fails |    Avg     Min     Max    Med |   req/s  failures/s
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+GET      0. ouverture connexion TLS                                                        10     0(0.00%) |    387     305     455    410 |    0.06        0.00
+GET      GET /health                                                                       65     0(0.00%) |     90      50     592     76 |    0.36        0.00
+GET      GET /model/info                                                                   81     0(0.00%) |     94      45     288     82 |    0.45        0.00
+POST     POST /predict                                                                    679     0(0.00%) |    153      91     847    130 |    3.81        0.00
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+         Aggregated                                                                       835     0(0.00%) |    145      45     847    130 |    4.69        0.00
+Response time percentiles (approximated)
+Type     Name                                                                                  50%    66%    75%    80%    90%    95%    98%    99%  99.9% 99.99%   100% # reqs
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+GET      0. ouverture connexion TLS                                                            410    440    450    460    460    460    460    460    460    460    460     10
+GET      GET /health                                                                            76     83     89     94    110    170    220    590    590    590    590     65
+GET      GET /model/info                                                                        82     96    110    110    150    170    230    290    290    290    290     81
+POST     POST /predict                                                                         130    150    160    180    220    260    360    540    850    850    850    679
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+         Aggregated                                                                            130    140    160    170    220    260    390    460    850    850    850    835
+18:51:43 [duree] 183.8 s  [code] 0
+18:51:43 
+18:51:43 ===== Palier 2 : 50 utilisateurs, 3 min =====
+[2026-11-17 18:51:46,175] LAPTOP-2GTA1HJU/INFO/locust.main: Starting Locust 2.47.0
+[2026-11-17 18:51:46,178] LAPTOP-2GTA1HJU/INFO/locust.main: Run time limit set to 180 seconds
+[2026-11-17 18:51:46,181] LAPTOP-2GTA1HJU/INFO/locust.runners: Ramping to 50 users at a rate of 5.00 per second
+[2026-11-17 18:51:55,182] LAPTOP-2GTA1HJU/INFO/locust.runners: All users spawned: {"Dermatologue": 50} (50 total users)
+[2026-11-17 18:54:44,761] LAPTOP-2GTA1HJU/INFO/locust.main: --run-time limit reached, shutting down
+[2026-11-17 18:54:45,115] LAPTOP-2GTA1HJU/INFO/locust.main: Shutting down (exit code 0)
+Type     Name                                                                          # reqs      # fails |    Avg     Min     Max    Med |   req/s  failures/s
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+GET      0. ouverture connexion TLS                                                        50     0(0.00%) |    792     326    2462    490 |    0.28        0.00
+GET      GET /health                                                                      295     0(0.00%) |    687      62    6622    470 |    1.65        0.00
+GET      GET /model/info                                                                  328     0(0.00%) |    743      59    6451    500 |    1.83        0.00
+POST     POST /predict                                                                   2545     0(0.00%) |    766     102    6901    540 |   14.23        0.00
+--------|----------------------------------------------------------------------------|-------|-------------|-------|-------|-------|-------|--------|-----------
+         Aggregated                                                                      3218     0(0.00%) |    757      59    6901    530 |   18.00        0.00
+Response time percentiles (approximated)
+Type     Name                                                                                  50%    66%    75%    80%    90%    95%    98%    99%  99.9% 99.99%   100% # reqs
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+GET      0. ouverture connexion TLS                                                            490    610    620   1500   2400   2500   2500   2500   2500   2500   2500     50
+GET      GET /health                                                                           470    590    660    700   1100   2200   4100   6100   6600   6600   6600    295
+GET      GET /model/info                                                                       500    630    700    780   1500   2800   4200   4800   6500   6500   6500    328
+POST     POST /predict                                                                         540    660    730    820   1400   2500   3900   5300   6700   6900   6900   2545
+--------|--------------------------------------------------------------------------------|--------|------|------|------|------|------|------|------|------|------|------|------
+         Aggregated                                                                            530    640    720    800   1400   2500   3900   5300   6600   6900   6900   3218
+18:54:45 [duree] 181.6 s  [code] 0
+18:54:45 
+18:54:45 ===== CSV des paliers =====
+s5_palier1_stats.csv
+Type,Name,Request Count,Failure Count,Median Response Time,Average Response Time,Min Response Time,Max Response Time,Average Content Size,Requests/s,Failures/s,50%,66%,75%,80%,90%,95%,98%,99%,99.9%,99.99%,100%
+
+GET,0. ouverture connexion TLS,10,0,410,387.3170000006212,305.0859000068158,455.18570000422187,117.0,0.056404304626434046,0.0,410,440,450,460,460,460,460,460,460,460,460
+
+GET,GET /health,65,0,76,90.43288307595783,50.742799998261034,592.065900011221,117.0,0.3666279800718213,0.0,76,83,89,94,110,170,220,590,590,590,590
+
+GET,GET /model/info,81,0,82,94.15959629584478,45.834099990315735,288.0812999937916,1375.0,0.45687486747411576,0.0,82,96,110,110,150,170,230,290,290,290,290
+
+POST,POST /predict,677,0,130,153.14874475656086,91.46360000886489,847.0257999870228,131.0,3.818571423209585,0.0,130,150,160,180,220,250,360,540,850,850,850
+
+,Aggregated,833,0,130,145.33005390167898,45.834099990315735,847.0257999870228,250.7046818727491,4.698478575381956,0.0,130,140,160,170,220,260,390,460,850,850,850
+
+s5_palier2_stats.csv
+Type,Name,Request Count,Failure Count,Median Response Time,Average Response Time,Min Response Time,Max Response Time,Average Content Size,Requests/s,Failures/s,50%,66%,75%,80%,90%,95%,98%,99%,99.9%,99.99%,100%
+
+GET,0. ouverture connexion TLS,50,0,490,792.7694460007478,326.1272000090685,2462.9318000079365,117.0,0.2801096481002603,0.0,490,610,620,1500,2400,2500,2500,2500,2500,2500,2500
+
+GET,GET /health,295,0,470,687.7926203385746,62.554699994507246,6622.810200002277,117.0,1.6526469237915358,0.0,470,590,660,700,1100,2200,4100,6100,6600,6600,6600
+
+GET,GET /model/info,328,0,500,743.6887984755541,59.62280000676401,6451.749600004405,1375.0,1.8375192915377074,0.0,500,630,700,780,1500,2800,4200,4800,6500,6500,6500
+
+POST,POST /predict,2540,0,540,766.4774004726487,102.8292999981204,6901.385100005427,131.0,14.229570123493222,0.0,540,660,730,820,1400,2500,3900,5300,6700,6900,6900
+
+,Aggregated,3213,0,530,757.3357666979223,59.62280000676401,6901.385100005427,256.4908185496421,17.999845986922725,0.0,530,650,720,800,1400,2500,3900,5300,6600,6900,6900
+
+18:54:45 [duree] 0.1 s  [code] 0
+18:54:51 
+18:54:51 ===== CPU / memoire du plan (PT1M) =====
+Timestamp             Name               Average
+--------------------  -----------------  ---------
+2026-11-17T17:09:00Z  CPU Percentage     33.0
+2026-11-17T17:10:00Z  CPU Percentage     10.0
+2026-11-17T17:11:00Z  CPU Percentage     11.0
+2026-11-17T17:12:00Z  CPU Percentage     5.0
+2026-11-17T17:13:00Z  CPU Percentage     20.0
+2026-11-17T17:14:00Z  CPU Percentage     7.0
+2026-11-17T17:15:00Z  CPU Percentage     9.0
+2026-11-17T17:16:00Z  CPU Percentage     6.0
+2026-11-17T17:17:00Z  CPU Percentage     9.0
+2026-11-17T17:18:00Z  CPU Percentage     16.0
+2026-11-17T17:19:00Z  CPU Percentage     9.0
+2026-11-17T17:20:00Z  CPU Percentage     7.0
+2026-11-17T17:21:00Z  CPU Percentage     10.0
+2026-11-17T17:22:00Z  CPU Percentage     5.0
+2026-11-17T17:23:00Z  CPU Percentage     18.0
+2026-11-17T17:24:00Z  CPU Percentage     7.0
+2026-11-17T17:25:00Z  CPU Percentage     7.0
+2026-11-17T17:26:00Z  CPU Percentage     10.0
+2026-11-17T17:27:00Z  CPU Percentage     7.0
+2026-11-17T17:28:00Z  CPU Percentage     17.0
+2026-11-17T17:29:00Z  CPU Percentage     9.0
+2026-11-17T17:30:00Z  CPU Percentage     7.0
+2026-11-17T17:31:00Z  CPU Percentage     10.0
+2026-11-17T17:32:00Z  CPU Percentage     7.0
+2026-11-17T17:33:00Z  CPU Percentage     19.0
+2026-11-17T17:34:00Z  CPU Percentage     6.0
+2026-11-17T17:35:00Z  CPU Percentage     6.0
+2026-11-17T17:36:00Z  CPU Percentage     6.0
+2026-11-17T17:37:00Z  CPU Percentage     9.0
+2026-11-17T17:38:00Z  CPU Percentage     17.0
+2026-11-17T17:39:00Z  CPU Percentage     34.0
+2026-11-17T17:40:00Z  CPU Percentage     7.0
+2026-11-17T17:41:00Z  CPU Percentage     9.0
+2026-11-17T17:42:00Z  CPU Percentage     5.0
+2026-11-17T17:43:00Z  CPU Percentage     20.0
+2026-11-17T17:44:00Z  CPU Percentage     6.0
+2026-11-17T17:45:00Z  CPU Percentage     7.0
+2026-11-17T17:46:00Z  CPU Percentage     6.0
+2026-11-17T17:47:00Z  CPU Percentage     12.0
+2026-11-17T17:48:00Z  CPU Percentage     20.0
+2026-11-17T17:49:00Z  CPU Percentage     11.0
+2026-11-17T17:50:00Z  CPU Percentage     22.0
+2026-11-17T17:51:00Z  CPU Percentage     26.0
+2026-11-17T17:52:00Z  CPU Percentage     25.0
+2026-11-17T17:53:00Z  CPU Percentage     96.0
+2026-11-17T17:09:00Z  Memory Percentage  73.0
+2026-11-17T17:10:00Z  Memory Percentage  75.0
+2026-11-17T17:11:00Z  Memory Percentage  75.0
+2026-11-17T17:12:00Z  Memory Percentage  77.0
+2026-11-17T17:13:00Z  Memory Percentage  76.0
+2026-11-17T17:14:00Z  Memory Percentage  76.0
+2026-11-17T17:15:00Z  Memory Percentage  77.0
+2026-11-17T17:16:00Z  Memory Percentage  76.0
+2026-11-17T17:17:00Z  Memory Percentage  77.0
+2026-11-17T17:18:00Z  Memory Percentage  76.0
+2026-11-17T17:19:00Z  Memory Percentage  76.0
+2026-11-17T17:20:00Z  Memory Percentage  76.0
+2026-11-17T17:21:00Z  Memory Percentage  77.0
+2026-11-17T17:22:00Z  Memory Percentage  76.0
+2026-11-17T17:23:00Z  Memory Percentage  76.0
+2026-11-17T17:24:00Z  Memory Percentage  77.0
+2026-11-17T17:25:00Z  Memory Percentage  76.0
+2026-11-17T17:26:00Z  Memory Percentage  76.0
+2026-11-17T17:27:00Z  Memory Percentage  76.0
+2026-11-17T17:28:00Z  Memory Percentage  76.0
+2026-11-17T17:29:00Z  Memory Percentage  76.0
+2026-11-17T17:30:00Z  Memory Percentage  76.0
+2026-11-17T17:31:00Z  Memory Percentage  76.0
+2026-11-17T17:32:00Z  Memory Percentage  76.0
+2026-11-17T17:33:00Z  Memory Percentage  76.0
+2026-11-17T17:34:00Z  Memory Percentage  77.0
+2026-11-17T17:35:00Z  Memory Percentage  76.0
+2026-11-17T17:36:00Z  Memory Percentage  76.0
+2026-11-17T17:37:00Z  Memory Percentage  77.0
+2026-11-17T17:38:00Z  Memory Percentage  76.0
+2026-11-17T17:39:00Z  Memory Percentage  74.0
+2026-11-17T17:40:00Z  Memory Percentage  74.0
+2026-11-17T17:41:00Z  Memory Percentage  74.0
+2026-11-17T17:42:00Z  Memory Percentage  75.0
+2026-11-17T17:43:00Z  Memory Percentage  75.0
+2026-11-17T17:44:00Z  Memory Percentage  75.0
+2026-11-17T17:45:00Z  Memory Percentage  75.0
+2026-11-17T17:46:00Z  Memory Percentage  75.0
+2026-11-17T17:47:00Z  Memory Percentage  76.0
+2026-11-17T17:48:00Z  Memory Percentage  76.0
+2026-11-17T17:49:00Z  Memory Percentage  78.0
+2026-11-17T17:50:00Z  Memory Percentage  76.0
+2026-11-17T17:51:00Z  Memory Percentage  77.0
+2026-11-17T17:52:00Z  Memory Percentage  78.0
+2026-11-17T17:53:00Z  Memory Percentage  78.0
+18:54:55 [duree] 3.2 s  [code] 0
+18:54:55 
+18:54:55 ===== Export du journal (2 h) =====
+lignes exportees : 3505
+18:55:01 [duree] 6 s  [code] 0
+18:55:01 
+18:55:01 ===== derive.py mesurer - journal Azure (fenetre 200, seuil 0.25) =====
+955 appels journalises, fenetre 200, seuil d'alerte PSI >= 0.25
+Taux a_examiner par phase : {'conforme': 0.26, 'derive': 0.2028}
+  tbp_tile_type        PSI derniere fenetre  4.9333 | max en flux conforme 0.0303 | alerte 97 appels apres le debut de la derive
+  age_tranche          PSI derniere fenetre  0.1119 | max en flux conforme 0.1146 | aucune alerte apres le debut de la derive
+  anatom_site_general  PSI derniere fenetre  0.0412 | max en flux conforme 0.0585 | aucune alerte apres le debut de la derive
+  sex                  PSI derniere fenetre  0.0001 | max en flux conforme 0.0294 | aucune alerte apres le debut de la derive
+18:55:10 [duree] 8.9 s  [code] 0
+18:55:10 
+18:55:10 ===== Requete 3 : PSI de l eclairage par fenetre de 5 min =====
+Fenetre               Psi                     Appels
+--------------------  ----------------------  --------
+2026-11-17T16:10:00Z  4.28212076574717        1
+2026-11-17T16:15:00Z  0.0017691065072629165   140
+2026-11-17T16:20:00Z  0.00013048656355498094  300
+2026-11-17T16:25:00Z  0.0443028915126144      224
+2026-11-17T16:30:00Z  4.933269282659674       226
+2026-11-17T17:45:00Z  4.933269282659674       65
+18:55:13 [duree] 2.8 s  [code] 0
+18:55:13 
+18:55:13 ===== Requete 4 : taux a_examiner par fenetre de 5 min =====
+Fenetre               Taux                 P95_ms              Appels
+--------------------  -------------------  ------------------  --------
+2026-11-17T16:10:00Z  1                    40.8                1
+2026-11-17T16:15:00Z  0.24285714285714285  143.3               140
+2026-11-17T16:20:00Z  0.26                 118.3               300
+2026-11-17T16:25:00Z  0.25892857142857145  131.3               224
+2026-11-17T16:30:00Z  0.19911504424778761  140                 226
+2026-11-17T17:45:00Z  0.8535211267605634   71.1                355
+2026-11-17T17:50:00Z  1                    108.56944444444444  2259
+18:55:15 [duree] 2.8 s  [code] 0
+18:55:15 
+18:55:16 TERMINE 2026-11-17T18:55:16. L application et Log Analytics tournent : tableau de bord, puis nettoyage. Previens Claude.

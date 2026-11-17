@@ -1,0 +1,8 @@
+AppServiceConsoleLogs
+| where ResultDescription startswith "{"
+| extend j = parse_json(ResultDescription)
+| where toint(j.http_status) == 200
+| summarize taux_a_examiner = countif(tostring(j.decision) == "a_examiner") * 1.0 / count(),
+            p95_inference_ms = percentile(todouble(j.inference_ms), 95), appels = count()
+          by fenetre = bin(TimeGenerated, 5m)
+| order by fenetre asc

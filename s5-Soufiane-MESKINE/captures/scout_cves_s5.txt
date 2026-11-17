@@ -1,0 +1,24 @@
+﻿    i New version 1.29.0 available (installed version is 1.18.3) at https://github.com/docker/scout-cli
+    ...Storing image for indexing
+    v Image stored for indexing
+    ...Indexing
+    v Indexed 107 packages
+    ! failed to delete temporary image archive C:\Users\soufiane\AppData\Local\Temp\docker-scout\sha256\234640972e55559668f437f997bef1a9da0fe103d54e0fb7f86baebc0edf250b\6ffd53a7-df23-4be1-8a6e-aaf0230c2c0e: remove C:\Users\soufiane\AppData\Local\Temp\docker-scout\sha256\234640972e55559668f437f997bef1a9da0fe103d54e0fb7f86baebc0edf250b\6ffd53a7-df23-4be1-8a6e-aaf0230c2c0e: The process cannot access the file because it is being used by another process.    v No vulnerable package detected
+
+
+## Overview
+
+                    Γöé        Analyzed Image          
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  Target            Γöé  local://dermascan-api:2.1.0   
+    digest          Γöé  234640972e55                  
+    platform        Γöé linux/amd64                    
+    vulnerabilities Γöé    0C     0H     0M     0L     
+    size            Γöé 125 MB                         
+    packages        Γöé 107                            
+
+
+## Packages and Vulnerabilities
+
+  No vulnerable packages detected
+

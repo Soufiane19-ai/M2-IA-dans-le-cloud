@@ -1,0 +1,40 @@
+{
+  "source": "model/manifeste_echantillon.csv, jeu = entrainement",
+  "n": 4236,
+  "tbp_tile_type": {
+    "proportions": {
+      "3D: white": 0.529037,
+      "3D: XP": 0.470963
+    },
+    "taux_absent": 0.0
+  },
+  "age_tranche": {
+    "proportions": {
+      "60-69": 0.344508,
+      "50-59": 0.234427,
+      "70-79": 0.173086,
+      "40-49": 0.11864,
+      "30-39": 0.063718,
+      "80-89": 0.050404,
+      "20-29": 0.015216
+    },
+    "taux_absent": 0.007082
+  },
+  "anatom_site_general": {
+    "proportions": {
+      "posterior torso": 0.307544,
+      "lower extremity": 0.260932,
+      "anterior torso": 0.209274,
+      "upper extremity": 0.183325,
+      "head/neck": 0.038924
+    },
+    "taux_absent": 0.017469
+  },
+  "sex": {
+    "proportions": {
+      "male": 0.707124,
+      "female": 0.292876
+    },
+    "taux_absent": 0.015817
+  }
+}

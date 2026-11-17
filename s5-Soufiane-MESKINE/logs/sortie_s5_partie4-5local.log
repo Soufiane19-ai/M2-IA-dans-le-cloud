@@ -1,0 +1,427 @@
+﻿TP S5 parties 4-5 locales - debut 2026-11-17T16:10:41
+16:10:41 
+16:10:41 ===== diff app.py S4 / S5 (nombre de lignes differentes) =====
+116
+16:10:42 [duree] 0.3 s  [code] 
+16:10:42 
+16:10:42 ===== meta de l image S5 =====
+version 2.1.0 variante onnx_fp32
+16:10:46 [duree] 3.9 s  [code] 0
+16:10:46 
+16:10:46 ===== diff Dockerfile S4 / S5 =====
+
+InputObject                                                                                                                       SideIndicator
+-----------                                                                                                                       -------------
+# Base de S1 : Wolfi (glibc), zero CVE connue au 16/11/2026 (le digest du 23/10 portait CVE-2026-84243, glibc), figee par digest. =>           
+FROM cgr.dev/chainguard/wolfi-base:latest@sha256:2c12da5496e21e99003b3db3b9246f025e53d533c4df334205391260f1e8f85b                 =>           
+RUN apk add --no-cache python-3.12                                                                                                =>           
+    MODEL_PATH=/app/model/modele.onnx \                                                                                           =>           
+    PORT=8000                                                                                                                     =>           
+RUN apk add --no-cache py3.12-pip \                                                                                               =>           
+    && pip install --no-cache-dir -r requirements.txt \                                                                           =>           
+    && apk del --no-cache py3.12-pip                                                                                              =>           
+# Le modele est un artefact, pas du code : il a sa propre couche.                                                                 =>           
+COPY model/ ./model/                                                                                                              =>           
+# Pas de chown -R (question 4.5).                                                                                                 =>           
+RUN adduser -D -u 10001 appuser                                                                                                   =>           
+USER appuser                                                                                                                      =>           
+                                                                                                                                  =>           
+                                                                                                                                  =>           
+CMD ["sh", "-c", "gunicorn -b 0.0.0.0:${PORT} app:app"]                                                                           =>           
+# Seance 2 : le Dockerfile de la seance 1, etendu (dependances ML, modele, gunicorn).                                             <=           
+# Image de base identique a la seance 1 : meme Python (3.12.7) que l'environnement d'entrainement.                                <=           
+FROM python:3.12.7-slim-bookworm                                                                                                  <=           
+# Pas de .pyc, logs non tamponnes, port et chemin du modele par defaut (contrat d'interface).                                     <=           
+    PORT=8000 \                                                                                                                   <=           
+    MODEL_PATH=model/modele.pt                                                                                                    <=           
+# Versions epinglees = celles qui ont entraine le modele (champ "versions" du paquet).                                            <=           
+RUN pip install --no-cache-dir -r requirements.txt                                                                                <=           
+# Le modele est un artefact, pas du code : il a sa propre ligne.                                                                  <=           
+COPY model/modele.pt model/modele_meta.json ./model/                                                                              <=           
+# Utilisateur non privilegie, comme en seance 1.                                                                                  <=           
+RUN useradd --uid 10001 --no-create-home --shell /usr/sbin/nologin appuser \                                                      <=           
+    && chown -R appuser:appuser /app                                                                                              <=           
+USER 10001                                                                                                                        <=           
+# gunicorn (serveur de production) au lieu du serveur de developpement Flask.                                                     <=           
+# sh -c pour lire $PORT, et exec pour que gunicorn reste le PID 1 et recoive SIGTERM.                                             <=           
+CMD ["sh", "-c", "exec gunicorn --bind 0.0.0.0:${PORT} --workers 2 --access-logfile - app:app"]                                   <=           
+
+
+
+16:10:46 [duree] 0.2 s  [code] 0
+16:10:46 
+16:10:46 ===== diff .dockerignore S4 / S5 =====
+
+InputObject SideIndicator
+----------- -------------
+**/*.pt     =>           
+
+
+
+16:10:46 [duree] 0 s  [code] 0
+16:10:46 
+16:10:46 ===== Contexte api-s5 =====
+
+FullName                                                             Length  
+--------                                                             ------  
+C:\Users\soufiane\Desktop\s5-dermascan\api-s5\model                          
+C:\Users\soufiane\Desktop\s5-dermascan\api-s5\.dockerignore          223     
+C:\Users\soufiane\Desktop\s5-dermascan\api-s5\app.py                 7578    
+C:\Users\soufiane\Desktop\s5-dermascan\api-s5\Dockerfile             899     
+C:\Users\soufiane\Desktop\s5-dermascan\api-s5\requirements.txt       414     
+C:\Users\soufiane\Desktop\s5-dermascan\api-s5\model\modele.onnx      44774284
+C:\Users\soufiane\Desktop\s5-dermascan\api-s5\model\modele_meta.json 2849    
+
+
+
+16:10:47 [duree] 0.1 s  [code] 0
+16:10:47 
+16:10:47 ===== docker history de l image S4 (question 4.5) =====
+0B  CMD ["sh" "-c" "exec gunicorn --bind 0.0.0.0ΓÇª
+0B  EXPOSE [8000/tcp]
+0B  USER 10001
+44.9MB  RUN /bin/sh -c useradd --uid 10001 --no-creaΓÇª
+12.3kB  COPY app.py ./ # buildkit
+44.8MB  COPY model/modele.pt model/modele_meta.json ΓÇª
+1.04GB  RUN /bin/sh -c pip install --no-cache-dir -rΓÇª
+12.3kB  COPY requirements.txt ./ # buildkit
+0B  ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERΓÇª
+8.19kB  WORKDIR /app
+0B  CMD ["python3"]
+16.4kB  RUN /bin/sh -c set -eux;  for src in idle3 pΓÇª
+45MB  RUN /bin/sh -c set -eux;   savedAptMark="$(aΓÇª
+0B  ENV PYTHON_SHA256=24887b92e2afd4a2ac602419adΓÇª
+0B  ENV PYTHON_VERSION=3.12.7
+0B  ENV GPG_KEY=7169605F62C751356D054A26A821E680ΓÇª
+9.59MB  RUN /bin/sh -c set -eux;  apt-get update;  aΓÇª
+0B  ENV LANG=C.UTF-8
+0B  ENV PATH=/usr/local/bin:/usr/local/sbin:/usrΓÇª
+85.2MB  # debian.sh --arch 'amd64' out/ 'bookworm' 'ΓÇª
+16:10:48 [duree] 0.7 s  [code] 0
+16:10:48 
+16:10:48 ===== docker build dermascan-api:2.1.0 =====
+#0 building with "desktop-linux" instance using docker driver
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 938B 0.2s done
+#1 DONE 0.7s
+#2 [internal] load metadata for cgr.dev/chainguard/wolfi-base:latest@sha256:2c12da5496e21e99003b3db3b9246f025e53d533c4df334205391260f1e8f85b
+#2 DONE 4.6s
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 265B 0.1s done
+#3 DONE 0.5s
+#4 [internal] load build context
+#4 DONE 0.0s
+#5 [1/8] FROM cgr.dev/chainguard/wolfi-base:latest@sha256:2c12da5496e21e99003b3db3b9246f025e53d533c4df334205391260f1e8f85b
+#5 resolve cgr.dev/chainguard/wolfi-base:latest@sha256:2c12da5496e21e99003b3db3b9246f025e53d533c4df334205391260f1e8f85b
+#5 resolve cgr.dev/chainguard/wolfi-base:latest@sha256:2c12da5496e21e99003b3db3b9246f025e53d533c4df334205391260f1e8f85b 0.4s done
+#5 DONE 4.2s
+#4 [internal] load build context
+#4 transferring context: 9.38MB 3.8s
+#4 ...
+#5 [1/8] FROM cgr.dev/chainguard/wolfi-base:latest@sha256:2c12da5496e21e99003b3db3b9246f025e53d533c4df334205391260f1e8f85b
+#5 sha256:cbb983c064c86a5d9f28bd9b862a2d5cfad27afd75198d8ee6086ac55bdebefc 14.79kB / 14.79kB 1.4s done
+#5 sha256:9228d0731dae9d648c21f5975418700856c314ec8fe9c21bfeeec538f83e2337 79.23kB / 79.23kB 1.5s done
+#5 sha256:babe323e75b8b076eeaf77f17dd501448e3b20711b4a6d660a049d0d391f985d 95.80kB / 95.80kB 1.4s
+#5 sha256:dc2b2c4d05a68e22036d6b3acf944b702e8b98eaad7a732254734d0b61bc08eb 178.52kB / 178.52kB 1.3s done
+#5 sha256:386404bbcc5eb496e5f3a585e97e2b5c1a80371bc704877b879116b95cd73c57 97.92kB / 97.92kB 1.3s done
+#5 sha256:f4265a56de30c1b9e087ad6d1fe2e30c7904cee15fe2b91ff2a46177a6cdd7de 513.55kB / 513.55kB 1.1s
+#5 sha256:3ebb173ec8b1bba46c0295df8911e9d86e19b5f898961a379fbee031821b710e 0B / 3.36MB 1.1s
+#5 sha256:3ebb173ec8b1bba46c0295df8911e9d86e19b5f898961a379fbee031821b710e 1.05MB / 3.36MB 4.0s
+#5 sha256:3ebb173ec8b1bba46c0295df8911e9d86e19b5f898961a379fbee031821b710e 2.10MB / 3.36MB 5.4s
+#5 sha256:3ebb173ec8b1bba46c0295df8911e9d86e19b5f898961a379fbee031821b710e 3.15MB / 3.36MB 5.7s
+#5 sha256:3ebb173ec8b1bba46c0295df8911e9d86e19b5f898961a379fbee031821b710e 3.36MB / 3.36MB 5.8s
+#5 sha256:3ebb173ec8b1bba46c0295df8911e9d86e19b5f898961a379fbee031821b710e 3.36MB / 3.36MB 5.8s done
+#5 DONE 12.3s
+#4 [internal] load build context
+#4 transferring context: 17.71MB 11.6s
+#4 transferring context: 24.17MB 16.7s
+#4 ...
+#5 [1/8] FROM cgr.dev/chainguard/wolfi-base:latest@sha256:2c12da5496e21e99003b3db3b9246f025e53d533c4df334205391260f1e8f85b
+#5 extracting sha256:3ebb173ec8b1bba46c0295df8911e9d86e19b5f898961a379fbee031821b710e 2.2s done
+#5 extracting sha256:7a4877cecca890677d2aeeaaaa4a4659cff0e5b2db98ca578583621e510cc657 2.5s done
+#5 extracting sha256:f4265a56de30c1b9e087ad6d1fe2e30c7904cee15fe2b91ff2a46177a6cdd7de 1.0s done
+#5 extracting sha256:82087d46dc9d24d8d866b734cf1a5bdeb870f6b7af4e0a1e76e891c3e869d280 0.3s done
+#5 extracting sha256:f53829540a90766dc673f2a4d258003b3d6d0644d4a71bb303e2ab9a006e0fb9 0.1s done
+#5 DONE 18.4s
+#4 [internal] load build context
+#4 ...
+#5 [1/8] FROM cgr.dev/chainguard/wolfi-base:latest@sha256:2c12da5496e21e99003b3db3b9246f025e53d533c4df334205391260f1e8f85b
+#5 extracting sha256:dc2b2c4d05a68e22036d6b3acf944b702e8b98eaad7a732254734d0b61bc08eb 0.1s done
+#5 extracting sha256:386404bbcc5eb496e5f3a585e97e2b5c1a80371bc704877b879116b95cd73c57 0.1s done
+#5 extracting sha256:babe323e75b8b076eeaf77f17dd501448e3b20711b4a6d660a049d0d391f985d 0.1s done
+#5 extracting sha256:53abc9c206651e9f8631d1ab1d470ecc0f6908f0733fa51e225c7d1cb340abcd 0.3s done
+#5 extracting sha256:9228d0731dae9d648c21f5975418700856c314ec8fe9c21bfeeec538f83e2337 0.9s done
+#5 extracting sha256:cbb983c064c86a5d9f28bd9b862a2d5cfad27afd75198d8ee6086ac55bdebefc 1.7s done
+#5 DONE 21.5s
+#4 [internal] load build context
+#4 transferring context: 40.85MB 21.8s
+#4 transferring context: 44.80MB 24.8s done
+#4 DONE 25.3s
+#6 [2/8] RUN apk add --no-cache python-3.12
+#6 4.822 fetch https://apk.cgr.dev/chainguard/x86_64/APKINDEX.tar.gz
+#6 18.53 (1/15) Installing py3-pip-wheel (26.2.2-r3)
+#6 20.36 (2/15) Installing libbz2-1 (1.0.8-r31)
+#6 21.32 (3/15) Installing libexpat1 (2.10.0-r1)
+#6 22.38 (4/15) Installing libffi (3.8.1-r0)
+#6 23.16 (5/15) Installing gdbm (1.26-r10)
+#6 24.27 (6/15) Installing xz (5.8.4-r2)
+#6 25.67 (7/15) Installing libstdc++ (16.2.0-r4)
+#6 27.89 (8/15) Installing mpdecimal (4.0.1-r6)
+#6 28.87 (9/15) Installing ncurses-terminfo-base (6.6.20261114-r0)
+#6 30.28 (10/15) Installing ncurses (6.6.20261114-r0)
+#6 31.73 (11/15) Installing readline (8.3-r4)
+#6 32.99 (12/15) Installing sqlite-libs (3.54.1-r0)
+#6 34.48 (13/15) Installing libuuid (2.42.4-r3)
+#6 35.53 (14/15) Installing python-3.12-base (3.12.16_git20261116-r0)
+#6 45.36 (15/15) Installing python-3.12 (3.12.16_git20261116-r0)
+#6 46.10 Executing busybox-1.38.0-r3.trigger
+#6 46.31 OK: 60 MiB in 34 packages
+#6 DONE 47.9s
+#7 [3/8] WORKDIR /app
+#7 DONE 0.6s
+#8 [4/8] COPY requirements.txt ./
+#8 DONE 0.3s
+#9 [5/8] RUN apk add --no-cache py3.12-pip     && pip install --no-cache-dir -r requirements.txt     && apk del --no-cache py3.12-pip
+#9 1.749 fetch https://apk.cgr.dev/chainguard/x86_64/APKINDEX.tar.gz
+#9 16.90 (1/3) Installing py3.12-setuptools (84.2.1-r0)
+#9 20.18 (2/3) Installing py3.12-pip-base (26.2.2-r3)
+#9 25.04 (3/3) Installing py3.12-pip (26.2.2-r3)
+#9 26.41 Executing busybox-1.38.0-r3.trigger
+#9 26.63 OK: 82 MiB in 37 packages
+#9 29.17 Collecting flask==3.1.3 (from -r requirements.txt (line 4))
+#9 29.58   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+#9 29.77 Collecting gunicorn==23.0.0 (from -r requirements.txt (line 5))
+#9 29.84   Downloading gunicorn-23.0.0-py3-none-any.whl.metadata (4.4 kB)
+#9 31.02 Collecting onnxruntime==1.31.0 (from -r requirements.txt (line 6))
+#9 31.11   Downloading onnxruntime-1.31.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.7 kB)
+#9 35.09 Collecting numpy==2.5.4 (from -r requirements.txt (line 8))
+#9 35.17   Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (6.6 kB)
+#9 38.13 Collecting pillow==13.0.0 (from -r requirements.txt (line 9))
+#9 38.20   Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (9.1 kB)
+#9 38.37 Collecting blinker>=1.9.0 (from flask==3.1.3->-r requirements.txt (line 4))
+#9 38.44   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#9 38.63 Collecting click>=8.1.3 (from flask==3.1.3->-r requirements.txt (line 4))
+#9 38.69   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#9 38.82 Collecting itsdangerous>=2.2.0 (from flask==3.1.3->-r requirements.txt (line 4))
+#9 38.88   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#9 39.03 Collecting jinja2>=3.1.2 (from flask==3.1.3->-r requirements.txt (line 4))
+#9 39.10   Downloading jinja2-3.1.6-py3-none-any.whl.metadata (2.9 kB)
+#9 39.99 Collecting markupsafe>=2.1.1 (from flask==3.1.3->-r requirements.txt (line 4))
+#9 40.07   Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (2.7 kB)
+#9 40.63 Collecting werkzeug>=3.1.0 (from flask==3.1.3->-r requirements.txt (line 4))
+#9 40.70   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+#9 41.26 Collecting packaging (from gunicorn==23.0.0->-r requirements.txt (line 5))
+#9 41.37   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#9 41.65 Collecting flatbuffers (from onnxruntime==1.31.0->-r requirements.txt (line 6))
+#9 41.72   Downloading flatbuffers-25.12.19-py2.py3-none-any.whl.metadata (1.0 kB)
+#9 44.64 Collecting protobuf>=4.25.8 (from onnxruntime==1.31.0->-r requirements.txt (line 6))
+#9 44.70   Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+#9 44.89 Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+#9 44.92 Downloading gunicorn-23.0.0-py3-none-any.whl (85 kB)
+#9 44.95 Downloading onnxruntime-1.31.0-cp312-cp312-manylinux_2_28_x86_64.whl (23.8 MB)
+#9 61.23    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 23.8/23.8 MB 1.4 MB/s  0:00:16
+#9 61.25 Downloading numpy-2.5.4-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+#9 76.38    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 16.7/16.7 MB 1.1 MB/s  0:00:15
+#9 76.48 Downloading pillow-13.0.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+#9 77.77    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 7.1/7.1 MB 6.8 MB/s  0:00:01
+#9 77.88 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#9 77.98 Downloading click-8.5.1-py3-none-any.whl (126 kB)
+#9 78.08 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#9 78.17 Downloading jinja2-3.1.6-py3-none-any.whl (134 kB)
+#9 78.38 Downloading markupsafe-3.0.4-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (22 kB)
+#9 78.48 Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+#9 78.92 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+#9 79.08 Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+#9 79.15 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#9 82.62 Installing collected packages: flatbuffers, protobuf, pillow, packaging, numpy, markupsafe, itsdangerous, click, blinker, werkzeug, onnxruntime, jinja2, gunicorn, flask
+#9 131.6 
+#9 131.7 Successfully installed blinker-1.9.0 click-8.5.1 flask-3.1.3 flatbuffers-25.12.19 gunicorn-23.0.0 itsdangerous-2.2.0 jinja2-3.1.6 markupsafe-3.0.4 numpy-2.5.4 onnxruntime-1.31.0 packaging-26.3 pillow-13.0.0 protobuf-7.36.2 werkzeug-3.1.9
+#9 131.7 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable. It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#9 131.7 
+#9 131.7 [notice] A new release of pip is available: 26.2.2 -> 26.3
+#9 131.7 [notice] To update, run: pip install --upgrade pip
+#9 132.5 fetch https://apk.cgr.dev/chainguard/x86_64/APKINDEX.tar.gz
+#9 146.4 (1/3) Purging py3.12-pip (26.2.2-r3)
+#9 146.4 (2/3) Purging py3.12-pip-base (26.2.2-r3)
+#9 146.7 (3/3) Purging py3.12-setuptools (84.2.1-r0)
+#9 146.9 Executing busybox-1.38.0-r3.trigger
+#9 147.0 OK: 66 MiB in 34 packages
+#9 DONE 148.8s
+#10 [6/8] COPY model/ ./model/
+#10 DONE 1.2s
+#11 [7/8] COPY app.py ./
+#11 DONE 0.5s
+#12 [8/8] RUN adduser -D -u 10001 appuser
+#12 DONE 1.9s
+#13 exporting to image
+#13 exporting layers
+#13 exporting layers 110.5s done
+#13 exporting manifest sha256:234640972e55559668f437f997bef1a9da0fe103d54e0fb7f86baebc0edf250b
+#13 exporting manifest sha256:234640972e55559668f437f997bef1a9da0fe103d54e0fb7f86baebc0edf250b 0.2s done
+#13 exporting config sha256:2cd3c4dafd4eab14d202288fe3e0d9859a1d67ea8ba30ac7dd35da70e6a739e9
+#13 exporting config sha256:2cd3c4dafd4eab14d202288fe3e0d9859a1d67ea8ba30ac7dd35da70e6a739e9 0.1s done
+#13 naming to docker.io/library/dermascan-api:2.1.0 0.1s done
+#13 unpacking to docker.io/library/dermascan-api:2.1.0
+#13 unpacking to docker.io/library/dermascan-api:2.1.0 33.4s done
+#13 DONE 144.8s
+16:17:14 [duree] 382 s  [code] 0
+16:17:14 [RESUME] Mesure 5 - duree de construction (s) = 382
+16:17:14 
+16:17:14 ===== docker images dermascan-api =====
+REPOSITORY      TAG       IMAGE ID       CREATED         SIZE
+dermascan-api   2.1.0     234640972e55   2 minutes ago   419MB
+dermascan-api   2.0.0     ec4a45b98aa6   4 hours ago     1.67GB
+dermascan-api   1.0.0     cae2b6358fcf   5 weeks ago     651MB
+16:17:15 [duree] 0.8 s  [code] 0
+16:17:15 
+16:17:15 ===== docker scout cves --exit-code =====
+    i New version 1.29.0 available (installed version is 1.18.3) at https://github.com/docker/scout-cli
+    ...Storing image for indexing
+    v Image stored for indexing
+    ...Indexing
+    v Indexed 107 packages
+    ! failed to delete temporary image archive C:\Users\soufiane\AppData\Local\Temp\docker-scout\sha256\234640972e55559668f437f997bef1a9da0fe103d54e0fb7f86baebc0edf250b\6ffd53a7-df23-4be1-8a6e-aaf0230c2c0e: remove C:\Users\soufiane\AppData\Local\Temp\docker-scout\sha256\234640972e55559668f437f997bef1a9da0fe103d54e0fb7f86baebc0edf250b\6ffd53a7-df23-4be1-8a6e-aaf0230c2c0e: The process cannot access the file because it is being used by another process.    v No vulnerable package detected
+
+
+## Overview
+
+                    Γöé        Analyzed Image          
+ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓö╝ΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇΓöÇ
+  Target            Γöé  local://dermascan-api:2.1.0   
+    digest          Γöé  234640972e55                  
+    platform        Γöé linux/amd64                    
+    vulnerabilities Γöé    0C     0H     0M     0L     
+    size            Γöé 125 MB                         
+    packages        Γöé 107                            
+
+
+## Packages and Vulnerabilities
+
+  No vulnerable packages detected
+
+16:22:35 [duree] 319 s  [code] 0
+16:22:35 [RESUME] Mesure 5 - code retour scout = 0
+16:22:35 
+16:22:35 ===== docker scout quickview =====
+    i New version 1.29.0 available (installed version is 1.18.3) at https://github.com/docker/scout-cli
+    v SBOM of image already cached, 107 packages indexed
+
+    i Base image was auto-detected. To get more accurate results, build images with max-mode provenance attestations.
+      Review https://docs.docker.com/build/attestations/slsa-provenance/ for more information.
+
+  Target     Γöé  local://dermascan-api:2.1.0   Γöé    0C     0H     0M     0L   
+    digest   Γöé  234640972e55                  Γöé                              
+  Base image Γöé  chainguard/wolfi-base:latest  Γöé    0C     0H     0M     0L   
+
+What's next:
+    Include policy results in your quickview by supplying an organization ΓåÆ docker scout quickview local://dermascan-api:2.1.0 --org <organization>
+
+16:22:48 [duree] 13 s  [code] 0
+16:23:22 [RESUME] Mesure 6 - demarrage hors ligne jusqu au premier 200 (s) = 32.2
+16:23:26 
+16:23:26 ===== docker history S5 =====
+0B  CMD ["sh" "-c" "gunicorn -b 0.0.0.0:${PORT} ΓÇª
+0B  EXPOSE [8000/tcp]
+0B  USER appuser
+41kB  RUN /bin/sh -c adduser -D -u 10001 appuser #ΓÇª
+16.4kB  COPY app.py ./ # buildkit
+44.8MB  COPY model/ ./model/ # buildkit
+176MB  RUN /bin/sh -c apk add --no-cache py3.12-pipΓÇª
+12.3kB  COPY requirements.txt ./ # buildkit
+0B  ENV PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERΓÇª
+8.19kB  WORKDIR /app
+53.7MB  RUN /bin/sh -c apk add --no-cache python-3.1ΓÇª
+340kB  apko
+389kB  apko
+254kB  apko
+262kB  apko
+279kB  apko
+455kB  apko
+770kB  apko
+872kB  apko
+1.18MB  apko
+7.36MB  apko
+7.39MB  apko
+16:23:26 [duree] 0.1 s  [code] 0
+16:23:26 
+16:23:26 ===== Taille des images =====
+acrdermascansm26.azurecr.io/dermascan-api:2.0.0 Size=404212055
+dermascan-api:2.1.0 Size=124675323
+16:23:28 [duree] 1.6 s  [code] 0
+16:23:48 
+16:23:49 ===== /model/info =====
+{"architecture":"resnet18","covariables_acceptees":["age_approx","sex","anatom_site_general","tbp_tile_type"],"echantillonnage":{"graine":42,"manifeste":"manifeste_echantillon.csv","methode":"tous les positifs + negatifs tires uniformement sans remise (pandas.sample)","n_negatifs":5000,"n_negatifs_disponibles":217183,"n_positifs":294,"sha256_manifeste":"64d2e25ddd474269d41e9437b7fc79d857d032b5a683e313db61bf91b3e07711","source":"ISIC 2024 SLICE-3D Permissive, licence CC-BY 4.0","taux_negatifs":0.023022059737640606},"entraine_le":"2026-11-17T11:14:08","fichier_servi":"modele.onnx","format":"onnx","metriques":{"hasard_pr_auc":0.055765595463137994,"lesions_examinees_par_maligne_reelle":206,"matrice_confusion_validation":{"FN":5,"FP":254,"VN":745,"VP":54},"pauc_80":0.12323849273001813,"pr_auc":0.4799054650173198,"precision_au_seuil_validation":0.17532467532467533,"precision_projetee_prevalence_reelle":0.0048493535899812035,"rappel_au_seuil":0.9152542372881356,"roc_auc":0.8993230518654248},"prevalence_entrainement":0.055534567434831886,"prevalence_reelle":0.0013518670939915486,"rappel_cible":0.9,"seuil":0.0004990625942336154,"sha256_fichier_servi":"c7d89deb11d3b32b2959977ef6ed2d0385353d7a6c74605325e6eca982c70695","sha256_poids":"b44771c802585db7969ba6e9dff0eb947ea639fb25f8402860224b56d339fd0a","taille_entree":128,"version":"2.1.0","version_deployee":"2.1.0"}
+16:23:51 [duree] 1.8 s  [code] 0
+16:23:51 
+16:23:52 ===== /predict avec covariables et X-Patient-Ref =====
+{"decision":"a_examiner","probabilite_maligne":0.06629,"rappel_cible":0.9,"seuil":0.0004990625942336154,"version_modele":"2.1.0"}
+16:23:57 [duree] 3.8 s  [code] 0
+16:23:57 
+16:23:57 ===== /predict avec tbp_tile_type=UV =====
+{"detail":"tbp_tile_type inconnu : 'UV'","error":"covariable invalide"}
+
+code 400
+16:23:58 [duree] 0.9 s  [code] 0
+16:23:58 
+16:23:58 ===== /predict sans covariable (poste S4) =====
+{"decision":"a_examiner","probabilite_maligne":0.06629,"rappel_cible":0.9,"seuil":0.0004990625942336154,"version_modele":"2.1.0"}
+
+code 200
+16:23:58 [duree] 0.2 s  [code] 0
+16:24:00 
+16:24:00 ===== Deux dernieres lignes de journal =====
+{"ts": "2026-11-17T15:23:56.541Z", "request_id": "072d4c6a-0769-4af2-9961-d43c872181c1", "model_version": "2.1.0", "image_digest": null, "patient_ref": "ddfef2e438aaa835", "probabilite_maligne": 0.06629, "seuil_applique": 0.0004990625942336154, "rappel_cible": 0.9, "decision": "a_examiner", "covariables": {"age_tranche": "60-69", "sex": "male", "anatom_site_general": null, "tbp_tile_type": "3D: white"}, "inference_ms": 595.8, "http_status": 200, "input_schema_version": "2.0", "env": "local"}
+{"ts": "2026-11-17T15:23:58.384Z", "request_id": "0a8bd82c-17d8-4dce-870a-988cab113725", "model_version": "2.1.0", "image_digest": null, "patient_ref": null, "probabilite_maligne": null, "seuil_applique": 0.0004990625942336154, "rappel_cible": 0.9, "decision": null, "covariables": null, "inference_ms": null, "http_status": 400, "input_schema_version": "2.0", "env": "local"}
+{"ts": "2026-11-17T15:23:58.937Z", "request_id": "1ea55c00-f5b6-4209-b3fe-78e0f8a3e5a7", "model_version": "2.1.0", "image_digest": null, "patient_ref": null, "probabilite_maligne": 0.06629, "seuil_applique": 0.0004990625942336154, "rappel_cible": 0.9, "decision": "a_examiner", "covariables": {"age_tranche": null, "sex": null, "anatom_site_general": null, "tbp_tile_type": null}, "inference_ms": 63.0, "http_status": 200, "input_schema_version": "2.0", "env": "local"}
+16:24:01 [duree] 1 s  [code] 0
+16:24:01 
+16:24:01 ===== Le patient_ref contient-il IP_0000001 en clair ? =====
+non
+16:24:06 [duree] 4.4 s  [code] 0
+16:24:26 [RESUME] Mesure 6 - latence p50 / p95 (ms), sans limite = 224.0 / 404.0
+16:24:36 
+16:24:36 ===== docker stats au repos =====
+CONTAINER ID   NAME               CPU %     MEM USAGE / LIMIT     MEM %     NET I/O        BLOCK I/O    PIDS
+80821ee5e541   dermascan-api-s5   0.06%     156.7MiB / 7.615GiB   2.01%     213kB / 46kB   0B / 123kB   10
+16:24:39 [duree] 2.7 s  [code] 0
+16:25:22 [RESUME] Mesure 6 - latence p50 / p95 (ms), --cpus 1, ORT_THREADS=1 = 196.1 / 759.4
+16:26:26 [RESUME] Mesure 6 - latence p50 / p95 (ms), --cpus 1, ORT_THREADS=8 = 1,057.7 / 1,940.2
+16:30:18 [RESUME] Comparaison - S4 (PyTorch) sous --cpus 1, p50 / p95 (ms) = 680.3 / 2,039.8
+16:30:32 
+16:30:32 ===== Rejeu conforme (400 appels) - eclairage =====
+conforme (archive) : 400 appels, codes {200: 400}, a_examiner 99 (24.8%)
+16:36:06 [duree] 333.7 s  [code] 0
+16:36:06 
+16:36:06 ===== Rejeu derive (400 appels) - eclairage =====
+derive (eclairage) : 400 appels, codes {200: 400}, a_examiner 85 (21.2%)
+16:42:39 [duree] 393.3 s  [code] 0
+16:42:42 
+16:42:43 ===== derive.py mesurer - eclairage (fenetre 200, seuil 0.25) =====
+800 appels journalises, fenetre 200, seuil d'alerte PSI >= 0.25
+Taux a_examiner par phase : {'conforme': 0.2475, 'derive': 0.2125}
+  tbp_tile_type        PSI derniere fenetre  4.9333 | max en flux conforme 0.0052 | alerte 82 appels apres le debut de la derive
+  age_tranche          PSI derniere fenetre  0.1224 | max en flux conforme 0.1146 | aucune alerte apres le debut de la derive
+  anatom_site_general  PSI derniere fenetre  0.0366 | max en flux conforme 0.0585 | aucune alerte apres le debut de la derive
+  sex                  PSI derniere fenetre  0.0012 | max en flux conforme 0.0294 | aucune alerte apres le debut de la derive
+16:43:43 [duree] 60.3 s  [code] 0
+16:44:01 
+16:44:01 ===== Rejeu conforme (400 appels) - age =====
+conforme (archive) : 400 appels, codes {200: 400}, a_examiner 99 (24.8%)
+16:48:32 [duree] 271.1 s  [code] 0
+16:48:32 
+16:48:32 ===== Rejeu derive (400 appels) - age =====
+derive (age) : 400 appels, codes {200: 399, 'ConnectTimeout': 1}, a_examiner 121 (30.3%)
+16:52:36 [duree] 243.8 s  [code] 0
+16:52:38 
+16:52:38 ===== derive.py mesurer - age (fenetre 200, seuil 0.25) =====
+799 appels journalises, fenetre 200, seuil d'alerte PSI >= 0.25
+Taux a_examiner par phase : {'conforme': 0.2475, 'derive': 0.3033}
+  tbp_tile_type        PSI derniere fenetre  0.0052 | max en flux conforme 0.0052 | aucune alerte apres le debut de la derive
+  age_tranche          PSI derniere fenetre  7.1128 | max en flux conforme 0.1146 | alerte 52 appels apres le debut de la derive
+  anatom_site_general  PSI derniere fenetre  0.0083 | max en flux conforme 0.0585 | aucune alerte apres le debut de la derive
+  sex                  PSI derniere fenetre  0.1108 | max en flux conforme 0.0294 | aucune alerte apres le debut de la derive
+16:53:33 [duree] 55.4 s  [code] 0
+16:53:39 
+16:53:39 TERMINE 2026-11-17T16:53:39. Previens Claude.

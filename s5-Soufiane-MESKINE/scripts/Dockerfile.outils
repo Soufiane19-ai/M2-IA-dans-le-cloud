@@ -1,0 +1,6 @@
+# Outils de la seance 5 (export ONNX, comparaison, rejeu, derive) : l'environnement d'entrainement de S4
+# (Python 3.12.7, torch 2.14.1+cpu, torchvision 0.29.1+cpu, numpy 2.5.4, pillow 13.0.0, pandas 3.0.6)
+# + les paquets de la partie 1.1 de l'enonce. Linux : meme raison qu'en S4.
+FROM dermascan-entrainement:s4
+RUN pip install --no-cache-dir onnx==1.23.2 onnxruntime==1.31.0 onnxscript==0.7.2 requests flask==3.1.3
+WORKDIR /work

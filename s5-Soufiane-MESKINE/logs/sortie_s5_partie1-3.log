@@ -1,0 +1,272 @@
+﻿TP S5 parties 1-3 - debut 2026-11-17T15:06:28
+15:06:28 
+15:06:29 ===== sha256 modele.pt / sha256_poids du meta =====
+b44771c802585db7969ba6e9dff0eb947ea639fb25f8402860224b56d339fd0a
+b44771c802585db7969ba6e9dff0eb947ea639fb25f8402860224b56d339fd0a
+15:06:34 [duree] 5.5 s  [code] 
+15:06:34 
+15:06:34 ===== Image d outils (torch + onnx + onnxruntime) =====
+#0 building with "desktop-linux" instance using docker driver
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile:
+#1 transferring dockerfile: 471B 1.1s done
+#1 DONE 2.1s
+#2 [internal] load metadata for docker.io/library/dermascan-entrainement:s4
+#2 DONE 0.7s
+#3 [internal] load .dockerignore
+#3 transferring context:
+#3 transferring context: 2B 0.0s done
+#3 DONE 0.3s
+#4 [1/3] FROM docker.io/library/dermascan-entrainement:s4@sha256:75ad25d455d1a558ea9ade83dc507e8d330ae44d017099d03cb0002ee6c59819
+#4 resolve docker.io/library/dermascan-entrainement:s4@sha256:75ad25d455d1a558ea9ade83dc507e8d330ae44d017099d03cb0002ee6c59819
+#4 resolve docker.io/library/dermascan-entrainement:s4@sha256:75ad25d455d1a558ea9ade83dc507e8d330ae44d017099d03cb0002ee6c59819 0.4s done
+#4 DONE 0.8s
+#5 [2/3] RUN pip install --no-cache-dir onnx==1.23.2 onnxruntime==1.31.0 onnxscript==0.7.2 requests flask==3.1.3
+#5 14.94 Collecting onnx==1.23.2
+#5 16.51   Downloading onnx-1.23.2-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (8.7 kB)
+#5 18.64 Collecting onnxruntime==1.31.0
+#5 18.73   Downloading onnxruntime-1.31.0-cp312-cp312-manylinux_2_28_x86_64.whl.metadata (5.7 kB)
+#5 23.32 Collecting onnxscript==0.7.2
+#5 23.40   Downloading onnxscript-0.7.2-py3-none-any.whl.metadata (13 kB)
+#5 24.21 Collecting requests
+#5 24.30   Downloading requests-2.34.2-py3-none-any.whl.metadata (4.8 kB)
+#5 24.38 Collecting flask==3.1.3
+#5 24.40   Downloading flask-3.1.3-py3-none-any.whl.metadata (3.2 kB)
+#5 24.41 Requirement already satisfied: numpy>=1.23.2 in /usr/local/lib/python3.12/site-packages (from onnx==1.23.2) (2.5.4)
+#5 25.14 Collecting protobuf>=6.31.1 (from onnx==1.23.2)
+#5 25.20   Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl.metadata (595 bytes)
+#5 25.24 Requirement already satisfied: typing_extensions>=4.7.1 in /usr/local/lib/python3.12/site-packages (from onnx==1.23.2) (4.16.0)
+#5 26.06 Collecting ml_dtypes>=0.5.4 (from onnx==1.23.2)
+#5 26.14   Downloading ml_dtypes-0.7.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl.metadata (11 kB)
+#5 26.41 Collecting flatbuffers (from onnxruntime==1.31.0)
+#5 26.47   Downloading flatbuffers-25.12.19-py2.py3-none-any.whl.metadata (1.0 kB)
+#5 26.87 Collecting packaging (from onnxruntime==1.31.0)
+#5 26.95   Downloading packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+#5 27.56 Collecting onnx_ir<2,>=0.1.16 (from onnxscript==0.7.2)
+#5 27.63   Downloading onnx_ir-1.1.0-py3-none-any.whl.metadata (3.3 kB)
+#5 27.85 Collecting blinker>=1.9.0 (from flask==3.1.3)
+#5 27.93   Downloading blinker-1.9.0-py3-none-any.whl.metadata (1.6 kB)
+#5 29.29 Collecting click>=8.1.3 (from flask==3.1.3)
+#5 29.40   Downloading click-8.5.1-py3-none-any.whl.metadata (2.6 kB)
+#5 29.75 Collecting itsdangerous>=2.2.0 (from flask==3.1.3)
+#5 29.88   Downloading itsdangerous-2.2.0-py3-none-any.whl.metadata (1.9 kB)
+#5 29.96 Requirement already satisfied: jinja2>=3.1.2 in /usr/local/lib/python3.12/site-packages (from flask==3.1.3) (3.1.6)
+#5 29.98 Requirement already satisfied: markupsafe>=2.1.1 in /usr/local/lib/python3.12/site-packages (from flask==3.1.3) (3.0.4)
+#5 30.92 Collecting werkzeug>=3.1.0 (from flask==3.1.3)
+#5 30.99   Downloading werkzeug-3.1.9-py3-none-any.whl.metadata (4.1 kB)
+#5 33.89 Collecting charset_normalizer<4,>=2 (from requests)
+#5 33.98   Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl.metadata (46 kB)
+#5 34.31 Collecting idna<4,>=2.5 (from requests)
+#5 34.38   Downloading idna-3.20-py3-none-any.whl.metadata (7.2 kB)
+#5 35.31 Collecting urllib3<3,>=1.26 (from requests)
+#5 35.38   Downloading urllib3-2.8.0-py3-none-any.whl.metadata (7.4 kB)
+#5 35.97 Collecting certifi>=2023.5.7 (from requests)
+#5 36.05   Downloading certifi-2026.10.23-py3-none-any.whl.metadata (2.5 kB)
+#5 36.30 Requirement already satisfied: sympy>=1.13 in /usr/local/lib/python3.12/site-packages (from onnx_ir<2,>=0.1.16->onnxscript==0.7.2) (1.14.0)
+#5 36.44 Requirement already satisfied: mpmath<1.4,>=1.1.0 in /usr/local/lib/python3.12/site-packages (from sympy>=1.13->onnx_ir<2,>=0.1.16->onnxscript==0.7.2) (1.3.0)
+#5 36.57 Downloading onnx-1.23.2-cp312-abi3-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (8.9 MB)
+#5 40.63    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 8.9/8.9 MB 2.2 MB/s eta 0:00:00
+#5 40.66 Downloading onnxruntime-1.31.0-cp312-cp312-manylinux_2_28_x86_64.whl (23.8 MB)
+#5 52.66    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 23.8/23.8 MB 2.0 MB/s eta 0:00:00
+#5 52.81 Downloading onnxscript-0.7.2-py3-none-any.whl (754 kB)
+#5 53.48    ΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöüΓöü 754.2/754.2 kB 1.2 MB/s eta 0:00:00
+#5 53.56 Downloading flask-3.1.3-py3-none-any.whl (103 kB)
+#5 53.67 Downloading requests-2.34.2-py3-none-any.whl (73 kB)
+#5 53.76 Downloading blinker-1.9.0-py3-none-any.whl (8.5 kB)
+#5 53.84 Downloading certifi-2026.10.23-py3-none-any.whl (135 kB)
+#5 54.04 Downloading charset_normalizer-3.5.2-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (257 kB)
+#5 54.25 Downloading click-8.5.1-py3-none-any.whl (126 kB)
+#5 54.39 Downloading idna-3.20-py3-none-any.whl (69 kB)
+#5 54.47 Downloading itsdangerous-2.2.0-py3-none-any.whl (16 kB)
+#5 54.55 Downloading ml_dtypes-0.7.0-cp312-cp312-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (463 kB)
+#5 54.95 Downloading onnx_ir-1.1.0-py3-none-any.whl (192 kB)
+#5 55.12 Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+#5 55.40 Downloading urllib3-2.8.0-py3-none-any.whl (135 kB)
+#5 55.55 Downloading werkzeug-3.1.9-py3-none-any.whl (228 kB)
+#5 55.73 Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+#5 55.80 Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#5 56.90 Installing collected packages: flatbuffers, werkzeug, urllib3, protobuf, packaging, ml_dtypes, itsdangerous, idna, click, charset_normalizer, certifi, blinker, requests, onnxruntime, onnx, flask, onnx_ir, onnxscript
+#5 103.8 Successfully installed blinker-1.9.0 certifi-2026.10.23 charset_normalizer-3.5.2 click-8.5.1 flask-3.1.3 flatbuffers-25.12.19 idna-3.20 itsdangerous-2.2.0 ml_dtypes-0.7.0 onnx-1.23.2 onnx_ir-1.1.0 onnxruntime-1.31.0 onnxscript-0.7.2 packaging-26.3 protobuf-7.36.2 requests-2.34.2 urllib3-2.8.0 werkzeug-3.1.9
+#5 103.8 WARNING: Running pip as the 'root' user can result in broken permissions and conflicting behaviour with the system package manager, possibly rendering your system unusable.It is recommended to use a virtual environment instead: https://pip.pypa.io/warnings/venv. Use the --root-user-action option if you know what you are doing and want to suppress this warning.
+#5 105.6 
+#5 105.6 [notice] A new release of pip is available: 24.2 -> 26.3
+#5 105.6 [notice] To update, run: pip install --upgrade pip
+#5 DONE 108.9s
+#6 [3/3] WORKDIR /work
+#6 DONE 0.9s
+#7 exporting to image
+#7 exporting layers
+#7 exporting layers 60.3s done
+#7 exporting manifest sha256:71f2c40c342d55effa4c53a6274d3dafcc3ae292bb1c01e9a39f714ed1cc0121 0.0s done
+#7 exporting config sha256:a9dffff3727515512038b902dd6691101aec1a599720dd74baa80305c88ea6ec 0.0s done
+#7 exporting attestation manifest sha256:4b4b1a813fe086a484c69caf7e06427cd47f859bcbaa01e53ff9f798137bfd2f
+#7 exporting attestation manifest sha256:4b4b1a813fe086a484c69caf7e06427cd47f859bcbaa01e53ff9f798137bfd2f 0.1s done
+#7 exporting manifest list sha256:2283d7f8fb31bc8a66856c62487e9869a265b6e24368a9a0685ef7571516dd77
+#7 exporting manifest list sha256:2283d7f8fb31bc8a66856c62487e9869a265b6e24368a9a0685ef7571516dd77 0.2s done
+#7 naming to docker.io/library/dermascan-outils:s5 0.1s done
+#7 unpacking to docker.io/library/dermascan-outils:s5
+#7 unpacking to docker.io/library/dermascan-outils:s5 16.1s done
+#7 DONE 77.5s
+15:09:56 [duree] 197.7 s  [code] 0
+15:09:56 
+15:09:56 ===== Versions =====
+3.12.7 torch 2.14.1+cpu onnx 1.23.2 onnxruntime 1.31.0 numpy 2.5.4 pillow 13.0.0 pandas 3.0.6
+15:10:37 [duree] 41.5 s  [code] 0
+15:10:37 
+15:10:37 ===== Extraction de train-metadata.csv (rejouer_flux.py et derive.py le lisent en clair) =====
+train-metadata.csv extrait
+15:11:18 [duree] 40.9 s  [code] 0
+15:11:18 
+15:11:18 ===== Export ONNX (1er) =====
+[torch.onnx] Obtain model graph for `ResNet([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `ResNet([...]` with `torch.export.export(..., strict=False)`... Γ£à
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... Γ£à
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... Γ£à
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... Γ£à
+modele.pt            44.8 Mo  sha256 b44771c802585db7
+modele.onnx          44.8 Mo  sha256 c7d89deb11d3b32b  ecart max de logit (lot de 4) : 7.6e-06
+15:14:08 [duree] 169.3 s  [code] 0
+15:14:12 
+15:14:12 ===== Export ONNX (2e) =====
+[torch.onnx] Obtain model graph for `ResNet([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `ResNet([...]` with `torch.export.export(..., strict=False)`... Γ£à
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... Γ£à
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... Γ£à
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... Γ£à
+modele.pt            44.8 Mo  sha256 b44771c802585db7
+modele.onnx          44.8 Mo  sha256 c7d89deb11d3b32b  ecart max de logit (lot de 4) : 7.6e-06
+15:16:46 [duree] 153.6 s  [code] 0
+15:16:49 [RESUME] Mesure 2 - empreinte 1er export = c7d89deb11d3b32b2959977ef6ed2d0385353d7a6c74605325e6eca982c70695
+15:16:49 [RESUME] Mesure 2 - empreinte 2e export  = c7d89deb11d3b32b2959977ef6ed2d0385353d7a6c74605325e6eca982c70695
+15:16:49 
+15:16:49 ===== ls model =====
+
+Name                        Length
+----                        ------
+manifeste_echantillon.csv   204379
+modele.onnx               44774284
+modele.pt                 44780171
+modele_meta.json              2822
+
+
+
+15:16:49 [duree] 0 s  [code] 0
+15:16:49 
+15:16:49 ===== Export + quantization int8 =====
+[torch.onnx] Obtain model graph for `ResNet([...]` with `torch.export.export(..., strict=False)`...
+[torch.onnx] Obtain model graph for `ResNet([...]` with `torch.export.export(..., strict=False)`... Γ£à
+[torch.onnx] Run decompositions...
+[torch.onnx] Run decompositions... Γ£à
+[torch.onnx] Translate the graph into ONNX...
+[torch.onnx] Translate the graph into ONNX... Γ£à
+[torch.onnx] Optimize the ONNX graph...
+[torch.onnx] Optimize the ONNX graph... Γ£à
+modele.pt            44.8 Mo  sha256 b44771c802585db7
+modele.onnx          44.8 Mo  sha256 c7d89deb11d3b32b  ecart max de logit (lot de 4) : 7.6e-06
+modele_int8.onnx     11.3 Mo  sha256 8a273d9ecf0d9b54
+15:19:45 [duree] 175.1 s  [code] 0
+15:19:45 
+15:19:45 ===== sha256 des trois fichiers =====
+c7d89deb11d3b32b2959977ef6ed2d0385353d7a6c74605325e6eca982c70695  modele.onnx
+b44771c802585db7969ba6e9dff0eb947ea639fb25f8402860224b56d339fd0a  modele.pt
+8a273d9ecf0d9b542d5f1e41e14e903498bafc6bc1062578dfd7ca5cf70b4f70  modele_int8.onnx
+8a69e9e0b5ae9df47128f71e75661cf6b2d72f87833d7c3343774a7de1adf407  modele_meta.json
+15:19:51 [duree] 6.1 s  [code] 0
+15:19:51 
+15:19:51 ===== comparer.py (1 fil, 20 + 300 appels, 1 058 vignettes) =====
+1058 vignettes de validation (59 malignes), seuil 0.000499, controle ISIC_0104229 = 0.06629 (meta S4)
+ variante  taille_mo  p50_ms  p95_ms  proba_controle  rappel_au_seuil  alertes  roc_auc  ecart_max_proba  decisions_changees
+  pytorch       44.8  542.04 1279.31        0.066290           0.8983      307   0.8993         0.000000                   0
+     onnx       44.8  157.06  404.34        0.066290           0.8983      307   0.8993         0.000003                   0
+onnx_int8       11.3  175.84  413.26        0.099081           0.9153      308   0.8994         0.230000                  39
+15:42:21 [duree] 1349.3 s  [code] 0
+15:42:21 
+15:42:21 ===== Mesure 4 - ce que l int8 change =====
+== onnx
+vers a_examiner : 0  vers surveillance : 0
+malignes parmi les changees : 0
+decisions changees : []
+count    1058.000000
+mean        1.000000
+std         0.000005
+min         0.999982
+25%         0.999997
+50%         1.000000
+75%         1.000002
+max         1.000018
+== onnx_int8
+vers a_examiner : 20  vers surveillance : 19
+malignes parmi les changees : 1
+decisions changees : ['ISIC_0194565', 'ISIC_0516656', 'ISIC_0749428', 'ISIC_1480614', 'ISIC_1555709', 'ISIC_1679165', 'ISIC_1960293', 'ISIC_2065756', 'ISIC_2070384', 'ISIC_2122714', 'ISIC_2532733', 'ISIC_2667696', 'ISIC_2693172', 'ISIC_3235511', 'ISIC_3254725', 'ISIC_3823709', 'ISIC_4099490', 'ISIC_4100990', 'ISIC_4186819', 'ISIC_4219719', 'ISIC_4248618', 'ISIC_4887394', 'ISIC_5185097', 'ISIC_5486622', 'ISIC_5966603', 'ISIC_6086601', 'ISIC_6344759', 'ISIC_6368830', 'ISIC_6484162', 'ISIC_6797115', 'ISIC_6865783', 'ISIC_7147740', 'ISIC_7367017', 'ISIC_7496072', 'ISIC_7812227', 'ISIC_7897338', 'ISIC_9002285', 'ISIC_9071980', 'ISIC_9440594']
+count    1058.000000
+mean        1.076431
+std         0.429803
+min         0.252115
+25%         0.794504
+50%         0.996971
+75%         1.268400
+max         4.184862
+== malignes les plus proches du seuil 0.0004990625942336154
+     isic_id  cible  variante  probabilite_maligne  a_examiner  ecart_au_seuil
+ISIC_0521019      1   pytorch             0.000499       False   -3.567791e-10
+ISIC_0521019      1      onnx             0.000499       False   -1.546041e-09
+ISIC_5035525      1 onnx_int8             0.000514        True    1.515903e-05
+ISIC_1480614      1      onnx             0.000458       False   -4.058592e-05
+ISIC_1480614      1   pytorch             0.000458       False   -4.058821e-05
+ISIC_3831348      1 onnx_int8             0.000553        True    5.390183e-05
+ISIC_6246414      1 onnx_int8             0.000560        True    6.118224e-05
+ISIC_1480614      1 onnx_int8             0.000561        True    6.240388e-05
+ISIC_0521019      1 onnx_int8             0.000420       False   -7.932336e-05
+rappel_au_seuil du meta : 0.9152542372881356
+15:42:35 [duree] 13.3 s  [code] 0
+15:42:35 
+15:42:35 ===== Reference des covariables (jeu d entrainement de S4) =====
+{
+  "source": "model/manifeste_echantillon.csv, jeu = entrainement",
+  "n": 4236,
+  "tbp_tile_type": {
+    "proportions": {
+      "3D: white": 0.529037,
+      "3D: XP": 0.470963
+    },
+    "taux_absent": 0.0
+  },
+  "age_tranche": {
+    "proportions": {
+      "60-69": 0.344508,
+      "50-59": 0.234427,
+      "70-79": 0.173086,
+      "40-49": 0.11864,
+      "30-39": 0.063718,
+      "80-89": 0.050404,
+      "20-29": 0.015216
+    },
+    "taux_absent": 0.007082
+  },
+  "anatom_site_general": {
+    "proportions": {
+      "posterior torso": 0.307544,
+      "lower extremity": 0.260932,
+      "anterior torso": 0.209274,
+      "upper extremity": 0.183325,
+      "head/neck": 0.038924
+    },
+    "taux_absent": 0.017469
+  },
+  "sex": {
+    "proportions": {
+      "male": 0.707124,
+      "female": 0.292876
+    },
+    "taux_absent": 0.015817
+  }
+}
+15:43:27 [duree] 51.2 s  [code] 0
+15:43:27 
+15:43:27 TERMINE 2026-11-17T15:43:27. Previens Claude.

@@ -1,0 +1,9 @@
+# Plus de torch ni de torchvision : ONNX Runtime suffit a executer le modele exporte.
+# PyPI seul, aucun index supplementaire. Les dependances transitives d'onnxruntime
+# (flatbuffers, packaging, protobuf) sont pures Python ou deja dans la roue.
+flask==3.1.3
+gunicorn==23.0.0
+onnxruntime==1.31.0
+# Epinglees aussi : ce sont elles qui portent les CVE d'une API d'images (decodage JPEG).
+numpy==2.5.4
+pillow==13.0.0

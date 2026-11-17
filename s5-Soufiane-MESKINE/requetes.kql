@@ -1,0 +1,57 @@
+// Seance 5 — requetes Log Analytics du tableau de bord de derive.
+// Source : AppServiceConsoleLogs (stdout du conteneur), alimentee par le parametre de
+// diagnostic de la Web App. Une ligne d'inference = un JSON dans ResultDescription.
+
+// --- Requete 1 : les inferences, decodees (base des trois autres) -----------------------
+AppServiceConsoleLogs
+| where ResultDescription startswith "{"
+| extend j = parse_json(ResultDescription)
+| where toint(j.http_status) == 200
+| project TimeGenerated, request_id = tostring(j.request_id), decision = tostring(j.decision),
+          proba = todouble(j.probabilite_maligne), eclairage = tostring(j.covariables.tbp_tile_type),
+          age_tranche = tostring(j.covariables.age_tranche), inference_ms = todouble(j.inference_ms)
+| order by TimeGenerated desc
+| take 20
+
+// --- Requete 2 : composition du flux par fenetre de 5 minutes (graphique en aires) -------
+AppServiceConsoleLogs
+| where ResultDescription startswith "{"
+| extend j = parse_json(ResultDescription)
+| where toint(j.http_status) == 200
+| extend eclairage = coalesce(tostring(j.covariables.tbp_tile_type), "absent")
+| summarize appels = count() by fenetre = bin(TimeGenerated, 5m), eclairage
+| render areachart
+
+// --- Requete 3 : PSI de l'eclairage par fenetre de 5 minutes, contre la reference -------
+// Reference : jeu d'entrainement de S4 (reference_covariables.json). Seuil decide AVANT.
+// A completer avec VOS proportions (mesure 7) et VOTRE seuil (tableau de decisions).
+let reference = datatable(eclairage: string, p: real) ["3D: white", 0.529037, "3D: XP", 0.470963];
+let seuil_alerte = 0.25;
+let observe = AppServiceConsoleLogs
+    | where ResultDescription startswith "{"
+    | extend j = parse_json(ResultDescription)
+    | where toint(j.http_status) == 200 and isnotempty(tostring(j.covariables.tbp_tile_type))
+    | summarize n = count()
+        by fenetre = bin(TimeGenerated, 5m), eclairage = tostring(j.covariables.tbp_tile_type);
+let totaux = observe | summarize total = sum(n) by fenetre;
+totaux
+| extend cle = 1
+| join kind=inner (reference | extend cle = 1) on cle          // chaque fenetre x chaque modalite
+| join kind=leftouter observe on fenetre, eclairage             // une modalite absente compte 0
+| extend q = max_of(todouble(coalesce(n, 0)) / total, 1e-4), p = max_of(p, 1e-4)
+| summarize psi = sum((q - p) * log(q / p)), appels = take_any(total) by fenetre
+| extend seuil_alerte
+| order by fenetre asc
+| render timechart
+
+// --- Requete 4 : la sortie du modele, au meme pas de temps ------------------------------
+// Une derive des entrees ne deplace pas forcement le taux d'alerte : les deux se lisent ensemble.
+AppServiceConsoleLogs
+| where ResultDescription startswith "{"
+| extend j = parse_json(ResultDescription)
+| where toint(j.http_status) == 200
+| summarize taux_a_examiner = countif(tostring(j.decision) == "a_examiner") * 1.0 / count(),
+            p95_inference_ms = percentile(todouble(j.inference_ms), 95), appels = count()
+          by fenetre = bin(TimeGenerated, 5m)
+| order by fenetre asc
+| render timechart
