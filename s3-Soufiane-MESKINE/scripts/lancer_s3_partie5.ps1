@@ -15,7 +15,7 @@ function Run([string]$titre, [scriptblock]$sb) {
     $script:DUREE = [math]::Round($sw.Elapsed.TotalSeconds, 1); Log ("[duree] {0} s" -f $script:DUREE)
 }
 function Resume([string]$cle, $val) { Log ("[RESUME] {0} = {1}" -f $cle, $val) }
-function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Envoie une capture a Claude. Entree pour fermer"; exit 1 }
+function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Entree pour fermer"; exit 1 }
 function Durees5([string]$chemin, [string]$methode = 'GET') {
     $t = @()
     for ($i = 1; $i -le 5; $i++) {
@@ -107,4 +107,4 @@ $con = @(); for ($i = 1; $i -le 20; $i++) { $con += [double]::Parse((curl.exe -s
 $con = $con | Sort-Object
 Resume 'Ligne de base time_connect (ms) min/mediane/max' ("{0:N1} / {1:N1} / {2:N1}" -f ($con[0] * 1000), (($con[9] + $con[10]) / 2 * 1000), ($con[19] * 1000))
 Log ""
-Log "TERMINE $(Get-Date -Format s). Previens Claude AVANT de lancer nettoyage_s3.ps1."
+Log "TERMINE $(Get-Date -Format s). releve les mesures AVANT de lancer nettoyage_s3.ps1."

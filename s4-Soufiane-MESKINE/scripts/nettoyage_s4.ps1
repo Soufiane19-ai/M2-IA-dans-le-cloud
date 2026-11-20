@@ -1,4 +1,4 @@
-﻿# Seance 4 - nettoyage obligatoire (partie 7, mesure 21). A lancer APRES accord de Claude.
+﻿# Seance 4 - nettoyage obligatoire (partie 7, mesure 21). A lancer apres releve des mesures.
 # powershell -ExecutionPolicy Bypass -File .\nettoyage_s4.ps1
 $ErrorActionPreference = 'Continue'
 Set-Location $PSScriptRoot
@@ -30,4 +30,4 @@ Run 'Ressources du groupe registre' { az resource list --resource-group rg-derma
 Run 'Tags du depot dermascan-api (conserves)' { az acr repository show-tags --name acrdermascansm26 --repository dermascan-api --output table }
 Run 'Arret des conteneurs locaux' { docker rm -f dermascan-api-s4 dermascan-api-s2 2>&1; docker ps -a --format '{{.Names}} {{.Status}}' }
 if (Test-Path .venv-locust) { Remove-Item -Recurse -Force .venv-locust; Add-Content -Path $LOG -Value "venv Locust supprime" -Encoding UTF8 }
-Write-Host "`nTERMINE. Previens Claude."
+Write-Host "`nTERMINE."

@@ -15,7 +15,7 @@ function Run([string]$titre, [scriptblock]$sb) {
     $script:DUREE = [math]::Round($sw.Elapsed.TotalSeconds, 1); Log ("[duree] {0} s" -f $script:DUREE)
 }
 function Resume([string]$cle, $val) { Log ("[RESUME] {0} = {1}" -f $cle, $val) }
-function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Envoie une capture a Claude. Entree pour fermer"; exit 1 }
+function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Entree pour fermer"; exit 1 }
 
 $IMG = 'dermascan-entrainement:s4'
 $W = $PSScriptRoot
@@ -107,4 +107,4 @@ $script:OUT | Set-Content captures\verifier_s4.txt -Encoding UTF8
 Run 'sha256 de modele.pt et sha256_poids du meta' { (Get-FileHash model\modele.pt -Algorithm SHA256).Hash.ToLower(); Select-String -Path model\modele_meta.json -Pattern 'sha256_poids' | ForEach-Object { $_.Line.Trim() } }
 Run 'Paquet' { Get-ChildItem model, sorties | Select-Object FullName, Length | Format-Table -AutoSize | Out-String }
 Log ""
-Log "TERMINE $(Get-Date -Format s). Previens Claude."
+Log "TERMINE $(Get-Date -Format s)."

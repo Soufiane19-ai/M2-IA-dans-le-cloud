@@ -1,0 +1,2 @@
+52f3ee4 README du groupe et decisions en brouillon (avant toute mesure)
+b20120a Ignorer secrets, poids, donnees et suivi

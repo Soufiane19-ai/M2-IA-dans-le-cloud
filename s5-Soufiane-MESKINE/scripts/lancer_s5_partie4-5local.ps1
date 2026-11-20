@@ -16,7 +16,7 @@ function Run([string]$titre, [scriptblock]$sb) {
     $script:DUREE = [math]::Round($sw.Elapsed.TotalSeconds, 1); Log ("[duree] {0} s  [code] {1}" -f $script:DUREE, $script:CODE)
 }
 function Resume([string]$cle, $val) { Log ("[RESUME] {0} = {1}" -f $cle, $val) }
-function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Envoie une capture a Claude. Entree pour fermer"; exit 1 }
+function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Entree pour fermer"; exit 1 }
 function Sel { $b = New-Object byte[] 16; [Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($b); -join ($b | ForEach-Object { $_.ToString('x2') }) }
 
 $W = $PSScriptRoot
@@ -114,4 +114,4 @@ Copy-Item sorties\psi_fenetres_eclairage.csv sorties\psi_fenetres.csv -Force
 docker rm -f dermascan-api-s5 | Out-Null
 Log ""
 if ($SCOUT -ne 0) { Log "ATTENTION : docker scout a rendu le code $SCOUT (porte zero CVE)." }
-Log "TERMINE $(Get-Date -Format s). Previens Claude."
+Log "TERMINE $(Get-Date -Format s)."

@@ -16,7 +16,7 @@ function Run([string]$titre, [scriptblock]$sb) {
     $script:DUREE = [math]::Round($sw.Elapsed.TotalSeconds, 1); Log ("[duree] {0} s  [code] {1}" -f $script:DUREE, $script:CODE)
 }
 function Resume([string]$cle, $val) { Log ("[RESUME] {0} = {1}" -f $cle, $val) }
-function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Envoie une capture a Claude. Entree pour fermer"; exit 1 }
+function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Entree pour fermer"; exit 1 }
 $TAG = '2.0.0'
 
 # ---------------------------------------------------------------- 5.1 Contexte de construction
@@ -84,4 +84,4 @@ Run 'Processus dans le conteneur' { docker top dermascan-api-s4 }
 # ---------------------------------------------------------------- Image S2 pour comparaison (si encore presente)
 Run 'Image S2 encore presente ?' { docker image inspect dermascan-api:1.0.0 --format 'Size={{.Size}} Created={{.Created}}' }
 Log ""
-Log "TERMINE $(Get-Date -Format s). Le conteneur dermascan-api-s4 tourne encore (port 8000). Previens Claude."
+Log "TERMINE $(Get-Date -Format s). Le conteneur dermascan-api-s4 tourne encore (port 8000)."

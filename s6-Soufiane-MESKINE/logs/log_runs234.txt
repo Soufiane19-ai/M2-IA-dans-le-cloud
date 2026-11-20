@@ -1,0 +1,3 @@
+reference-g7  PR-AUC 0.0654  precision@90% 0.0060  seuil 0.4904  11 s  run dd17eaa24f6b42a9b04f3f1ebb3a2ec8
+variante-g42  PR-AUC 0.0834  precision@90% 0.0051  seuil 0.0615  3 s  run 9f9cd9cb425a40bdb10fec2b83673375
+variante-g7  PR-AUC 0.0469  precision@90% 0.0052  seuil 0.1810  3 s  run 4b25cd4329e0435f8a61767c4151f8ca

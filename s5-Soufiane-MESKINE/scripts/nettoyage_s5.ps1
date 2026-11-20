@@ -1,4 +1,4 @@
-﻿# Seance 5 - nettoyage obligatoire (mesure 12). A lancer APRES accord de Claude.
+﻿# Seance 5 - nettoyage obligatoire (mesure 12). A lancer apres releve des mesures.
 # powershell -ExecutionPolicy Bypass -File .\nettoyage_s5.ps1
 $ErrorActionPreference = 'Continue'
 Set-Location $PSScriptRoot
@@ -35,4 +35,4 @@ Run 'az group exists registre' { az group exists --name rg-dermascan-registre-sm
 Run 'Tags du depot dermascan-api (conserves)' { az acr repository show-tags --name acrdermascansm26 --repository dermascan-api --output table }
 Run 'Arret des conteneurs locaux' { docker rm -f dermascan-api-s5 2>&1; docker ps -a --format '{{.Names}} {{.Status}}' }
 if (Test-Path .venv-locust) { Remove-Item -Recurse -Force .venv-locust; Add-Content -Path $LOG -Value "venv Locust supprime" -Encoding UTF8 }
-Write-Host "`nTERMINE. Previens Claude."
+Write-Host "`nTERMINE."

@@ -424,4 +424,4 @@ Taux a_examiner par phase : {'conforme': 0.2475, 'derive': 0.3033}
   sex                  PSI derniere fenetre  0.1108 | max en flux conforme 0.0294 | aucune alerte apres le debut de la derive
 16:53:33 [duree] 55.4 s  [code] 0
 16:53:39 
-16:53:39 TERMINE 2026-11-17T16:53:39. Previens Claude.
+16:53:39 TERMINE 2026-11-17T16:53:39.

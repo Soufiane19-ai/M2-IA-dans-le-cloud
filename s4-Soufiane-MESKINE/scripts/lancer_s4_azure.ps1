@@ -16,7 +16,7 @@ function Run([string]$titre, [scriptblock]$sb) {
     $script:DUREE = [math]::Round($sw.Elapsed.TotalSeconds, 1); Log ("[duree] {0} s  [code] {1}" -f $script:DUREE, $script:CODE)
 }
 function Resume([string]$cle, $val) { Log ("[RESUME] {0} = {1}" -f $cle, $val) }
-function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Envoie une capture a Claude. Entree pour fermer"; exit 1 }
+function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Entree pour fermer"; exit 1 }
 
 $SUFFIX = 'sm26'
 $RG_REGISTRE = "rg-dermascan-registre-$SUFFIX"     # LECTURE SEULE
@@ -109,4 +109,4 @@ $APP_ID = az webapp show --resource-group $RG --name $APP_NAME --query id --outp
 Run 'CPU / memoire du plan par minute' { az monitor metrics list --resource $PLAN_ID --metric CpuPercentage MemoryPercentage --interval PT1M --offset 20m --output table }
 Run 'Requetes, 5xx, temps de reponse serveur par minute' { az monitor metrics list --resource $APP_ID --metric Requests Http5xx HttpResponseTime --interval PT1M --offset 20m --output table }
 Log ""
-Log "TERMINE $(Get-Date -Format s). L application tourne encore : previens Claude (nettoyage ensuite)."
+Log "TERMINE $(Get-Date -Format s). L application tourne encore (nettoyage ensuite)."

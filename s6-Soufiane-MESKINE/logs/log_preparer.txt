@@ -1,0 +1,3 @@
+graine 42 : 301,005 / 100,054 lignes, 130 positifs en test, intersection vide
+graine 7 : 299,064 / 101,995 lignes, 108 positifs en test, intersection vide
+manifeste : donnees/manifeste.json  sha256 e3da1f52ff2c

@@ -1,4 +1,4 @@
-# Seance 3 - nettoyage obligatoire (Mesures 16 et 17). A lancer APRES accord de Claude.
+# Seance 3 - nettoyage obligatoire (Mesures 16 et 17). A lancer apres releve des mesures.
 # powershell -ExecutionPolicy Bypass -File .\nettoyage_s3.ps1
 $ErrorActionPreference = 'Continue'
 Set-Location $PSScriptRoot
@@ -27,4 +27,4 @@ Run 'Attributions sur le registre (apres)' { az role assignment list --scope $AC
 Run 'az group list' { az group list --output table }
 Run 'Ressources du groupe registre' { az resource list --resource-group rg-dermascan-registre-sm26 --output table }
 if (Test-Path .venv-locust) { Remove-Item -Recurse -Force .venv-locust; Add-Content -Path $LOG -Value "venv Locust supprime" -Encoding UTF8 }
-Write-Host "`nTERMINE. Previens Claude."
+Write-Host "`nTERMINE."

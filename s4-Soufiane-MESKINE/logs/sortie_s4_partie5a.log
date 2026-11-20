@@ -258,4 +258,4 @@ UID                 PID                 PPID                C                   
 Error response from daemon: No such image: dermascan-api:1.0.0
 12:23:57 [duree] 0.1 s  [code] 1
 12:23:57 
-12:23:57 TERMINE 2026-11-17T12:23:57. Le conteneur dermascan-api-s4 tourne encore (port 8000). Previens Claude.
+12:23:57 TERMINE 2026-11-17T12:23:57. Le conteneur dermascan-api-s4 tourne encore (port 8000).

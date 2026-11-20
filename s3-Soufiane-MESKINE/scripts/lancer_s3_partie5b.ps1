@@ -15,7 +15,7 @@ function Run([string]$titre, [scriptblock]$sb) {
     $script:DUREE = [math]::Round($sw.Elapsed.TotalSeconds, 1); Log ("[duree] {0} s" -f $script:DUREE)
 }
 function Resume([string]$cle, $val) { Log ("[RESUME] {0} = {1}" -f $cle, $val) }
-function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Envoie une capture a Claude. Entree pour fermer"; exit 1 }
+function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Entree pour fermer"; exit 1 }
 
 $RG = 'rg-dermascan-s3-sm26'
 $PLAN_NAME = 'plan-dermascan-sm26'
@@ -61,4 +61,4 @@ Run 'Metriques du plan (CPU / memoire, par minute)' { az monitor metrics list --
 Run 'Metriques app par minute (requetes, 5xx, temps de reponse serveur)' { az monitor metrics list --resource $APP_ID --metric "Requests" "Http5xx" "HttpResponseTime" --interval PT1M --offset 20m --output table }
 Run 'Metriques app (derniere heure)' { az monitor metrics list --resource $APP_ID --metric "Requests" "Http5xx" "HttpResponseTime" --interval PT1H --output table }
 Log ""
-Log "TERMINE $(Get-Date -Format s). Previens Claude AVANT de lancer nettoyage_s3.ps1."
+Log "TERMINE $(Get-Date -Format s). releve les mesures AVANT de lancer nettoyage_s3.ps1."

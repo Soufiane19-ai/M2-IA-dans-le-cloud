@@ -21,7 +21,7 @@ function Run([string]$titre, [scriptblock]$sb) {
     Log ("[duree] {0} s" -f $script:DUREE)
 }
 function Resume([string]$cle, $val) { Log ("[RESUME] {0} = {1}" -f $cle, $val) }
-function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Envoie une capture a Claude. Entree pour fermer"; exit 1 }
+function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Entree pour fermer"; exit 1 }
 function Code([string]$url, [int]$max = 30) {
     $r = curl.exe -s -m $max -o NUL -w "%{http_code} %{time_total}" $url
     if (-not $r) { $r = "000 $max" }
@@ -90,7 +90,7 @@ $chrono.Stop()
 Resume 'Creation du plan' $(if ($etatPlan -eq 'Ready') { 'succes (Ready)' } else { "echec : $planErr" })
 Resume 'Duree totale de la sonde (s)' ([math]::Round($chrono.Elapsed.TotalSeconds, 0))
 Resume 'Heure de la decision' (Get-Date -Format 'HH:mm:ss')
-if ($etatPlan -ne 'Ready') { Stop-Erreur "plan App Service refuse : cible A impossible, il faut passer a l'annexe B (ACI). Previens Claude." }
+if ($etatPlan -ne 'Ready') { Stop-Erreur "plan App Service refuse : cible A impossible, il faut passer a l'annexe B (ACI)." }
 Resume 'Cible retenue' 'A - App Service for Containers'
 
 # ================================================================ PARTIE 2
@@ -261,4 +261,4 @@ $con = $con | Sort-Object
 Resume 'Ligne de base time_connect 20 mesures (ms) min/mediane/max' ("{0:N1} / {1:N1} / {2:N1}" -f ($con[0] * 1000), (($con[9] + $con[10]) / 2 * 1000), ($con[19] * 1000))
 
 Log ""
-Log "TERMINE $(Get-Date -Format s). Les ressources tournent encore : previens Claude AVANT de lancer nettoyage_s3.ps1."
+Log "TERMINE $(Get-Date -Format s). Les ressources tournent encore : releve les mesures AVANT de lancer nettoyage_s3.ps1."

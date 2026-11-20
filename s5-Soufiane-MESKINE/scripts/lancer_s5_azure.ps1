@@ -16,7 +16,7 @@ function Run([string]$titre, [scriptblock]$sb) {
     $script:DUREE = [math]::Round($sw.Elapsed.TotalSeconds, 1); Log ("[duree] {0} s  [code] {1}" -f $script:DUREE, $script:CODE)
 }
 function Resume([string]$cle, $val) { Log ("[RESUME] {0} = {1}" -f $cle, $val) }
-function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Envoie une capture a Claude. Entree pour fermer"; exit 1 }
+function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Entree pour fermer"; exit 1 }
 function Sel { $b = New-Object byte[] 16; [Security.Cryptography.RandomNumberGenerator]::Create().GetBytes($b); -join ($b | ForEach-Object { $_.ToString('x2') }) }
 
 $W = $PSScriptRoot
@@ -143,4 +143,4 @@ Copy-Item sorties\psi_fenetres.csv sorties\psi_fenetres_azure.csv -Force
 Run 'Requete 3 : PSI de l eclairage par fenetre de 5 min' { az monitor log-analytics query --workspace $LAW_GUID --analytics-query "@requete3_cli.kql" --query "[].{fenetre:fenetre, psi:psi, appels:appels}" -o table }
 Run 'Requete 4 : taux a_examiner par fenetre de 5 min' { az monitor log-analytics query --workspace $LAW_GUID --analytics-query "@requete4_cli.kql" --query "[].{fenetre:fenetre, taux:taux_a_examiner, p95_ms:p95_inference_ms, appels:appels}" -o table }
 Log ""
-Log "TERMINE $(Get-Date -Format s). L application et Log Analytics tournent : tableau de bord, puis nettoyage. Previens Claude."
+Log "TERMINE $(Get-Date -Format s). L application et Log Analytics tournent : tableau de bord, puis nettoyage."

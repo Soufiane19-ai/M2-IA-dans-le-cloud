@@ -1,0 +1,25 @@
+{
+  "source": "data/train-metadata.csv",
+  "sha256": "536e8208cfb3502b71ad70160a249c87703669f6004314b6537254fb59a93e7e",
+  "lignes": 401059,
+  "positifs": 393,
+  "patients": 1042,
+  "decoupages": {
+    "42": {
+      "fichier": "donnees/decoupage_42.json",
+      "sha256": "733436a9142ce9ae454a67a36771c9a35226ae67ba7494f41474eddd0010455f",
+      "lignes_test": 100054,
+      "positifs_test": 130,
+      "patients_test": 261
+    },
+    "7": {
+      "fichier": "donnees/decoupage_7.json",
+      "sha256": "f51354542be9f7ad1d3762e3eba71626fafad61b9d99e0dd30336d0e9770dd98",
+      "lignes_test": 101995,
+      "positifs_test": 108,
+      "patients_test": 261
+    }
+  },
+  "cree_le": "2026-11-20T15:17:00",
+  "commit": "hors-git"
+}

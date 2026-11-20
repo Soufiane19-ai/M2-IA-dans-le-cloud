@@ -1,0 +1,4 @@
+experiments.artifact_location : 1 ligne(s) /travail/session/suivi/artefacts -> /travail/poste/suivi/artefacts
+runs.artifact_uri : 1 ligne(s) /travail/session/suivi/artefacts -> /travail/poste/suivi/artefacts
+model_versions.source : 0 ligne(s) /travail/session/suivi/artefacts -> /travail/poste/suivi/artefacts
+model_versions.storage_location : 0 ligne(s) /travail/session/suivi/artefacts -> /travail/poste/suivi/artefacts

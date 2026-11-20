@@ -1,0 +1,15 @@
+dermascan-tabulaire v1 -> production (run reference-g42, valide par Soufiane Meskine) ; repli : aucune
+dermascan-tabulaire v2 -> production (run variante-g42, valide par Soufiane Meskine) ; repli : 1
+--- verifier (retenu)
+registre : dermascan-tabulaire v2, valide par Soufiane Meskine, repli 1
+OK  fichier servi = version promue     1f807dc75894872f
+run : variante-g42  graine 42  PR-AUC 0.0834
+OK  artefact du run = fichier servi    1f807dc75894872f
+OK  manifeste du run = manifeste local e3da1f52ff2cd0b5
+OK  donnees du manifeste = donnees locales 536e8208cfb3502b
+commit du code qui a produit les donnees : hors-git
+code de sortie : 0
+--- verifier (autre fichier)
+registre : dermascan-tabulaire v2, valide par Soufiane Meskine, repli 1
+KO  fichier servi = version promue     00e048b36de77adc  (attendu 1f807dc75894872f)
+code de sortie : 1

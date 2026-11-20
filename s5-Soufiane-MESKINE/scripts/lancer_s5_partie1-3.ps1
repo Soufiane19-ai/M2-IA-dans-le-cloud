@@ -15,7 +15,7 @@ function Run([string]$titre, [scriptblock]$sb) {
     $script:OUT | ForEach-Object { Add-Content -Path $LOG -Value $_ -Encoding UTF8; Write-Host $_ }
     $script:DUREE = [math]::Round($sw.Elapsed.TotalSeconds, 1); Log ("[duree] {0} s  [code] {1}" -f $script:DUREE, $script:CODE)
 }
-function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Envoie une capture a Claude. Entree pour fermer"; exit 1 }
+function Stop-Erreur([string]$msg) { Log "ARRET : $msg"; Read-Host "Entree pour fermer"; exit 1 }
 
 $W = $PSScriptRoot
 $S4 = Join-Path (Split-Path $W -Parent) 's4-dermascan'
@@ -56,4 +56,4 @@ Run 'Mesure 4 - ce que l int8 change' { Py "python analyse_variantes.py" }
 # ---------------------------------------------------------------- 5.1 Reference
 Run 'Reference des covariables (jeu d entrainement de S4)' { Py "python derive.py reference model/manifeste_echantillon.csv donnees/train-metadata.csv > reference_covariables.json && cat reference_covariables.json" }
 Log ""
-Log "TERMINE $(Get-Date -Format s). Previens Claude."
+Log "TERMINE $(Get-Date -Format s)."
